@@ -1,2 +1,27 @@
 $font-heading: 'Poppins', Verdana, Arial, Helvetica, sans-serif;
 $font-content: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+
+
+body{
+    background-color: #13171C;
+    font-size: 16px;
+}
+
+.hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+.content-size{
+    max-width: 1400PX;
+    margin: 0 auto;
+    padding: 0 3rem;
+}

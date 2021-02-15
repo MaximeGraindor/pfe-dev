@@ -1,0 +1,81 @@
+.login-splitscreen{
+    height: 100vh;
+    display: flex;
+}
+
+.login-left{
+    flex: 1 1 50%;
+    border-right: 5px solid $color-third;
+    background-image: url('./../../../img/Login-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-right{
+    font-family: $font-content;
+    flex: 1 1 50%;
+    padding: 3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .login-title{
+        text-align: center;
+        color: white;
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.login-intro{
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 5rem;
+    a{
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.login-form{
+    width: 500px;
+    .login-pseudo, .login-password{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+
+        .login-forgotPassword{
+            color: white;
+            text-align: right;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+    }
+    label{
+        color: white;
+        margin-bottom: 0.313rem;
+        font-size: 1.375rem;
+    }
+
+    input{
+        padding: 0.6rem 0.7rem;
+        font-family: $font-content;
+        font-size: 1.25rem;
+        border: none;
+        background-color: $color-second;
+        border-radius: 0.125rem;
+        color: white;
+    }
+    input[type="submit"]{
+        cursor: pointer;
+        float: right;
+        width: 200px;
+        &:hover{
+            background-color: $color-third;
+        }
+    }
+}

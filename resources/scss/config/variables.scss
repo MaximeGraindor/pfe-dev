@@ -1,9 +1,16 @@
 $font-heading: 'Poppins', Verdana, Arial, Helvetica, sans-serif;
 $font-content: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 
+$color-main: #13171C;
+$color-second: #222831;
+$color-third: #262B48;
+
+h1,h2,h3,h4,h5,h6{
+    font-family: $font-heading;
+}
 
 body{
-    background-color: #13171C;
+    background-color: $color-main;
     font-size: 16px;
 }
 

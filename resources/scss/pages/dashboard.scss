@@ -1,0 +1,42 @@
+.dashboard-splitscreen{
+    display: flex;
+}
+
+.dashboard-sidebar{
+    flex: 0 0 250px;
+    border-right: 1px solid white;
+    height: 100vh;
+    padding: 2rem;
+    color: white;
+}
+
+
+.sidebar-title{
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 1px solid white;
+    padding-bottom: 2rem;
+}
+
+.sidebar-menu{
+    border-bottom: 1px solid white;
+    ul{
+        margin-top: 15px;
+    }
+}
+
+.sidebar-menu-item{
+        margin-bottom: 0.8rem;
+    .sidebar-menu-link{
+        padding: 1rem;
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-family: $font-heading;
+        font-size: 1.6rem;
+    }
+    &:hover{
+        background-color: $color-third;
+        border-radius: 50px;
+    }
+}

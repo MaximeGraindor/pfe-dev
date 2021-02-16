@@ -110,7 +110,7 @@ body {
 .login-left {
   flex: 1 1 50%;
   border-right: 5px solid #262B48;
-  background-image: url(/images/Login-background.jpg?c57731f80ed775176318dde40e4df78a);
+  background-image: url("./../../../img/Login-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -180,4 +180,46 @@ body {
 }
 .login-form input[type=submit]:hover {
   background-color: #262B48;
+}
+
+.dashboard-splitscreen {
+  display: flex;
+}
+
+.dashboard-sidebar {
+  flex: 0 0 250px;
+  border-right: 1px solid white;
+  height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.sidebar-title {
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 2rem;
+}
+
+.sidebar-menu {
+  border-bottom: 1px solid white;
+}
+.sidebar-menu ul {
+  margin-top: 15px;
+}
+
+.sidebar-menu-item {
+  margin-bottom: 0.8rem;
+}
+.sidebar-menu-item .sidebar-menu-link {
+  padding: 1rem;
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}
+.sidebar-menu-item:hover {
+  background-color: #262B48;
+  border-radius: 50px;
 }

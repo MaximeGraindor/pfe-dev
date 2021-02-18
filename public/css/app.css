@@ -194,6 +194,10 @@ body {
   color: white;
 }
 
+.dashboard-content {
+  flex: 1 1 100%;
+}
+
 .sidebar-title {
   text-align: center;
   font-size: 2rem;
@@ -222,4 +226,57 @@ body {
 .sidebar-menu-item:hover {
   background-color: #262B48;
   border-radius: 50px;
+}
+
+.dashboard-top {
+  padding: 1.5rem 7rem;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-top-form input[type=search] {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.7rem 1.5rem;
+  box-sizing: border-box;
+  font-size: 1.25rem;
+  border-radius: 30px;
+  border: none;
+  width: 500px;
+}
+.dashboard-top-form input[type=submit] {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  margin-left: 0.8rem;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+}
+
+.dashboard-top-right {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-top-buttons {
+  margin-right: 4rem;
+}
+.dashboard-top-buttons a {
+  text-decoration: none;
+}
+.dashboard-top-buttons .icon-messages {
+  margin-right: 2rem;
+}
+.dashboard-top-buttons .icon-messages img {
+  width: 30px;
+}
+.dashboard-top-buttons .icon-notifications img {
+  width: 30px;
+}
+
+.dashboard-top-userProfil a {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
 }

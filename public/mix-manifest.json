@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/img/Login-background.jpg": "/img/Login-background.jpg"
+    "/img/Login-background.jpg": "/img/Login-background.jpg",
+    "/img/message.svg": "/img/message.svg",
+    "/img/notifications.svg": "/img/notifications.svg"
 }

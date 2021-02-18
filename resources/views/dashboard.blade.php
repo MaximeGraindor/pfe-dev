@@ -30,6 +30,31 @@
             </nav>
         </div>
         <div class="dashboard-content">
+
+            <div class="dashboard-top">
+                <div class="dashboard-top-left">
+                    <form action="#" class="dashboard-top-form">
+                        <input type="search"  placeholder="Counter strike Global Offensive">
+                        <input type="submit" value="Rechercher">
+                    </form>
+                </div>
+                <div class="dashboard-top-right">
+                    <div class="dashboard-top-buttons">
+                        <a href="" class="icon-messages">
+                            <img src="./img/message.svg" alt="">
+                        </a>
+                        <a href="" class="icon-notifications">
+                            <img src="./img/notifications.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="dashboard-top-userProfil">
+                        <a href="#">
+                            {{ Auth::user()->email }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <p>
                 {{ Auth::user()->email }}
             </p>

@@ -10,6 +10,10 @@
     color: white;
 }
 
+.dashboard-content{
+    flex: 1 1 100%;
+}
+
 
 .sidebar-title{
     text-align: center;
@@ -39,4 +43,65 @@
         background-color: $color-third;
         border-radius: 50px;
     }
+}
+
+.dashboard-top{
+    padding: 1.5rem 7rem;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-top-form{
+
+    input[type="search"]{
+        font-family: $font-heading;
+        padding: 0.7rem 1.5rem;
+        box-sizing: border-box;
+        font-size: 1.25rem;
+        border-radius: 30px;
+        border: none;
+        width: 500px;
+    }
+    input[type="submit"]{
+        font-family: $font-heading;
+        margin-left: 0.8rem;
+        background: none;
+        color: white;
+        border: none;
+        font-size: 1.3rem;
+    }
+}
+
+.dashboard-top-right{
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-top-buttons{
+    margin-right: 4rem;
+    a{
+        text-decoration: none;
+    }
+    .icon-messages{
+        margin-right: 2rem;
+        img{
+            width: 30px;
+        }
+    }
+    .icon-notifications{
+        img{
+            width: 30px;
+        }
+    }
+}
+
+.dashboard-top-userProfil{
+    a{
+        font-family: $font-heading;
+        color: white;
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+
 }

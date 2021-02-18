@@ -7,7 +7,7 @@
                 Gameon <span class="hidden">- Dahsboard</span>
             </h1>
             <nav class="sidebar-menu">
-                <h2 class="hidden">
+                <h2 role="heading" aria-level="2" class="hidden">
                     Dashboard menu
                 </h2>
                 <ul>
@@ -29,12 +29,13 @@
                 </ul>
             </nav>
         </div>
-        <div class="dashboard-content">
 
+        <div class="dashboard-content">
             <div class="dashboard-top">
                 <div class="dashboard-top-left">
                     <form action="#" class="dashboard-top-form">
-                        <input type="search"  placeholder="Counter strike Global Offensive">
+                        <label for="search" class="hidden">Rechercher</label>
+                        <input type="search" id="search" placeholder="Counter strike Global Offensive">
                         <input type="submit" value="Rechercher">
                     </form>
                 </div>
@@ -43,7 +44,7 @@
                         <a href="" class="icon-messages">
                             <img src="./img/message.svg" alt="">
                         </a>
-                        <a href="" class="icon-notifications">
+                        <a href="/message" class="icon-notifications">
                             <img src="./img/notifications.svg" alt="">
                         </a>
                     </div>
@@ -54,7 +55,6 @@
                     </div>
                 </div>
             </div>
-
             <p>
                 {{ Auth::user()->email }}
             </p>

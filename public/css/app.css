@@ -108,16 +108,16 @@ body {
 }
 
 .login-left {
-  flex: 1 1 50%;
+  flex: 1 1 40%;
   border-right: 5px solid #262B48;
-  background-image: url("./../../../img/Login-background.jpg");
+  background-image: url("./../img/Login-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .login-right {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  flex: 1 1 50%;
+  flex: 1 1 60%;
   padding: 3rem;
   box-sizing: border-box;
   display: flex;
@@ -172,6 +172,7 @@ body {
   background-color: #222831;
   border-radius: 0.125rem;
   color: white;
+  border: 2px solid #262B48;
 }
 .login-form input[type=submit] {
   cursor: pointer;
@@ -188,16 +189,16 @@ body {
 }
 
 .register-left {
-  flex: 1 1 50%;
+  flex: 1 1 40%;
   border-right: 5px solid #262B48;
-  background-image: url("./../../../img/Login-background.jpg");
+  background-image: url("./../img/Register-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .register-right {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  flex: 1 1 50%;
+  flex: 1 1 60%;
   padding: 3rem;
   box-sizing: border-box;
   display: flex;
@@ -246,6 +247,7 @@ body {
   background-color: #222831;
   border-radius: 0.125rem;
   color: white;
+  border: 2px solid #262B48;
 }
 .register-form input[type=submit] {
   cursor: pointer;

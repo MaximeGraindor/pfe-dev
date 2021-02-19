@@ -4,16 +4,16 @@
 }
 
 .login-left{
-    flex: 1 1 50%;
+    flex: 1 1 40%;
     border-right: 5px solid $color-third;
-    background-image: url('./../../../img/Login-background.jpg');
+    background-image: url('./../img/Login-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .login-right{
     font-family: $font-content;
-    flex: 1 1 50%;
+    flex: 1 1 60%;
     padding: 3rem;
     box-sizing: border-box;
     display: flex;
@@ -69,6 +69,7 @@
         background-color: $color-second;
         border-radius: 0.125rem;
         color: white;
+        border: 2px solid $color-third;
     }
     input[type="submit"]{
         cursor: pointer;

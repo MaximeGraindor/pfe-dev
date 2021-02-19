@@ -182,6 +182,80 @@ body {
   background-color: #262B48;
 }
 
+.register-splitscreen {
+  height: 100vh;
+  display: flex;
+}
+
+.register-left {
+  flex: 1 1 50%;
+  border-right: 5px solid #262B48;
+  background-image: url("./../../../img/Login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.register-right {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  flex: 1 1 50%;
+  padding: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.register-right .register-title {
+  text-align: center;
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.register-intro {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.register-intro a {
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+  color: white;
+}
+
+.register-form {
+  width: 500px;
+}
+.register-form .register-pseudo, .register-form .register-password, .register-form .register-email, .register-form .register-passwordConfirm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+.register-form label {
+  color: white;
+  margin-bottom: 0.313rem;
+  font-size: 1.375rem;
+}
+.register-form input {
+  padding: 0.6rem 0.7rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  border: none;
+  background-color: #222831;
+  border-radius: 0.125rem;
+  color: white;
+}
+.register-form input[type=submit] {
+  cursor: pointer;
+  float: right;
+  width: 200px;
+}
+.register-form input[type=submit]:hover {
+  background-color: #262B48;
+}
+
 .dashboard-splitscreen {
   display: flex;
 }

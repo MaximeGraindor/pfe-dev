@@ -50,7 +50,7 @@
                     </div>
                     <div class="dashboard-top-userProfil">
                         <a href="#">
-                            {{ Auth::user()->email }}
+                            {{ Auth::user()->pseudo }}
                         </a>
                     </div>
                 </div>

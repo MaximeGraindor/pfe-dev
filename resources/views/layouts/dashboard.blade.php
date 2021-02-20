@@ -24,19 +24,19 @@
                     </h2>
                     <ul>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link">Mon activité</a>
+                            <a href="#" class="sidebar-menu-link {{request()->route()->named('dashboard') ? ' sidebar-active' : ''}}">Mon activité</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link">Calendrier</a>
+                            <a href="#" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link">Parcourir</a>
+                            <a href="#" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link">Communauté</a>
+                            <a href="#" class="sidebar-menu-link {{request()->route()->named('community') ? ' sidebar-active' : ''}}">Communauté</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link">Profil</a>
+                            <a href="#" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
                         </li>
                     </ul>
                 </nav>

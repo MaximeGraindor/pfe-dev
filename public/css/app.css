@@ -298,8 +298,14 @@ body {
   text-decoration: none;
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
+  border-radius: 50px;
 }
 .sidebar-menu-item:hover {
+  background-color: #262B48;
+  border-radius: 50px;
+}
+
+.sidebar-active {
   background-color: #262B48;
   border-radius: 50px;
 }
@@ -355,4 +361,20 @@ body {
   color: white;
   font-size: 1.3rem;
   text-decoration: none;
+}
+
+.dashboard-content {
+  padding: 2rem 7rem;
+}
+
+.dashboard-activity {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+.dashboard-activity section {
+  color: white;
+  margin-bottom: 6rem;
+}
+.dashboard-activity section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.75rem;
 }

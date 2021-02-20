@@ -38,11 +38,17 @@
         text-decoration: none;
         font-family: $font-heading;
         font-size: 1.6rem;
+        border-radius: 50px;
     }
     &:hover{
         background-color: $color-third;
         border-radius: 50px;
     }
+}
+
+.sidebar-active{
+    background-color: $color-third;
+    border-radius: 50px;
 }
 
 .dashboard-top{
@@ -104,4 +110,8 @@
         text-decoration: none;
     }
 
+}
+
+.dashboard-content{
+    padding: 2rem 7rem;
 }

@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>@yield('title')</title>
+        <title>Gameon - @yield('title')</title>
 
-        {{-- CSS --}}
+        {{-- CSS --}}ac
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     </head>
 
@@ -16,7 +16,7 @@
         <div class="dashboard-splitscreen">
             <div class="dashboard-sidebar">
                 <h1 role="heading" aria-level="1" class="sidebar-title">
-                    Gameon <span class="hidden">- Dahsboard</span>
+                    Gameon <span class="hidden">- @yield('main title')</span>
                 </h1>
                 <nav class="sidebar-menu">
                     <h2 role="heading" aria-level="2" class="hidden">
@@ -24,7 +24,7 @@
                     </h2>
                     <ul>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link {{request()->route()->named('dashboard') ? ' sidebar-active' : ''}}">Mon activité</a>
+                            <a href="/dashboard" class="sidebar-menu-link {{request()->route()->named('dashboard') ? ' sidebar-active' : ''}}">Mon activité</a>
                         </li>
                         <li class="sidebar-menu-item">
                             <a href="#" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
@@ -36,7 +36,7 @@
                             <a href="#" class="sidebar-menu-link {{request()->route()->named('community') ? ' sidebar-active' : ''}}">Communauté</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
+                            <a href="/profil" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
                         </li>
                     </ul>
                 </nav>

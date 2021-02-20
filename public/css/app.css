@@ -375,6 +375,80 @@ body {
   margin-bottom: 1.75rem;
 }
 
+.dashboard-browse {
+  padding: 3rem 7rem;
+}
+
+.browse-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.browse-multiselect {
+  width: 200px;
+}
+.browse-multiselect .selectBox {
+  position: relative;
+}
+.browse-multiselect .selectBox select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  background-color: #222831;
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 1px solid white;
+}
+.browse-multiselect .overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.browse-multiselect #checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+.browse-multiselect #checkboxes label {
+  display: block;
+}
+.browse-multiselect #checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.browse-form-submit input {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  background-color: #222831;
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.browse-content {
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+}
+
+.browse-game-card img {
+  width: 200px;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+.browse-game-card p {
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.175rem;
+}
+
 .profil-banner {
   background-image: url("./../img/Login-background.jpg");
   width: 100%;

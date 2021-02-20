@@ -30,7 +30,7 @@
                             <a href="#" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>
+                            <a href="/parcourir" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>
                         </li>
                         <li class="sidebar-menu-item">
                             <a href="#" class="sidebar-menu-link {{request()->route()->named('community') ? ' sidebar-active' : ''}}">Communauté</a>
@@ -61,7 +61,7 @@
                             </a>
                         </div>
                         <div class="dashboard-top-userProfil">
-                            <a href="#">
+                            <a href="/profil">
                                 {{ Auth::user()->pseudo }}
                             </a>
                         </div>

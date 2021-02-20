@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DashboardController;
@@ -18,4 +19,5 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil');

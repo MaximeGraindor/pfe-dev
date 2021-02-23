@@ -258,12 +258,10 @@ body {
   background-color: #262B48;
 }
 
-.dashboard-splitscreen {
-  display: flex;
-}
-
 .dashboard-sidebar {
-  flex: 0 0 250px;
+  position: fixed;
+  background-color: #13171C;
+  width: 250px;
   border-right: 1px solid white;
   height: 100vh;
   padding: 2rem;
@@ -271,7 +269,7 @@ body {
 }
 
 .dashboard-right {
-  flex: 1 1 100%;
+  margin-left: 315px;
 }
 
 .sidebar-title {

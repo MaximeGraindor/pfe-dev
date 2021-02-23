@@ -490,6 +490,14 @@ body {
   margin-top: 1rem;
 }
 
+.profil-info-update {
+  margin-left: 0.5rem;
+}
+.profil-info-update img {
+  width: 20px;
+  height: 20px;
+}
+
 .profil-activity {
   display: flex;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
@@ -505,4 +513,20 @@ body {
 }
 .profil-activity .profil-activity-card:not(:last-child) {
   margin-right: 2rem;
+}
+
+.profil-content {
+  padding: 0rem 7rem;
+}
+
+.profil-content-section {
+  color: white;
+  margin-bottom: 6rem;
+}
+.profil-content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.75rem;
+}
+.profil-content-section p {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }

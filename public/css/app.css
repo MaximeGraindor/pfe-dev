@@ -308,6 +308,18 @@ body {
   border-radius: 50px;
 }
 
+.sidebar-logout {
+  text-align: center;
+}
+.sidebar-logout a {
+  display: block;
+  text-decoration: none;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  padding: 2rem;
+  color: white;
+}
+
 .dashboard-top {
   padding: 1.35rem 7rem;
   border-bottom: 1px solid white;

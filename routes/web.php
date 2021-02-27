@@ -21,3 +21,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
+
+Route::get('/jeu/{game}', [GameController::class, 'show']);

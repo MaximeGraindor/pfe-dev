@@ -64,7 +64,7 @@
             @foreach ($games as $game)
                 <div class="browse-game-card">
                     <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
-                    <p>{{ $game->name }}</p>
+                    <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
                 </div>
             @endforeach
         </div>

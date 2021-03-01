@@ -1,6 +1,90 @@
 .game-banner{
-    //background-image: url('./../img/Login-background.jpg');
     width: 100%;
     height: 250px;
     opacity: 0.5;
+    img{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+.game-content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-header{
+    position: relative;
+    top: -125px;
+    display: flex;
+
+    .game-cover{
+        border-radius: 2rem;
+        margin-right: 3rem;
+    }
+
+    .game-title{
+        font-size: 2rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        color: white;
+    }
+
+    .game-description{
+        font-family: $font-content;
+        font-size: 1.25rem;
+        line-height: 1.50rem;
+        color: white;
+        width: 700px;
+    }
+}
+
+.characteristics-title{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+
+}
+
+.game-characteristics{
+    dl{
+        border: 2px solid black;
+    }
+    .characteristics-wrap{
+        display: flex;
+        dt,dd{
+            background-color: $color-second;
+            padding: 2rem;
+            flex: 1;
+            font-family: $font-content;
+            color: white;font-size: 1.25rem;
+        }
+        dt{
+            border-right: 2px solid black;
+        }
+        &:not(:last-child){
+            border-bottom: 2px solid black;
+        }
+    }
+}
+
+.game-comments{
+    .comments-title{
+        font-size: 2rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        color: white;
+    }
+
+    form{
+        textarea {
+            width: 100%;
+            background-color: $color-second;
+            border: 2px solid black;
+            border-radius: 1rem;
+            resize: none;
+        }
+    }
+
 }

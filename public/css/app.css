@@ -448,15 +448,20 @@ body {
   gap: 3.5rem;
 }
 
+.browse-game-card {
+  display: flex;
+  flex-direction: column;
+}
 .browse-game-card img {
   width: 200px;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
 }
-.browse-game-card p {
+.browse-game-card a {
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.175rem;
+  text-decoration: none;
 }
 
 .profil-banner {
@@ -610,4 +615,19 @@ body {
   border: 2px solid black;
   border-radius: 1rem;
   resize: none;
+  height: 150px;
+  padding: 2rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1.25rem;
+  box-sizing: border-box;
+}
+.game-comments form input[type=submit] {
+  float: right;
+  margin-top: 1rem;
+  background-color: #222831;
+  border: 2px solid black;
+  padding: 0.8rem 0.9rem;
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }

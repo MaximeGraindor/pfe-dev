@@ -51,8 +51,8 @@
                     Commentaires
                 </h2>
                 <form action="#" method="post">
-                    <textarea name="comment-content" id="" cols="30" rows="10"></textarea>
-                    <input type="submit" value="envoyer">
+                    <textarea name="comment-content" id="" cols="30" rows="10"  placeholder="écrivez un commentaire"></textarea>
+                    <input type="submit" value="Envoyer">
                 </form>
             </section>
 

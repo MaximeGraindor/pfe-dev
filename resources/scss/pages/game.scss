@@ -84,6 +84,21 @@
             border: 2px solid black;
             border-radius: 1rem;
             resize: none;
+            height: 150px;
+            padding: 2rem;
+            font-family: $font-content;
+            color: white;
+            font-size: 1.25rem;
+            box-sizing: border-box;
+        }
+        input[type="submit"]{
+            float: right;
+            margin-top: 1rem;
+            background-color: $color-second;
+            border: 2px solid black;
+            padding: 0.8rem 0.9rem;
+            color: white;
+            font-family: $font-content;
         }
     }
 

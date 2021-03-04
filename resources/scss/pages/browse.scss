@@ -69,15 +69,18 @@
 }
 
 .browse-game-card{
+    display: flex;
+    flex-direction: column;
     img{
         width: 200px;
         border-radius: 1rem;
         margin-bottom: 0.5rem;
     }
-    p{
+    a{
         color: white;
         font-family: $font-content;
         font-size: 1.175rem;
+        text-decoration: none;
     }
 }
 

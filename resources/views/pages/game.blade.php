@@ -29,7 +29,7 @@
                     </div>
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>
-                        <dd>Ubisoft</dd>
+                        <dd>{{ $game->publisher->name }}</dd>
                     </div>
                     <div class="characteristics-wrap">
                         <dt>Classification</dt>

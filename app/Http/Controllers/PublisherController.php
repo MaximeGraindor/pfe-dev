@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
-class GameController extends Controller
+class PublisherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::with('publisher')->get();
-        //return $games;
-        return view('pages.browse', compact('games'));
+        //
     }
 
     /**
@@ -43,21 +41,21 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show(Publisher $publisher)
     {
-        return view('pages.game', compact('game'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit(Publisher $publisher)
     {
         //
     }
@@ -66,10 +64,10 @@ class GameController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    public function update(Request $request, Publisher $publisher)
     {
         //
     }
@@ -77,10 +75,10 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Publisher  $publisher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Game $game)
+    public function destroy(Publisher $publisher)
     {
         //
     }

@@ -86,15 +86,16 @@
     img{
         width: 200px;
         vertical-align: bottom;
+        border-radius: 1.25rem;
     }
-    form{
+    .game-card-button-wrapper{
         display: none
     }
 
 }
 
 .game-card-img-container:hover{
-    form{
+    .game-card-button-wrapper{
         position: absolute;
         background-color: rgba(0, 0, 0, 0.5);
         top: 0;
@@ -113,6 +114,10 @@
             color: white;
             border: 1px solid white;
             width: 100%;
+            border-radius: 2rem;
+            &:hover{
+                background-color: $color-main;
+            }
         }
     }
 }

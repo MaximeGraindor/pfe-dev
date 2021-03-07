@@ -374,6 +374,7 @@ body {
 }
 
 .dashboard-activity {
+  padding: 2rem 7rem;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 .dashboard-activity section {
@@ -466,12 +467,13 @@ body {
 .game-card-img-container img {
   width: 200px;
   vertical-align: bottom;
+  border-radius: 1.25rem;
 }
-.game-card-img-container form {
+.game-card-img-container .game-card-button-wrapper {
   display: none;
 }
 
-.game-card-img-container:hover form {
+.game-card-img-container:hover .game-card-button-wrapper {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
@@ -484,13 +486,17 @@ body {
   align-items: center;
   gap: 1.25rem;
 }
-.game-card-img-container:hover form input {
+.game-card-img-container:hover .game-card-button-wrapper input {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   padding: 0.8rem 0.9rem;
   background-color: #262B48;
   color: white;
   border: 1px solid white;
   width: 100%;
+  border-radius: 2rem;
+}
+.game-card-img-container:hover .game-card-button-wrapper input:hover {
+  background-color: #13171C;
 }
 
 .profil-banner {

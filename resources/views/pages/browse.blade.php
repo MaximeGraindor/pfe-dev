@@ -65,17 +65,17 @@
                 <div class="browse-game-card">
                     <div class="game-card-img-container">
                         <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
-                        <form action="">
-                            <p>
+                        <div class="game-card-button-wrapper">
+                            <form action="#" method="post">
                                 <input type="submit" value="En cours" name="curent">
-                            </p>
-                            <p>
+                            </form>
+                            <form action="#" method="post">
                                 <input type="submit" value="Terminé" name="finish">
-                            </p>
-                            <p>
+                            </form>
+                            <form action="#" method="post">
                                 <input type="submit" value="envie" name="wish">
-                            </p>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
                 </div>

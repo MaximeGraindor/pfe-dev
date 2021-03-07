@@ -43,6 +43,6 @@ class User extends Authenticatable
 
     public function games()
     {
-        return $this->belongsToMany(Game::class,  'game_users');
+        return $this->belongsToMany(Game::class,  'game_users')->withPivot('relation');
     }
 }

@@ -5,19 +5,24 @@
         <section>
             <h2>Jeux en cours</h2>
             <p>
-                Pas de jeux poour le moment
+                Pas de jeux pour le moment
             </p>
         </section>
         <section>
             <h2>Terminé récemment</h2>
             <p>
-                Pas de jeux poour le moment
+                Pas de jeux pour le moment
             </p>
         </section>
         <section>
             <h2>Envie</h2>
+            @foreach ($wish as $game)
             <p>
-                Pas de jeux poour le moment
+                {{ $game->games[0]->name }}
+            </p>
+            @endforeach
+            <p>
+                Pas de jeux pour le moment
             </p>
         </section>
     </div>

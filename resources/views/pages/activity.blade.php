@@ -14,5 +14,11 @@
                 Pas de jeux poour le moment
             </p>
         </section>
+        <section>
+            <h2>Envie</h2>
+            <p>
+                Pas de jeux poour le moment
+            </p>
+        </section>
     </div>
 @endsection

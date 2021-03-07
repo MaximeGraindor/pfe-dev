@@ -63,7 +63,20 @@
 
             @foreach ($games as $game)
                 <div class="browse-game-card">
-                    <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                    <div class="game-card-img-container">
+                        <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                        <form action="">
+                            <p>
+                                <input type="submit" value="En cours" name="curent">
+                            </p>
+                            <p>
+                                <input type="submit" value="Terminé" name="finish">
+                            </p>
+                            <p>
+                                <input type="submit" value="envie" name="wish">
+                            </p>
+                        </form>
+                    </div>
                     <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
                 </div>
             @endforeach

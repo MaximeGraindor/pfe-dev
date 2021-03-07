@@ -16,7 +16,7 @@ class PublisherSeeder extends Seeder
     public function run()
     {
         Publisher::insert([
-            'name' => 'Ubisoft',
+            'name' => 'CD projekt',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

@@ -452,16 +452,45 @@ body {
   display: flex;
   flex-direction: column;
 }
-.browse-game-card img {
-  width: 200px;
-  border-radius: 1rem;
-  margin-bottom: 0.5rem;
-}
 .browse-game-card a {
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.175rem;
   text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.game-card-img-container {
+  position: relative;
+}
+.game-card-img-container img {
+  width: 200px;
+  vertical-align: bottom;
+}
+.game-card-img-container form {
+  display: none;
+}
+
+.game-card-img-container:hover form {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+.game-card-img-container:hover form input {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.8rem 0.9rem;
+  background-color: #262B48;
+  color: white;
+  border: 1px solid white;
+  width: 100%;
 }
 
 .profil-banner {

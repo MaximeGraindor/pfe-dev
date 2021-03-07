@@ -71,16 +71,49 @@
 .browse-game-card{
     display: flex;
     flex-direction: column;
-    img{
-        width: 200px;
-        border-radius: 1rem;
-        margin-bottom: 0.5rem;
-    }
+
     a{
         color: white;
         font-family: $font-content;
         font-size: 1.175rem;
         text-decoration: none;
+        margin-top: 0.5rem;
+    }
+}
+
+.game-card-img-container{
+    position: relative;
+    img{
+        width: 200px;
+        vertical-align: bottom;
+    }
+    form{
+        display: none
+    }
+
+}
+
+.game-card-img-container:hover{
+    form{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        input{
+            font-family: $font-content;
+            padding: 0.8rem 0.9rem;
+            background-color: $color-third;
+            color: white;
+            border: 1px solid white;
+            width: 100%;
+        }
     }
 }
 

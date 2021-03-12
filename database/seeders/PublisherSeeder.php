@@ -20,5 +20,15 @@ class PublisherSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        Publisher::insert([
+            'name' => 'Ubisoft',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        Publisher::insert([
+            'name' => 'IO Interactive',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }

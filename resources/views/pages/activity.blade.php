@@ -16,11 +16,6 @@
         </section>
         <section>
             <h2>Envie</h2>
-            @foreach ($wish as $game)
-            <p>
-                {{ $game->games[0]->name }}
-            </p>
-            @endforeach
             <p>
                 Pas de jeux pour le moment
             </p>

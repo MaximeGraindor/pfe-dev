@@ -63,10 +63,10 @@
                     <div class="dashboard-top-right">
                         <div class="dashboard-top-buttons">
                             <a href="" class="icon-messages">
-                                <img src="./img/message.svg" alt="">
+                                <img src="/img/message.svg" alt="">
                             </a>
                             <a href="/message" class="icon-notifications">
-                                <img src="./img/notifications.svg" alt="">
+                                <img src="/img/notifications.svg" alt="">
                             </a>
                         </div>
                         <div class="dashboard-top-userProfil">

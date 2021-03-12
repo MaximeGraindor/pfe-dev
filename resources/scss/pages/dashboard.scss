@@ -117,11 +117,19 @@
 }
 
 .dashboard-top-userProfil{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     a{
         font-family: $font-heading;
         color: white;
         font-size: 1.3rem;
         text-decoration: none;
+    }
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
     }
 
 }

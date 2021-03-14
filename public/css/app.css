@@ -462,6 +462,7 @@ body {
 .browse-game-card {
   display: flex;
   flex-direction: column;
+  flex: 0;
 }
 .browse-game-card a {
   color: white;
@@ -469,6 +470,7 @@ body {
   font-size: 1.175rem;
   text-decoration: none;
   margin-top: 0.5rem;
+  line-height: 1.5rem;
 }
 
 .game-card-img-container {
@@ -481,6 +483,7 @@ body {
 }
 .game-card-img-container .game-card-button-wrapper {
   display: none;
+  border-radius: 1.25rem;
 }
 
 .game-card-img-container:hover .game-card-button-wrapper {
@@ -504,6 +507,7 @@ body {
   border: 1px solid white;
   width: 100%;
   border-radius: 2rem;
+  flex: 1;
 }
 .game-card-img-container:hover .game-card-button-wrapper input:hover {
   background-color: #13171C;

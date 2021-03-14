@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
@@ -83,5 +84,44 @@ class GameController extends Controller
     public function destroy(Game $game)
     {
         //
+    }
+
+    /**
+     * Add a game to the current list
+     *
+     * @param  \App\Models\Game  $game
+     * @return \Illuminate\Http\Response
+     */
+    public function addToCurrent(Game $game)
+    {
+        $game->users()->attach(Auth::user(), ['relation' => 'en cours']);
+
+        return redirect('/dashboard');
+    }
+
+    /**
+     * Add a game to the finish list
+     *
+     * @param  \App\Models\Game  $game
+     * @return \Illuminate\Http\Response
+     */
+    public function addToFinish(Game $game)
+    {
+        $game->users()->attach(Auth::user(), ['relation' => 'termine']);
+
+        return redirect('/dashboard');
+    }
+
+    /**
+     * Add a game to the wish list
+     *
+     * @param  \App\Models\Game  $game
+     * @return \Illuminate\Http\Response
+     */
+    public function addToWish(Game $game)
+    {
+        $game->users()->attach(Auth::user(), ['relation' => 'envie']);
+
+        return redirect('/dashboard');
     }
 }

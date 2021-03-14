@@ -25,4 +25,7 @@ Route::get('/profil', [UserController::class, 'index'])->name('profil');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
 
+Route::post('/jeu/ajouter/{game}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
+Route::post('/jeu/ajouter/{game}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
+Route::post('/jeu/ajouter/{game}', [GameController::class, 'addToWish'])->name('game.addToWish');
 Route::get('/jeu/{game}', [GameController::class, 'show']);

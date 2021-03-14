@@ -4,6 +4,11 @@
     section{
         color: white;
         margin-bottom: 6rem;
+        .activity-section-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3.50rem;
+        }
         h2{
             font-size: 2rem;
             margin-bottom: 1.75rem;

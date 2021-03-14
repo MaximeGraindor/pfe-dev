@@ -90,7 +90,66 @@ class GameSeeder extends Seeder
             'publisher_id' => '2',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
+        ]);
 
+        Game::insert([
+            'name' => 'Dark souls 3',
+            'slug' => 'dark-souls-3',
+            'description' => 'Développé par From Software, Dark Souls 3 est un action RPG particulièrement exigeant. L\'environnement, très peu accueillant, ravira les amateurs de challenges corsés. Vous y combattrez de gigantesques ennemis, qui ne feront qu\'une bouchée de vous.',
+            'cover_path' => '/games/cover/dark-souls-3-cover.jpg',
+            'banner_path' => '/games/banner/dark-souls-3-banner.jpg',
+            'release_date' => '2016/04/12',
+            'publisher_id' => '5',
+            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+        ]);
+
+        Game::insert([
+            'name' => 'Grand Theft Auto V',
+            'slug' => 'grand-theft-auto-5',
+            'description' => 'Jeu d\'action-aventure en monde ouvert, Grand Theft Auto (GTA) V vous place dans la peau de trois personnages inédits : Michael, Trevor et Franklin. Ces derniers ont élu domicile à Los Santos, ville de la région de San Andreas. Braquages et missions font partie du quotidien du joueur qui pourra également cohabiter avec 15 autres utilisateurs dans cet univers persistant s\'il joue sur PS3/Xbox 360 ou 29 s\'il joue sur PS4/Xbox One/PC',
+            'cover_path' => '/games/cover/grand-theft-auto-5-cover.jpg',
+            'banner_path' => '/games/banner/grand-theft-auto-5-banner.jpg',
+            'release_date' => '2013/09/17',
+            'publisher_id' => '4',
+            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+        ]);
+
+        Game::insert([
+            'name' => 'The witche 3 : Wild Hunt',
+            'slug' => 'the-witcher-3-wild-hunt',
+            'description' => 'Action-RPG en open world pour PC, The Witcher 3 : Wild Hunt est le troisième opus de la série de jeux éponyme. Le joueur y retrouve le personnage de Geralt de Riv pour découvrir la fin de son histoire mouvementée.',
+            'cover_path' => '/games/cover/the-witcher-3-wild-hunt-cover.jpg',
+            'banner_path' => '/games/banner/the-witcher-3-wild-hunt-banner.jpg',
+            'release_date' => '2015/05/19',
+            'publisher_id' => '1',
+            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+        ]);
+
+        Game::insert([
+            'name' => 'Portal 2',
+            'slug' => 'portal-2',
+            'description' => 'Portal 2 est un jeu de réflexion sur PC. Celui-ci met en scène l\'héroïne du premier volet qui doit une fois de plus échapper à GLaDOS dans le complexe d\'Aperture Science. En utilisant le Portal Gun, les joueurs seront confrontés à de nouveaux pièges et devront faire bon usage d\'une peinture capable de modifier les caractéristiques des différentes surfaces rencontrées. La nouveauté reste la possibilité d\'y jouer à 2',
+            'cover_path' => '/games/cover/portal-2-cover.jpg',
+            'banner_path' => '/games/banner/portal-2-banner.jpg',
+            'release_date' => '2011/04/19',
+            'publisher_id' => '1',
+            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+        ]);
+
+        Game::insert([
+            'name' => 'Dead Space 2',
+            'slug' => 'dead-space-2',
+            'description' => 'Le jeu d\'action Dead Space 2 sur PC remet en scène Isaac, le héros du premier opus, 3 ans après qu\'il se soit échappé de l\'Ishimura, un vaisseau spatial abandonné. Cette fois, Isaac est envoyé sur The Sprawl, une gigantesque station dévastée. Dans cette suite, les décors sont plus variés, de nouvelles armes apparaissent, de nouvelles énigmes et l\'angoisse sont toujours au rendez-vous.',
+            'cover_path' => '/games/cover/dead-space-2-cover.jpg',
+            'banner_path' => '/games/banner/dead-space-2-banner.jpg',
+            'release_date' => '2011/01/27',
+            'publisher_id' => '1',
+            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
         ]);
     }
 }

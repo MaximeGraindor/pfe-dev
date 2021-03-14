@@ -30,5 +30,15 @@ class PublisherSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        Publisher::insert([
+            'name' => 'Rockstar Games',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        Publisher::insert([
+            'name' => 'Bandai Namco',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }

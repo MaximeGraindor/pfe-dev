@@ -11,10 +11,19 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $wish = User::with('games')
+        $currentGamesList = User::with('games')
         ->where('id', Auth::user()->id)
+        //->wherePivot('relation', 'en cours')
         ->get();
-        //return $wish;
-        return view('pages.activity', compact('wish'));
+        $finishGamesList = User::with('games')
+        ->where('id', Auth::user()->id)
+        //->wherePivot('relation', 'termine')
+        ->get();
+        $wishGamesList = User::with('games')
+        ->where('id', Auth::user()->id)
+        //->wherePivot('relation', 'envie')
+        ->get();
+        //return $currentGamesList;
+        return view('pages.activity', compact('currentGamesList', 'finishGamesList', 'wishGamesList'));
     }
 }

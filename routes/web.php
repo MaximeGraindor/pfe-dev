@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
@@ -24,9 +25,13 @@ Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/profil', [UserController::class, 'index'])->name('profil');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
+Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
+
 
 Route::post('/game/addToCurrent/{game}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
 Route::post('/game/addToFinish/{game}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
 Route::post('/game/addToWish/{game}', [GameController::class, 'addToWish'])->name('game.addToWish');
+
+
 
 Route::get('/jeu/{game}', [GameController::class, 'show']);

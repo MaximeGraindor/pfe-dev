@@ -50,8 +50,10 @@
                 <h2 class="comments-title">
                     Commentaires
                 </h2>
-                <form action="#" method="post">
-                    <textarea name="comment-content" id="" cols="30" rows="10"  placeholder="écrivez un commentaire"></textarea>
+                <form action="/comments" method="post">
+                    @csrf
+                    <textarea name="commentContent" id="" cols="30" rows="10"  placeholder="écrivez un commentaire"></textarea>
+                    <input type="hidden" name="gameId" value="{{ $game->id }}">
                     <input type="submit" value="Envoyer">
                 </form>
             </section>

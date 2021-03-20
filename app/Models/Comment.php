@@ -19,4 +19,8 @@ class Comment extends Model
     {
         return $this->hasOne(Game::class);
     }
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

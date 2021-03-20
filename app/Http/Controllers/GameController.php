@@ -49,7 +49,7 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        return $game->load('comments');
+        $game->load('comments');
         return view('pages.game', compact('game'));
     }
 

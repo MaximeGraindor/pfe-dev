@@ -413,6 +413,7 @@ body {
 
 .browse-multiselect {
   width: 200px;
+  position: relative;
 }
 .browse-multiselect .selectBox {
   position: relative;
@@ -516,6 +517,42 @@ body {
 }
 .game-card-img-container:hover .game-card-button-wrapper input:hover {
   background-color: #13171C;
+}
+
+.selectbox {
+  position: relative;
+}
+.selectbox .overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.checkboxes {
+  display: none;
+  border: 1px solid white;
+  background-color: #222831;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: white;
+  border-radius: 2rem;
+  z-index: 2;
+}
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0.9rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+.checkboxes input {
+  margin-right: 7px;
+}
+
+.checkboxesEl-on {
+  display: block !important;
 }
 
 .profil-banner {

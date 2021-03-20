@@ -25,7 +25,7 @@
                 <dl>
                     <div class="characteristics-wrap">
                         <dt>Date de sortie</dt>
-                        <dd>10 novembre 2020</dd>
+                        <dd>{{ $game->release_date }}</dd>
                     </div>
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>

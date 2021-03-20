@@ -6,49 +6,51 @@
         <div class="browse-header">
             <form action="#" method="post" class="browse-form">
                 <div class="browse-multiselect">
-                    <div class="selectBox" onclick="showCheckboxes()">
+                    <div class="selectBox">
                         <select>
                             <option>Éditeur</option>
                         </select>
                         <div class="overSelect"></div>
                     </div>
-                    <div id="checkboxes">
-                        <label for="ubisoft">
-                        <input type="checkbox" id="ubisoft"/>Ubisoft</label>
+                    <div class="checkboxes">
+                        @foreach ($publishers as $publisher)
+                            <label for="ubisoft">
+                            <input type="checkbox" id="ubisoft"/>{{ $publisher->name }}</label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="browse-multiselect">
-                    <div class="selectBox" onclick="showCheckboxes()">
+                    <div class="selectBox">
                         <select>
                             <option>Mode de jeu</option>
                         </select>
                         <div class="overSelect"></div>
                     </div>
-                    <div id="checkboxes">
+                    <div class="checkboxes">
                         <label for="ubisoft">
                         <input type="checkbox" id="ubisoft"/>Ubisoft</label>
                     </div>
                 </div>
                 <div class="browse-multiselect">
-                    <div class="selectBox" onclick="showCheckboxes()">
+                    <div class="selectBox">
                         <select>
                             <option>Plateforme</option>
                         </select>
                         <div class="overSelect"></div>
                     </div>
-                    <div id="checkboxes">
+                    <div class="checkboxes">
                         <label for="ubisoft">
                         <input type="checkbox" id="ubisoft"/>Ubisoft</label>
                     </div>
                 </div>
                 <div class="browse-multiselect">
-                    <div class="selectBox" onclick="showCheckboxes()">
+                    <div class="selectBox">
                         <select>
                             <option>Genre</option>
                         </select>
                         <div class="overSelect"></div>
                     </div>
-                    <div id="checkboxes">
+                    <div class="checkboxes">
                         <label for="ubisoft">
                         <input type="checkbox" id="ubisoft"/>Ubisoft</label>
                     </div>

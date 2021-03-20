@@ -55,16 +55,17 @@
 
 .profil-content{
     padding: 0rem 7rem;
-}
-
-.profil-content-section{
-    color: white;
-    margin-bottom: 6rem;
-    h2{
-        font-size: 2rem;
-        margin-bottom: 1.75rem;
-    }
-    p{
-        font-family: $font-content;
+    section{
+        color: white;
+        margin-bottom: 6rem;
+        .activity-section-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3.50rem;
+        }
+        h2{
+            font-size: 2rem;
+            margin-bottom: 1.75rem;
+        }
     }
 }

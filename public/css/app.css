@@ -577,17 +577,18 @@ body {
 .profil-content {
   padding: 0rem 7rem;
 }
-
-.profil-content-section {
+.profil-content section {
   color: white;
   margin-bottom: 6rem;
 }
-.profil-content-section h2 {
+.profil-content section .activity-section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+}
+.profil-content section h2 {
   font-size: 2rem;
   margin-bottom: 1.75rem;
-}
-.profil-content-section p {
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 
 .game-banner {

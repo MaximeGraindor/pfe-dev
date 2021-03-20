@@ -22,7 +22,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
-Route::get('/profil', [UserController::class, 'index'])->name('profil');
+Route::get('/profil', [UserController::class, 'show'])->name('profil');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');

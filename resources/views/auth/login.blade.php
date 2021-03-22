@@ -15,11 +15,17 @@
                 @csrf
                 <div class="login-pseudo">
                     <label for="pseudo">Pseudo</label>
-                    <input type="text" id="pseudo" name="pseudo">
+                    <input type="text" id="pseudo" name="pseudo" value="{{ old('pseudo') }}" class="@if($errors->has('pseudo'))login-input-error @endif">
+                    @error('pseudo')
+                        <span class="login-error">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="login-password">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" class="@if($errors->has('password'))login-input-error @endif">
+                    @error('password')
+                        <span class="login-error">{{ $message }}</span>
+                    @enderror
                     @if (Route::has('password.request'))
                         <a class="login-forgotPassword" href="{{ route('password.request') }}">
                             Mot de passe oublié&nbsp;?

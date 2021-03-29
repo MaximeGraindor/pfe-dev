@@ -59,9 +59,14 @@
 
                 <div class="comments-wrapper">
                     @foreach ($game->comments as $comment)
-                        <p>
-                            {{ $comment->content }}
-                        </p>
+                        <div class="game-comment">
+                            <p class="game-comment-user">
+                                {{ $comment->user->pseudo }}
+                            </p>
+                            <p class="game-comment-content">
+                                {{ $comment->content }}
+                            </p>
+                        </div>
                     @endforeach
                 </div>
             </section>

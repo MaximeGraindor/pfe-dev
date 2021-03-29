@@ -12,6 +12,7 @@
 .game-content{
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 4rem;
 }
 
 .game-header{
@@ -78,6 +79,7 @@
     }
 
     form{
+        margin-bottom: 7rem;
         textarea {
             width: 100%;
             background-color: $color-second;
@@ -102,4 +104,20 @@
         }
     }
 
+}
+
+.comments-wrapper{
+    clear: both;
+}
+
+.game-comment{
+    color: white;
+    font-family: $font-content;
+    background-color: $color-second;
+    padding: 2rem;
+    border: 2px solid black;
+    .game-comment-user{
+        font-size: 1.750rem;
+        margin-bottom: 1.5rem;
+    }
 }

@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Game::class,  'game_users')->withPivot('relation');
     }
+
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class);
+    }
 }

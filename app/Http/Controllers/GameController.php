@@ -50,7 +50,10 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        $game->load('comments');
+        $game->load(['comments' => function ($comments){
+            $comments->with('user')->get();
+        }]);
+        //return $game;
         return view('pages.game', compact('game'));
     }
 

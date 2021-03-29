@@ -653,6 +653,7 @@ body {
 .game-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 4rem;
 }
 
 .game-header {
@@ -711,6 +712,9 @@ body {
   margin-bottom: 2rem;
   color: white;
 }
+.game-comments form {
+  margin-bottom: 7rem;
+}
 .game-comments form textarea {
   width: 100%;
   background-color: #222831;
@@ -732,4 +736,20 @@ body {
   padding: 0.8rem 0.9rem;
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.comments-wrapper {
+  clear: both;
+}
+
+.game-comment {
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  background-color: #222831;
+  padding: 2rem;
+  border: 2px solid black;
+}
+.game-comment .game-comment-user {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
 }

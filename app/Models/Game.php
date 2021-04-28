@@ -9,6 +9,8 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $dates = ['release_date'];
+
     public function publisher()
     {
         return $this->belongsTo(Publisher::class);

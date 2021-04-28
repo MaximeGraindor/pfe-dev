@@ -1,10 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/facebook.svg": "/img/facebook.svg",
     "/img/home-intro-background.jpg": "/img/home-intro-background.jpg",
+    "/img/instagram.svg": "/img/instagram.svg",
     "/img/Login-background.jpg": "/img/Login-background.jpg",
     "/img/message.svg": "/img/message.svg",
     "/img/notifications.svg": "/img/notifications.svg",
     "/img/Register-background.jpg": "/img/Register-background.jpg",
-    "/img/settings.svg": "/img/settings.svg"
+    "/img/settings.svg": "/img/settings.svg",
+    "/img/twitter.svg": "/img/twitter.svg"
 }

@@ -53,7 +53,6 @@ class GameController extends Controller
         $game->load(['comments' => function ($comments){
             $comments->with('user')->get();
         }]);
-        return $game;
         return view('pages.game', compact('game'));
     }
 

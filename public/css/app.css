@@ -764,6 +764,28 @@ body {
   border-bottom: 2px solid black;
 }
 
+.game-gallery .gallery-title {
+  font-size: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 25px;
+}
+.gallery-grid .gallery-big {
+  grid-column: 1/1;
+  grid-row: 1/6;
+  width: 100%;
+}
+.gallery-grid .gallery-little {
+  width: 60%;
+}
+
 .game-comments .comments-title {
   font-size: 2rem;
   margin-top: 5rem;
@@ -777,7 +799,6 @@ body {
   width: 100%;
   background-color: #222831;
   border: 2px solid black;
-  border-radius: 1rem;
   resize: none;
   height: 150px;
   padding: 2rem;
@@ -791,9 +812,13 @@ body {
   margin-top: 1rem;
   background-color: #222831;
   border: 2px solid black;
-  padding: 0.8rem 0.9rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+.game-comments form input[type=submit]:hover {
+  cursor: pointer;
 }
 
 .comments-wrapper {
@@ -806,8 +831,13 @@ body {
   background-color: #222831;
   padding: 2rem;
   border: 2px solid black;
+  margin-bottom: 1.5rem;
 }
 .game-comment .game-comment-user {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
+}
+.game-comment .game-comment-content {
+  line-height: 1.4rem;
+  font-size: 1.2rem;
 }

@@ -102,6 +102,64 @@ body {
   padding: 1rem;
 }
 
+.home-intro-wrapper {
+  padding: 0 4rem;
+}
+
+.home-intro {
+  background-image: url("./../img/home-intro-background.jpg");
+  background-position: center;
+  height: 300px;
+  border: 2px solid #262B48;
+  margin-bottom: 4rem;
+}
+
+.home-intro-title {
+  color: white;
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  text-align: center;
+  line-height: 5rem;
+  margin-bottom: 2rem;
+}
+
+.home-intro-text {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.home-intro-cta {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.home-intro-cta a {
+  padding: 0.8rem 2rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+.home-intro-cta a:first-child {
+  margin-right: 2rem;
+}
+.home-intro-cta .intro-cta-login {
+  background-color: #222831;
+}
+.home-intro-cta .intro-cta-login:hover {
+  background-color: #262B48;
+  font-weight: bold;
+}
+.home-intro-cta .intro-cta-register {
+  background-color: #262B48;
+}
+.home-intro-cta .intro-cta-register:hover {
+  background-color: #222831;
+  font-weight: bold;
+}
+
 .login-splitscreen {
   height: 100vh;
   display: flex;

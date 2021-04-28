@@ -14,4 +14,19 @@
         	</nav>
         </header>
     </div>
+
+    <div class="home-intro-wrapper">
+        <div class="home-intro">
+        </div>
+        <h1 role="heading" aria-level="1" class="home-intro-title">
+            Créez votre propre </br> biblitothèque
+        </h1>
+        <p class="home-intro-text">
+            Rejoignez des milliers d'utilisateurs
+        </p>
+        <div class="home-intro-cta">
+            <a href="#" class="intro-cta-register">S'inscrire</a>
+            <a href="#" class="intro-cta-login">Se connecter</a>
+        </div>
+    </div>
 @endsection

@@ -19,3 +19,60 @@
         padding: 1rem;
     }
 }
+
+.home-intro-wrapper{
+    padding: 0 4rem;
+}
+
+.home-intro{
+    background-image: url("./../img/home-intro-background.jpg");
+    background-position: center;
+    height: 300px;
+    border: 2px solid $color-third;
+    margin-bottom: 4rem;
+}
+.home-intro-title{
+    color: white;
+    font-family: $font-heading;
+    font-size: 4rem;
+    text-align: center;
+    text-align: center;
+    line-height: 5rem;
+    margin-bottom: 2rem;
+}
+
+.home-intro-text{
+    text-align: center;
+    font-size: 2rem;
+    font-family: $font-content;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.home-intro-cta{
+    font-family: $font-content;
+    text-align: center;
+    a{
+        padding: 0.8rem 2rem;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+    }
+    a:first-child{
+        margin-right: 2rem;
+    }
+    .intro-cta-login{
+        background-color: $color-second;
+        &:hover{
+            background-color: $color-third;
+            font-weight: bold;
+        }
+    }
+    .intro-cta-register{
+        background-color: $color-third;
+        &:hover{
+            background-color: $color-second;
+            font-weight: bold;
+        }
+    }
+}

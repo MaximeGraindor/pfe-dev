@@ -437,6 +437,184 @@ body {
   background-color: #262B48;
 }
 
+.forgotPassword-splitscreen {
+  height: 100vh;
+  display: flex;
+}
+
+.forgotPassword-left {
+  flex: 1 1 40%;
+  border-right: 5px solid #262B48;
+  background-image: url("./../img/Login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.forgotPassword-right {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  flex: 1 1 60%;
+  padding: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.forgotPassword-right .forgotPassword-title {
+  text-align: center;
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.forgotPassword-intro {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: white;
+  text-align: center;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.forgotPassword-form {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+.forgotPassword-form .forgotPassword-pseudo, .forgotPassword-form .forgotPassword-password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+.forgotPassword-form .forgotPassword-pseudo .forgotPassword-forgotPassword, .forgotPassword-form .forgotPassword-password .forgotPassword-forgotPassword {
+  color: white;
+  text-align: right;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+.forgotPassword-form label {
+  color: white;
+  margin-bottom: 0.313rem;
+  font-size: 1.375rem;
+}
+.forgotPassword-form input {
+  padding: 0.6rem 0.7rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  border: none;
+  background-color: #222831;
+  border-radius: 0.125rem;
+  color: white;
+  border: 2px solid #262B48;
+}
+.forgotPassword-form input[type=submit] {
+  cursor: pointer;
+  float: right;
+  width: 200px;
+}
+.forgotPassword-form input[type=submit]:hover {
+  background-color: #262B48;
+}
+
+.forgotPassword-error {
+  margin-top: 5px;
+  color: red;
+  font-size: 1.1rem;
+}
+
+.forgotPassword-input-error {
+  border: 1px solid red !important;
+}
+
+.resetPassword-splitscreen {
+  height: 100vh;
+  display: flex;
+}
+
+.resetPassword-left {
+  flex: 1 1 40%;
+  border-right: 5px solid #262B48;
+  background-image: url("./../img/Login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.resetPassword-right {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  flex: 1 1 60%;
+  padding: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.resetPassword-right .resetPassword-title {
+  text-align: center;
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.resetPassword-intro {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: white;
+  text-align: center;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.resetPassword-form {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+.resetPassword-form .resetPassword-pseudo, .resetPassword-form .resetPassword-password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+.resetPassword-form .resetPassword-pseudo .resetPassword-resetPassword, .resetPassword-form .resetPassword-password .resetPassword-resetPassword {
+  color: white;
+  text-align: right;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+.resetPassword-form label {
+  color: white;
+  margin-bottom: 0.313rem;
+  font-size: 1.375rem;
+}
+.resetPassword-form input {
+  padding: 0.6rem 0.7rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  border: none;
+  background-color: #222831;
+  border-radius: 0.125rem;
+  color: white;
+  border: 2px solid #262B48;
+}
+.resetPassword-form input[type=submit] {
+  cursor: pointer;
+  float: right;
+  width: 200px;
+}
+.resetPassword-form input[type=submit]:hover {
+  background-color: #262B48;
+}
+
+.resetPassword-error {
+  margin-top: 5px;
+  color: red;
+  font-size: 1.1rem;
+}
+
+.resetPassword-input-error {
+  border: 1px solid red !important;
+}
+
 .dashboard-sidebar {
   position: fixed;
   background-color: #13171C;

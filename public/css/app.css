@@ -326,7 +326,6 @@ body {
   color: white;
   text-align: right;
   text-decoration: none;
-  margin-top: 0.5rem;
 }
 .login-form label {
   color: white;
@@ -350,6 +349,16 @@ body {
 }
 .login-form input[type=submit]:hover {
   background-color: #262B48;
+}
+
+.login-rememberMe {
+  font-size: 1rem !important;
+}
+
+.login-others {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }
 
 .login-error {

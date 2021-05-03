@@ -16,5 +16,3 @@ mix.js('resources/js/app.js', 'public/js')
         processCssUrls: false
     })
     .copyDirectory('resources/img', 'public/img');
-
-    mix.browserSync('pfe.local');

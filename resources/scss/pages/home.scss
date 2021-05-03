@@ -20,21 +20,35 @@
     }
 }
 
+.home-background{
+    background-image: url("./../img/home-background.png");
+    padding-bottom: 18rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
 .home-intro-wrapper{
     padding: 0 4rem;
 }
 
-.home-intro{
+.home-intro-weight{
+    font-weight: bold;
+    display: block;
+}
+
+.home-intro-banner{
     background-image: url("./../img/home-intro-background.jpg");
     background-position: center;
-    height: 300px;
-    border: 2px solid $color-third;
-    margin-bottom: 4rem;
+    height: 340px;
+    width: 90%;
+    border: 4px solid $color-third;
+    margin: 0 auto 4rem;
 }
 .home-intro-title{
     color: white;
     font-family: $font-heading;
-    font-size: 4rem;
+    font-size: 3.125em;
     text-align: center;
     text-align: center;
     line-height: 5rem;
@@ -46,106 +60,232 @@
     font-size: 2rem;
     font-family: $font-content;
     color: white;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .home-intro-cta{
     font-family: $font-content;
     text-align: center;
     margin-bottom: 4rem;
-    a{
-        padding: 0.8rem 2rem;
+    .intro-cta-login{
+        background-color: #434980;
+        padding: 0.8rem 4rem;
         color: white;
         text-decoration: none;
         border-radius: 0.5rem;
-    }
-    a:first-child{
-        margin-right: 2rem;
-    }
-    .intro-cta-login{
-        background-color: $color-second;
+        font-size: 1.750rem;
         &:hover{
-            background-color: $color-third;
-            font-weight: bold;
-        }
-    }
-    .intro-cta-register{
-        background-color: $color-third;
-        &:hover{
-            background-color: $color-second;
-            font-weight: bold;
+            background-color: #2e3258;
         }
     }
 }
 
-.home-features{
+.home-intro-infos{
+    color: white;
+    display: flex;
+    justify-content:center;
+    gap: 5rem;
+    margin-top: 5rem;
+}
+
+.infos-item{
+    transition: 0.3s;
+    &:hover{
+        transform: scale(1.1)
+
+    }
+}
+
+.infos-item-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: $font-content;
+    .infos-big{
+        font-size: 2.313rem;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+    }
+    .infos-little{
+        font-size: 1.563rem;
+        font-weight: 300;
+    }
+    &::before{
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.8rem;
+    }
+}
+.infos-users::before{
+    background-image: url('./../img/user.svg');
+}
+.infos-games::before{
+    background-image: url('./../img/console.svg');
+}
+.infos-comments::before{
+    background-image: url('./../img/comment.svg');
+}
+
+.home-gameon{
     padding: 5rem;
-    .home-features-wrap{
+    .home-gameon-wrap{
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        position: relative;
+    }
+
+    .gameon-left{
+        flex: 0 0 50%;
+        img{
+            width: 30%;
+            height: 600px;
+            object-fit: cover;
+            position: absolute;
+            top: -150px;
+            left: 15%;
+            box-shadow: 5px 5px 15px -7px rgba(67,73,128,1);
+        }
+    }
+
+    .gameon-right{
+        color: white;
+        .gameon-title{
+            font-size: pxToRem(35);
+            margin-bottom: pxToRem(25);
+        }
+        p{
+            font-family: $font-content;
+            font-size: pxToRem(20);
+            line-height: 1.750rem;
+        }
+
+    }
+}
+.home-rewards{
+    padding: 10rem 5rem 5rem;
+    background-color: #101316;
+    .home-rewards-wrap{
         display: flex;
         align-items: center;
         gap: 3rem;
     }
 
-    .features-left{
+    .rewards-left{
         flex: 0 0 50%;
         img{
             width: 100%;
         }
     }
 
-    .features-right{
-        ul{
-            counter-reset: section;
-            li{
-                flex: 0 0 50%;
-                font-size: 1.750rem;
-                color: white;
-                font-family: $font-content;
-                &:before{
-                    counter-increment: section;
-                    content: counter(section) ". "
-                }
-            }
-            li:not(:last-child){
-                margin-bottom: 5rem;
-            }
+    .rewards-right{
+        color: white;
+        .rewards-title{
+            font-size: pxToRem(35);
+            margin-bottom: pxToRem(25);
+        }
+        p{
+            font-family: $font-content;
+            font-size: pxToRem(20);
+            line-height: 1.750rem;
+        }
+
+    }
+}
+.home-comments{
+    padding: 5rem;
+    .home-comments-wrap{
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .comments-left{
+        flex: 0 0 50%;
+        img{
+            width: 100%;
+        }
+    }
+
+    .comments-right{
+        color: white;
+        .comments-title{
+            font-size: pxToRem(35);
+            margin-bottom: pxToRem(25);
+        }
+        p{
+            font-family: $font-content;
+            font-size: pxToRem(20);
+            line-height: 1.750rem;
         }
 
     }
 }
 
-.home-lastRelease{
+
+/* HOME__VIDEOGAMES */
+.home-videogames{
     background-color: #101316;
     padding: 5rem;
-    .lastRelease-title{
+    .videogames-title{
         font-size: 2rem;
         margin-bottom: 2rem;
         color: white;
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            background-color: white;
+            vertical-align: middle;
+        }
+        &::after{
+            content: "";
+            display: inline-block;
+            width: 1044px;
+            height: 3px;
+            background-color: white;
+            vertical-align: middle;
+        }
+    }
+
+    .videogames-title-second{
+        font-size: pxToRem(25);
+        color: white;
+        margin-bottom: 1em;
     }
 }
 
-.lastRelease-content{
+.videogames-lastrelease{
+    margin-bottom: 4rem;
+}
+
+.videogames-content{
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(5, 1fr);
-    .lastRelease-game-card{
+    .videogames-game-card{
         color: white;
         text-decoration: none;
         font-family: $font-content;
         img{
             width: 100%;
         }
-        .lastRelease-game-title{
+        .videogames-game-title{
             margin-top: 0.5rem;
             font-size: 1.2rem;
         }
-        .lastRelease-game-date{
+        .videogames-game-date{
             text-align: center;
             margin-bottom: 0.5rem;
         }
     }
 }
 
+
+/* HOME__FOOTER */
 .home-footer{
     display: flex;
     flex-direction: column;

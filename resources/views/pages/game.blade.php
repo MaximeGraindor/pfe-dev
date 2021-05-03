@@ -51,12 +51,12 @@
                     Gallerie
                 </h2>
                 <div class="gallery-grid">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-big">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
-                    <img src="//localhost:3000/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-big">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
+                    <img src="/storage/games/banner/watch-dogs-banner.jpg" alt="" class="gallery-little">
                 </div>
             </section>
 

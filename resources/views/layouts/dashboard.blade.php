@@ -73,7 +73,7 @@
                             <a href="/profil">
                                 {{ Auth::user()->pseudo }}
                             </a>
-                            <img src="./img/Login-background.jpg" alt="Photo de profil">
+                            <img src="/img/Login-background.jpg" alt="Photo de profil">
                         </div>
                     </div>
                 </div>

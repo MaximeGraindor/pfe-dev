@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/comment.svg": "/img/comment.svg",
+    "/img/console.svg": "/img/console.svg",
     "/img/facebook.svg": "/img/facebook.svg",
     "/img/home-intro-background.jpg": "/img/home-intro-background.jpg",
     "/img/instagram.svg": "/img/instagram.svg",
@@ -9,5 +11,13 @@
     "/img/notifications.svg": "/img/notifications.svg",
     "/img/Register-background.jpg": "/img/Register-background.jpg",
     "/img/settings.svg": "/img/settings.svg",
-    "/img/twitter.svg": "/img/twitter.svg"
+    "/img/twitter.svg": "/img/twitter.svg",
+    "/img/user.svg": "/img/user.svg",
+    "/img/home-background.jpg": "/img/home-background.jpg",
+    "/img/home-background.png": "/img/home-background.png",
+    "/img/Login-background.png": "/img/Login-background.png",
+    "/img/home-background-corner.svg": "/img/home-background-corner.svg",
+    "/img/home-badges.jpg": "/img/home-badges.jpg",
+    "/img/home-comments.jpg": "/img/home-comments.jpg",
+    "/img/home-about.jpg": "/img/home-about.jpg"
 }

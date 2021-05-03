@@ -1,6 +1,7 @@
 $font-heading: 'Poppins', Verdana, Arial, Helvetica, sans-serif;
 $font-content: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 
+$font-size-base : 16;
 $color-main: #13171C;
 $color-second: #222831;
 $color-third: #262B48;
@@ -31,4 +32,8 @@ body{
     max-width: 1400PX;
     margin: 0 auto;
     padding: 0 3rem;
+}
+
+@function pxToRem($value){
+    @return $value/$font-size-base + rem;
 }

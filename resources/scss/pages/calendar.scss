@@ -1,0 +1,65 @@
+.dashboard-calendar{
+    padding: 5rem 7rem;
+}
+
+.calendar-filter{
+    form{
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        select{
+            font-family: $font-content;
+            font-size: pxToRem(15);
+            color: white;
+            background-color: $color-second;
+            width: 200px;
+            padding: 0.6rem 0.9rem;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+}
+
+.calendar-content-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin: 5rem 0 0 0
+}
+
+.calendar-release{
+    display: flex;
+    background-color: $color-second;
+    border-radius: 5px;
+    .release-cover{
+        flex: 1 1 700px;
+        img{
+            width: 100%;
+            vertical-align: bottom;
+            border-radius: 5px 0 0 5px;
+        }
+    }
+}
+
+.release-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    padding: 2rem;
+
+    .release-title{
+        font-family: $font-heading;
+        font-size: pxToRem(20);
+    }
+    .release-about{
+        font-family: $font-content;
+        font-size: pxToRem(14);
+        line-height: 1.2rem;
+    }
+    .release-date{
+        font-family: $font-content;
+        background-color: #2E325C;
+        padding: 0.8rem 0.9rem;
+    }
+}

@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
 Route::get('/profil', [UserController::class, 'show'])->name('profil');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 

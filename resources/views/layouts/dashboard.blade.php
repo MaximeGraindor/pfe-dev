@@ -27,7 +27,7 @@
                             <a href="/dashboard" class="sidebar-menu-link {{request()->route()->named('dashboard') ? ' sidebar-active' : ''}}">Mon activité</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
+                            <a href="/calendar" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
                         </li>
                         <li class="sidebar-menu-item">
                             <a href="/parcourir" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>

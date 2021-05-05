@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class,
             PublisherSeeder::class,
             SupportSeeder::class,
-
+            PlateformeSeeder::class,
+            GenreSeeder::class,
+            ModeSeeder::class,
+            RoleSeeder::class,
             GameUserSeeder::class
         ]);
     }

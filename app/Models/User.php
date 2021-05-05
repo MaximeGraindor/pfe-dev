@@ -50,4 +50,25 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Comment::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+    // ATTRIBUTES
+    public function getIsAdminAttribute()
+    {
+        return (bool) $this->roles->filter(function($role){
+            return $role->name === 'admin';
+        })->count();
+
+    }
+
+    public function getIsUserAttribute()
+    {
+        return (bool)$this->roles->filter(function ($role) {
+            return $role->name === 'user';
+        })->count();
+    }
 }

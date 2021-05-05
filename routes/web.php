@@ -23,11 +23,21 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
-Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
+Route::get('/calendrier', [CalendarController::class, 'index'])->name('calendar');
 Route::get('/profil', [UserController::class, 'show'])->name('profil');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
+
+
+Route::get('/admin/ajouter-jeu', [GameController::class, 'create'])
+    ->middleware('can:add-game')
+    ->name('game.create');
+
+Route::post('/admin/ajouter-jeu/store', [GameController::class, 'store'])
+    ->middleware('can:add-game')
+    ->name('game.create');
+
 
 
 Route::post('/game/addToCurrent/{game}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');

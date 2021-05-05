@@ -27,7 +27,7 @@
                             <a href="/dashboard" class="sidebar-menu-link {{request()->route()->named('dashboard') ? ' sidebar-active' : ''}}">Mon activité</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="/calendar" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
+                            <a href="/calendrier" class="sidebar-menu-link {{request()->route()->named('calendar') ? ' sidebar-active' : ''}}">Calendrier</a>
                         </li>
                         <li class="sidebar-menu-item">
                             <a href="/parcourir" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>
@@ -38,6 +38,11 @@
                         <li class="sidebar-menu-item">
                             <a href="/profil" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
                         </li>
+                        @can('add-game', Game::class)
+                            <li class="sidebar-menu-item">
+                                <a href="/admin/ajouter-jeu" class="sidebar-menu-link {{request()->route()->named('game.create') ? ' sidebar-active' : ''}}">Ajouter un jeu</a>
+                            </li>
+                        @endcan
                     </ul>
                 </nav>
                 <div class="sidebar-logout">

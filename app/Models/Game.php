@@ -16,6 +16,26 @@ class Game extends Model
         return $this->belongsTo(Publisher::class);
     }
 
+    public function modes()
+    {
+        return $this->hasMany(Mode::class);
+    }
+
+    public function plateformes()
+    {
+        return $this->hasMany(Plateforme::class);
+    }
+
+    public function supports()
+    {
+        return $this->hasMany(Support::class);
+    }
+
+    public function genres()
+    {
+        return $this->hasMany(Genre::class);
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'game_users');

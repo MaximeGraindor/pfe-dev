@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Mode;
+use App\Models\Genre;
+use App\Models\Support;
 use App\Models\Publisher;
+use App\Models\Plateforme;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreGameRequest;
 
 class GameController extends Controller
 {
@@ -28,7 +34,12 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        $publishers = Publisher::all();
+        $modes = Mode::all();
+        $plateformes = Plateforme::all();
+        $genres = Genre::all();
+        $supports = Support::all();
+        return view('admin.addGame', compact('publishers', 'modes', 'plateformes', 'genres', 'supports'));
     }
 
     /**
@@ -39,7 +50,25 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        /* $validated = $request->validated();
+        $game = Game::create($request);*/
+
+
+        $game = new Game();
+        $game->name = $request->name;
+        $game->slug = Str::slug($request->name, '-');
+        $game->description = $request->synopsis;
+        $game->cover_path = $request->imgCover;
+        $game->banner_path = $request->imgBanner;
+        $game->trailer = $request->trailer;
+        $game->classification = $request->classification;
+        $game->release_date = $request->releaseDate;
+        $game->publisher_id = $request->publisher;
+
+        $game->save();
+
+        return redirect('/parcourir');
     }
 
     /**

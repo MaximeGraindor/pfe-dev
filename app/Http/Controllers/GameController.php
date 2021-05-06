@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Mode;
 use App\Models\Genre;
 use App\Models\Support;
+use App\Models\GameUser;
 use App\Models\Publisher;
 use App\Models\Plateforme;
 use Illuminate\Support\Str;
@@ -22,8 +23,9 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::with('publisher')->get();
+        $games = Game::with('publisher', 'modes', 'plateformes', 'supports', 'genres')->get();
         $publishers = Publisher::all();
+        //return $games;
         return view('pages.browse', compact('games', 'publishers'));
     }
 
@@ -127,9 +129,20 @@ class GameController extends Controller
      */
     public function addToCurrent(Game $game)
     {
-        $game->users()->attach(Auth::user(), ['relation' => 'en cours']);
+        // Vérifie si le jeu est déjà présent dans la liste
+        if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $game->id]])->exists()){
+            return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
+        };
 
-        return redirect('/dashboard');
+        // vérifie si le jeu appartient déjà à une autre liste
+        if(GameUser::where('game_id', $game->id)->exists()){
+            $game->users()->detach();
+            $game->users()->attach(Auth::user(), ['relation' => 'en cours']);
+        }else{
+            $game->users()->attach(Auth::user(), ['relation' => 'en cours']);
+        };
+
+        return redirect()->back();
     }
 
     /**
@@ -140,9 +153,20 @@ class GameController extends Controller
      */
     public function addToFinish(Game $game)
     {
-        $game->users()->attach(Auth::user(), ['relation' => 'termine']);
+        // Vérifie si le jeu est déjà présent dans la liste
+        if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $game->id]])->exists()){
+            return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux terminés');
+        };
 
-        return redirect('/dashboard');
+        // vérifie si le jeu appartient déjà à une autre liste
+        if(GameUser::where('game_id', $game->id)->exists()){
+            $game->users()->detach();
+            $game->users()->attach(Auth::user(), ['relation' => 'termine']);
+        }else{
+            $game->users()->attach(Auth::user(), ['relation' => 'termine']);
+        };
+
+        return redirect()->back();
     }
 
     /**
@@ -153,8 +177,19 @@ class GameController extends Controller
      */
     public function addToWish(Game $game)
     {
-        $game->users()->attach(Auth::user(), ['relation' => 'envie']);
+        // Vérifie si le jeu est déjà présent dans la liste
+        if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $game->id]])->exists()){
+            return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste d\'envie');
+        };
 
-        return redirect('/dashboard');
+        // vérifie si le jeu appartient déjà à une autre liste
+        if(GameUser::where('game_id', $game->id)->exists()){
+            $game->users()->detach();
+            $game->users()->attach(Auth::user(), ['relation' => 'envie']);
+        }else{
+            $game->users()->attach(Auth::user(), ['relation' => 'envie']);
+        };
+
+        return redirect()->back();
     }
 }

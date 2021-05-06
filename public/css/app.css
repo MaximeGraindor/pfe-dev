@@ -969,7 +969,7 @@ body {
 }
 
 .dashboard-browse {
-  padding: 3rem 7rem;
+  padding: 5rem 7rem;
 }
 
 .browse-form {
@@ -1052,11 +1052,11 @@ body {
 .game-card-img-container img {
   width: 200px;
   vertical-align: bottom;
-  border-radius: 1.25rem;
+  border-radius: 0.3125rem;
 }
 .game-card-img-container .game-card-button-wrapper {
   display: none;
-  border-radius: 1.25rem;
+  border-radius: 0.3125rem;
 }
 
 .game-card-img-container:hover .game-card-button-wrapper {
@@ -1078,8 +1078,8 @@ body {
   background-color: #262B48;
   color: white;
   border: 1px solid white;
-  width: 100%;
-  border-radius: 2rem;
+  width: 135px;
+  border-radius: 0.3125rem;
   flex: 1;
 }
 .game-card-img-container:hover .game-card-button-wrapper input:hover {

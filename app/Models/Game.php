@@ -18,22 +18,22 @@ class Game extends Model
 
     public function modes()
     {
-        return $this->hasMany(Mode::class);
+        return $this->belongsToMany(Mode::class, 'game_modes');
     }
 
     public function plateformes()
     {
-        return $this->hasMany(Plateforme::class);
+        return $this->belongsToMany(Plateforme::class, 'game_plateformes');
     }
 
     public function supports()
     {
-        return $this->hasMany(Support::class);
+        return $this->belongsToMany(Support::class, 'game_supports');
     }
 
     public function genres()
     {
-        return $this->hasMany(Genre::class);
+        return $this->belongsToMany(Genre::class, 'game_genres');
     }
 
     public function users()

@@ -57,9 +57,23 @@
         font-size: pxToRem(14);
         line-height: 1.2rem;
     }
-    .release-date{
-        font-family: $font-content;
-        background-color: #2E325C;
-        padding: 0.8rem 0.9rem;
+
+    .release-bottom{
+        display: flex;
+        gap: 1rem;
+        .release-date{
+            font-family: $font-content;
+            background-color: #2E325C;
+            padding: 0.8rem 0.9rem;
+            flex: 50%;
+            box-sizing: border-box;
+        }
+        .release-trailer{
+            font-family: $font-content;
+            background-color: #2E325C;
+            padding: 0.8rem 0.9rem;
+            flex: 50%;
+            box-sizing: border-box;
+        }
     }
 }

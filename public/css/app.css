@@ -962,10 +962,23 @@ body {
   font-size: 0.875rem;
   line-height: 1.2rem;
 }
-.release-infos .release-date {
+.release-infos .release-bottom {
+  display: flex;
+  gap: 1rem;
+}
+.release-infos .release-bottom .release-date {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   background-color: #2E325C;
   padding: 0.8rem 0.9rem;
+  flex: 50%;
+  box-sizing: border-box;
+}
+.release-infos .release-bottom .release-trailer {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  background-color: #2E325C;
+  padding: 0.8rem 0.9rem;
+  flex: 50%;
+  box-sizing: border-box;
 }
 
 .dashboard-browse {

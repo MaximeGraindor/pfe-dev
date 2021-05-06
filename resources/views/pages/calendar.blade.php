@@ -68,7 +68,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -80,7 +83,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -92,7 +98,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -104,7 +113,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -116,7 +128,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -128,7 +143,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -140,7 +158,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-release">
@@ -152,7 +173,10 @@
                         <p class="release-about">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis amet tempora omnis a officiis laborum optio ratione tempore velit non quasi ullam sequi quisquam ducimus, aut reiciendis atque, doloribus similique! Lorem ipsum dolor sit amet consectetur...
                         </p>
-                        <span class="release-date">02/05/2022</span>
+                        <div class="release-bottom">
+                            <span class="release-date">02/05/2022</span>
+                            <span class="release-trailer">bande annonce</span>
+                        </div>
                     </div>
                 </div>
             </div>

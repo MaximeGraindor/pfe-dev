@@ -123,6 +123,22 @@
                 background-color: $color-main;
             }
         }
+        .game-card-deleteRelation{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            input{
+                background-image: url('./../img/close.svg');
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position: center;
+                border: none;
+                background-color: transparent;
+                width: auto;
+                cursor: pointer;
+                padding: 0.3rem 0.8rem;
+            }
+        }
     }
 }
 

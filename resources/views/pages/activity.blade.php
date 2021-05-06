@@ -23,6 +23,10 @@
                                     @csrf
                                     <input type="submit" value="envie" name="wish">
                                 </form>
+                                <form action="/gameuser/{{ $game->id }}" method="post" class="game-card-deleteRelation">
+                                    @csrf
+                                    <input type="submit" value="" name="delete">
+                                </form>
                             </div>
                         </div>
                         <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
@@ -52,6 +56,10 @@
                                     @csrf
                                     <input type="submit" value="envie" name="wish">
                                 </form>
+                                <form action="/gameuser/{{ $game->id }}" method="post" class="game-card-deleteRelation">
+                                    @csrf
+                                    <input type="submit" value="" name="delete">
+                                </form>
                             </div>
                         </div>
                         <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
@@ -80,6 +88,10 @@
                                 <form action="/game/addToWish/{{ $game->id }}" method="post">
                                     @csrf
                                     <input type="submit" value="envie" name="wish">
+                                </form>
+                                <form action="/gameuser/{{ $game->id }}" method="post" class="game-card-deleteRelation">
+                                    @csrf
+                                    <input type="submit" value="" name="delete">
                                 </form>
                             </div>
                         </div>

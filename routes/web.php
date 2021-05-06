@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\GameUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\DashboardController;
 
 /*

@@ -1085,6 +1085,22 @@ body {
 .game-card-img-container:hover .game-card-button-wrapper input:hover {
   background-color: #13171C;
 }
+.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation input {
+  background-image: url("./../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  width: auto;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+}
 
 .selectbox {
   position: relative;

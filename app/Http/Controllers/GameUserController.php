@@ -80,6 +80,6 @@ class GameUserController extends Controller
      */
     public function destroy(GameUser $gameUser)
     {
-        //
+        return $gameUser;
     }
 }

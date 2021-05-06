@@ -192,4 +192,15 @@ class GameController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * Delete the relation
+     *
+     * @param  \App\Models\Game  $game
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteRelationUser(Game $game)
+    {
+        return "delete test";
+    }
 }

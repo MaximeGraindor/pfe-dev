@@ -6,11 +6,11 @@
         <div class="calendar-filter">
             <form action="#" method="post">
                 <div class="calendar-filter-plateforme">
-                    <label for="plateforme" class="hidden">Plateforme</label>
+                    <label for="plateforme" class="hidden">Mode de jeu</label>
                     <select name="plateforme" id="plateforme">
-                        <option value="">Éditeur</option>
-                        @foreach ($publishers as $publisher)
-                            <option value="{{$publisher->name }}">{{$publisher->name }}</option>
+                        <option value="">Mode de jeu</option>
+                        @foreach ($modes as $mode)
+                            <option value="{{$mode->name }}">{{$mode->name }}</option>
                         @endforeach
                     </select>
                 </div>

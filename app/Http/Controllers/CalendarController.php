@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mode;
 use App\Models\Support;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
@@ -16,8 +17,8 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $publishers = Publisher::all();
+        $modes = Mode::all();
         $supports = Support::all();
-        return view('pages.calendar', compact('publishers', 'supports'));
+        return view('pages.calendar', compact('modes', 'supports'));
     }
 }

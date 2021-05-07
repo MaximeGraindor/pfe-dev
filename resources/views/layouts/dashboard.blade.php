@@ -9,6 +9,7 @@
         <title>Gameon - @yield('title')</title>
 
         {{-- CSS --}}
+        @livewireStyles
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     </head>
 
@@ -90,6 +91,7 @@
             </div>
         </div>
 
+        @livewireScripts
         <script src="{{ asset('/js/app.js') }}"></script>
 
     </body>

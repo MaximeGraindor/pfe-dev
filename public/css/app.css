@@ -923,6 +923,7 @@ body {
   padding: 0.6rem 0.9rem;
   border: 1px solid black;
   border-radius: 5px;
+  border: 1px solid white;
 }
 
 .calendar-content-wrapper {

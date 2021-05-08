@@ -130,12 +130,12 @@ class GameController extends Controller
     public function addToCurrent(Game $game)
     {
         // Vérifie si le jeu est déjà présent dans la liste
-        if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $game->id]])->exists()){
+        if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
         };
 
         // vérifie si le jeu appartient déjà à une autre liste
-        if(GameUser::where('game_id', $game->id)->exists()){
+        if(GameUser::where([['game_id', $game->id],['user_id', Auth::user()->id]])->exists()){
             $game->users()->detach();
             $game->users()->attach(Auth::user(), ['relation' => 'en cours']);
         }else{
@@ -154,12 +154,12 @@ class GameController extends Controller
     public function addToFinish(Game $game)
     {
         // Vérifie si le jeu est déjà présent dans la liste
-        if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $game->id]])->exists()){
+        if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux terminés');
         };
 
         // vérifie si le jeu appartient déjà à une autre liste
-        if(GameUser::where('game_id', $game->id)->exists()){
+        if(GameUser::where([['game_id', $game->id],['user_id', Auth::user()->id]])->exists()){
             $game->users()->detach();
             $game->users()->attach(Auth::user(), ['relation' => 'termine']);
         }else{
@@ -178,12 +178,12 @@ class GameController extends Controller
     public function addToWish(Game $game)
     {
         // Vérifie si le jeu est déjà présent dans la liste
-        if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $game->id]])->exists()){
+        if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste d\'envie');
         };
 
         // vérifie si le jeu appartient déjà à une autre liste
-        if(GameUser::where('game_id', $game->id)->exists()){
+        if(GameUser::where([['game_id', $game->id],['user_id', Auth::user()->id]])->exists()){
             $game->users()->detach();
             $game->users()->attach(Auth::user(), ['relation' => 'envie']);
         }else{

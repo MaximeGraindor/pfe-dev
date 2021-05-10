@@ -3,8 +3,66 @@
     color: white;
 }
 
-.users-rsult-text{
+.users-result-text{
     font-family: $font-content;
     font-size: pxToRem(40);
     margin-bottom: 5rem;
+}
+
+.users-content-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin: 5rem 0 0 0
+}
+
+.users-user{
+    background-color: $color-second;
+    display: flex;
+    box-sizing: border-box;
+    font-family: $font-content;
+    border: 2px solid black;
+    .user-left{
+        flex: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        border-right: 2px solid black;
+        img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+    }
+    .user-right{
+        padding: 1rem;
+    }
+}
+
+.user-pseudo{
+    font-family: $font-content;
+    color: white;
+    font-size: pxToRem(20);
+    text-decoration: none;
+    margin: 0.7rem 0;
+}
+
+.user-follow-button{
+    padding: 0.4rem 1.2rem;
+    font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    border: none;
+    background-color: #121528;
+    color: white;
+    font-size: 1rem;
+}
+
+.user-right-games{
+    display: flex;
+    img{
+        margin-right: 1rem;
+        width: 82px;
+    }
 }

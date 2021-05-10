@@ -15,12 +15,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest();
+        $users = User::with('games','badges');
         if(request('pseudo')){
             $users->where('pseudo','like', '%'.request('pseudo').'%');
         }
 
-        $result = $users->get();
+        $result = $users->get()->map(function ($query) {
+            $query->setRelation('games', $query->games->take(5));
+            return $query;
+        });
 
         return view('pages.users', compact('result'));
     }

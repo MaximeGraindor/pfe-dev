@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Badge;
 use Overtrue\LaravelFollow\Followable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -55,6 +56,10 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_users');
+    }
+    public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'badge_users');
     }
 
     // ATTRIBUTES

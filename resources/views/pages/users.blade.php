@@ -2,15 +2,74 @@
 @section('title', 'Liste des utilisateurs')
 @section('content')
     <div class="dashboard-users">
-        <p class="users-rsult-text">
+        <p class="users-result-text">
             Résultat de la recherche
         </p>
         <div class="users-content">
-            @foreach ($result as $user)
-                <a href="/profil/{{$user->pseudo}}">
-                    {{$user->pseudo}}
-                </a>
-            @endforeach
+            <div class="users-content-wrapper">
+                @foreach ($result as $user)
+                    <div class="users-user">
+                        <div class="user-left">
+                            <img src="/img/Login-background.jpg" alt="Photo de profil">
+                            <a href="/profil/{{$user->pseudo}}" class="user-pseudo">
+                                {{$user->pseudo}}
+                            </a>
+                            <input type="submit" value="Suivre" class="user-follow-button">
+                        </div>
+                        <div class="user-right">
+                            <div class="user-right-games">
+                                @foreach ($user->games as $game)
+                                    <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                                @endforeach
+                            </div>
+                            <div class="user-right-badges">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users-user">
+                        <div class="user-left">
+                            <img src="/img/Login-background.jpg" alt="Photo de profil">
+                            <a href="/profil/{{$user->pseudo}}" class="user-pseudo">
+                                {{$user->pseudo}}
+                            </a>
+                            <input type="submit" value="Suivre" class="user-follow-button">
+                        </div>
+                        <div class="user-right">
+                            <div class="user-right-games">
+                                @foreach ($user->games as $game)
+                                    <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                                @endforeach
+                            </div>
+                            <div class="user-right-badges">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users-user">
+                        <div class="user-left">
+                            <img src="/img/Login-background.jpg" alt="Photo de profil">
+                            <a href="/profil/{{$user->pseudo}}" class="user-pseudo">
+                                {{$user->pseudo}}
+                            </a>
+                            <input type="submit" value="Suivre" class="user-follow-button">
+                        </div>
+                        <div class="user-right">
+                            <div class="user-right-games">
+                                @foreach ($user->games as $game)
+                                    <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                                @endforeach
+                            </div>
+                            <div class="user-right-badges">
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+
+
         </div>
     </div>
 @endsection

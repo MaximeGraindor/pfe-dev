@@ -6,20 +6,24 @@
         <div class="profil-header">
             <img src="/img/Login-background.jpg" alt="">
             <div class="profil-info">
-                <p class="profil-info-pseudo">
-                    {{$user->pseudo }}
-                    <a href="/profil/modifier" title="Modifier son profil" class="profil-info-update">
-                        <img src="/img/settings.svg" alt="">
+                <div class="profil-info-top">
+                    <p class="info-top-pseudo">{{$user->pseudo }}</p>
+                    <a href="/profil/modifier" title="Modifier son profil" class="info-top-update">
+                        <img src="/img/settings.svg" alt="Modifier son profil">
                     </a>
-                </p>
+                    <form action="/profil/{{$user->pseudo }}/follow" method="post" class="info-top-follow">
+                        @csrf
+                        <input type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
+                    </form>
+                </div>
                 <div class="profil-activity">
                     <div class="profil-activity-card">
                         <p>Abonnements</p>
-                        <span>0</span>
+                        <span>{{$user->followings->count()}}</span>
                     </div>
                     <div class="profil-activity-card">
                         <p>Abonnés</p>
-                        <span>0</span>
+                        <span>{{$user->followers->count()}}</span>
                     </div>
                 </div>
             </div>

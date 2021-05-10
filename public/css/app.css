@@ -1174,19 +1174,34 @@ body {
   margin-right: 2rem;
 }
 
-.profil-info {
+.profil-info-top {
+  display: flex;
   color: white;
-}
-.profil-info .profil-info-pseudo {
-  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
-  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
+.profil-info-top .info-top-pseudo {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+.profil-info-top .info-top-follow input {
+  padding: 0.4rem 1.2rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+  border: none;
+  background-color: #262B48;
+  color: white;
+  font-size: 1rem;
+}
+.profil-info-top .info-top-follow input:hover {
+  cursor: pointer;
+}
 
-.profil-info-update {
+.info-top-update {
   margin-left: 0.5rem;
 }
-.profil-info-update img {
+.info-top-update img {
   width: 20px;
   height: 20px;
 }
@@ -1195,6 +1210,7 @@ body {
   display: flex;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   margin-top: 1rem;
+  color: white;
 }
 .profil-activity .profil-activity-card {
   display: flex;

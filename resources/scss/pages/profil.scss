@@ -19,16 +19,33 @@
     }
 }
 
-.profil-info{
+.profil-info-top{
+    display: flex;
     color: white;
-    .profil-info-pseudo{
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    .info-top-pseudo{
         font-family: $font-heading;
         font-size: 2rem;
-        margin-top: 1rem;
+    }
+    .info-top-follow{
+        input{
+            padding: 0.4rem 1.2rem;
+            font-family: $font-content;
+            border-radius: 5px;
+            border: none;
+            background-color: $color-third;
+            color: white;
+            font-size: 1rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
 }
 
-.profil-info-update{
+.info-top-update{
     margin-left: 0.5rem;
     img{
         width: 20px;
@@ -40,6 +57,7 @@
     display: flex;
     font-family: $font-content;
     margin-top: 1rem;
+    color: white;
     .profil-activity-card{
         display: flex;
         flex-direction: column;

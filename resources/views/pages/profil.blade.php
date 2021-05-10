@@ -4,25 +4,21 @@
     <div class="dashboard-profil">
         <div class="profil-banner"></div>
         <div class="profil-header">
-            <img src="./img/Login-background.jpg" alt="">
+            <img src="/img/Login-background.jpg" alt="">
             <div class="profil-info">
                 <p class="profil-info-pseudo">
-                    {{ Auth::user()->pseudo }}
+                    {{$user->pseudo }}
                     <a href="/profil/modifier" title="Modifier son profil" class="profil-info-update">
-                        <img src="./img/settings.svg" alt="">
+                        <img src="/img/settings.svg" alt="">
                     </a>
                 </p>
                 <div class="profil-activity">
                     <div class="profil-activity-card">
-                        <p>En cours</p>
+                        <p>Abonnements</p>
                         <span>0</span>
                     </div>
                     <div class="profil-activity-card">
-                        <p>Terminé</p>
-                        <span>0</span>
-                    </div>
-                    <div class="profil-activity-card">
-                        <p>Envie</p>
+                        <p>Abonnés</p>
                         <span>0</span>
                     </div>
                 </div>

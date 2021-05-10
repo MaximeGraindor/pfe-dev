@@ -1225,6 +1225,17 @@ body {
   margin-bottom: 1.75rem;
 }
 
+.dashboard-users {
+  padding: 5rem 7rem;
+  color: white;
+}
+
+.users-rsult-text {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
 .dashboard-addGame {
   padding: 5rem 7rem;
 }

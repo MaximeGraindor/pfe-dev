@@ -60,9 +60,9 @@
             <div class="dashboard-right">
                 <div class="dashboard-top">
                     <div class="dashboard-top-left">
-                        <form action="#" class="dashboard-top-form">
+                        <form action="/utilisateurs" class="dashboard-top-form">
                             <label for="search" class="hidden">Rechercher</label>
-                            <input type="search" id="search" placeholder="Counter strike Global Offensive">
+                            <input type="search" id="search" placeholder="Utilisateurs" name="pseudo">
                             <input type="submit" value="Rechercher">
                         </form>
                     </div>
@@ -76,7 +76,7 @@
                             </a>
                         </div>
                         <div class="dashboard-top-userProfil">
-                            <a href="/profil">
+                            <a href="/profil/{{ Auth::user()->pseudo }}">
                                 {{ Auth::user()->pseudo }}
                             </a>
                             <img src="/img/Login-background.jpg" alt="Photo de profil">

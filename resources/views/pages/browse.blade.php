@@ -82,7 +82,7 @@
                             </form>
                         </div>
                     </div>
-                    <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
+                    <a href="/jeu/{{ $game->slug }}">{{ $game->name }}</a>
                 </div>
             @endforeach
         </div>

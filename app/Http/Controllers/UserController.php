@@ -15,7 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
+        $users = User::latest();
+        if(request('pseudo')){
+            $users->where('pseudo','like', '%'.request('pseudo').'%');
+        }
 
+        $result = $users->get();
+
+        return view('pages.users', compact('result'));
     }
 
     /**
@@ -50,22 +57,22 @@ class UserController extends Controller
         $currentGamesList = User::with(['games' => function ($query){
             $query->wherePivot('relation', 'en cours');
         }])
-        ->where('id', Auth::user()->id)
+        ->where('id', $user->id)
         ->get();
 
         $finishGamesList = User::with(['games' => function ($query){
             $query->wherePivot('relation', 'termine');
         }])
-        ->where('id', Auth::user()->id)
+        ->where('id', $user->id)
         ->get();
 
         $wishGamesList = User::with(['games' => function ($query){
             $query->wherePivot('relation', 'envie');
         }])
-        ->where('id', Auth::user()->id)
+        ->where('id', $user->id)
         ->get();
 
-        return view('pages.profil', compact('currentGamesList', 'finishGamesList', 'wishGamesList'));
+        return view('pages.profil', compact('user', 'currentGamesList', 'finishGamesList', 'wishGamesList'));
     }
 
     /**

@@ -27,6 +27,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/calendrier', [CalendarController::class, 'index'])->name('calendar');
 Route::get('/profil', [UserController::class, 'show'])->name('profil');
+Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])->name('profil');
+Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
+Route::get('/utilisateurs/{user}', [UserController::class, 'index'])->name('users');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
@@ -48,4 +51,4 @@ Route::post('/game/addToWish/{game}', [GameController::class, 'addToWish'])->nam
 
 
 
-Route::get('/jeu/{game}', [GameController::class, 'show']);
+Route::get('/jeu/{game:slug}', [GameController::class, 'show']);

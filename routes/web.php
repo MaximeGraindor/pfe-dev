@@ -10,6 +10,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\GameUserController;
+use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -27,6 +28,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/calendrier', [CalendarController::class, 'index'])->name('calendar');
+Route::get('/communaute', [CommunityController::class, 'show'])->name('community');
 Route::get('/profil', [UserController::class, 'show'])->name('profil');
 Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])->name('profil');
 Route::post('/profil/{user:pseudo}/follow', [FollowsController::class, 'store']);
@@ -46,9 +48,9 @@ Route::post('/admin/ajouter-jeu/store', [GameController::class, 'store'])
 
 
 
-Route::post('/game/addToCurrent/{game}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
-Route::post('/game/addToFinish/{game}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
-Route::post('/game/addToWish/{game}', [GameController::class, 'addToWish'])->name('game.addToWish');
+Route::post('/game/addToCurrent/{game:slug}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
+Route::post('/game/addToFinish/{game:slug}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
+Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])->name('game.addToWish');
 
 
 

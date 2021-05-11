@@ -68,15 +68,15 @@
                     <div class="game-card-img-container">
                         <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
                         <div class="game-card-button-wrapper">
-                            <form action="/game/addToCurrent/{{ $game->id }}" method="post">
+                            <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                 @csrf
                                 <input type="submit" value="En cours" name="curent">
                             </form>
-                            <form action="/game/addToFinish/{{ $game->id }}" method="post">
+                            <form action="/game/addToFinish/{{ $game->slug }}" method="post">
                                 @csrf
                                 <input type="submit" value="Terminé" name="finish">
                             </form>
-                            <form action="/game/addToWish/{{ $game->id }}" method="post">
+                            <form action="/game/addToWish/{{ $game->slug }}" method="post">
                                 @csrf
                                 <input type="submit" value="envie" name="wish">
                             </form>

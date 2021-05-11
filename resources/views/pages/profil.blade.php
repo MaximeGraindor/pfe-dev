@@ -4,17 +4,19 @@
     <div class="dashboard-profil">
         <div class="profil-banner"></div>
         <div class="profil-header">
-            <img src="/img/Login-background.jpg" alt="">
+            <div><img src="/img/{{$user->picture}}" alt="Photo de profil"></div>
             <div class="profil-info">
                 <div class="profil-info-top">
                     <p class="info-top-pseudo">{{$user->pseudo }}</p>
                     <a href="/profil/modifier" title="Modifier son profil" class="info-top-update">
                         <img src="/img/settings.svg" alt="Modifier son profil">
                     </a>
-                    <form action="/profil/{{$user->pseudo }}/follow" method="post" class="info-top-follow">
-                        @csrf
-                        <input type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
-                    </form>
+                    @if(Auth::user()->id !== $user->id)
+                        <form action="/profil/{{$user->pseudo }}/follow" method="post" class="info-top-follow">
+                            @csrf
+                            <input type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
+                        </form>
+                    @endif
                 </div>
                 <div class="profil-activity">
                     <div class="profil-activity-card">
@@ -29,6 +31,26 @@
             </div>
         </div>
         <div class="profil-content">
+            <section class="profil-badges">
+                <h2 class="badges-title">
+                    Badges de récompenses
+                </h2>
+                <div class="badges-content">
+                    @if($user->badges->count() === 0)
+                        <p>
+                            Pas de badges pour le moment. Ajoutez votre premier jeu pour un gagner un&nbsp;!
+                        </p>
+                    @else
+                        @foreach($user->badges as $badge)
+                            <div class="badges-item">
+                                <img src="/img/{{$badge->img}}" alt="{{$badge->description}}">
+                                <span>{{$badge->name}}</span>
+                            </div>
+                        @endforeach
+                    @endif
+
+                </div>
+            </section>
             <section class="profil-section">
                 <h2>Jeux en cours</h2>
                 <div class="profil-section-wrapper">
@@ -38,21 +60,25 @@
                             <div class="game-card-img-container">
                                 <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
                                 <div class="game-card-button-wrapper">
-                                    <form action="#" method="post">
+                                    <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="En cours" name="curent">
                                     </form>
-                                    <form action="#" method="post">
+                                    <form action="/game/addToFinish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="Terminé" name="finish">
                                     </form>
-                                    <form action="/jeu/ajouter/{{ $game->id }}" method="post">
+                                    <form action="/game/addToWish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="envie" name="wish">
                                     </form>
+                                    <form action="/gameuser/{{ $game->slug }}" method="post" class="game-card-deleteRelation">
+                                        @csrf
+                                        <input type="submit" value="" name="delete">
+                                    </form>
                                 </div>
                             </div>
-                            <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
+                            <a href="/jeu/{{ $game->slug }}">{{ $game->name }}</a>
                         </div>
                         @endforeach
                     @endforeach
@@ -67,21 +93,25 @@
                             <div class="game-card-img-container">
                                 <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
                                 <div class="game-card-button-wrapper">
-                                    <form action="#" method="post">
+                                    <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="En cours" name="curent">
                                     </form>
-                                    <form action="#" method="post">
+                                    <form action="/game/addToFinish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="Terminé" name="finish">
                                     </form>
-                                    <form action="/jeu/ajouter/{{ $game->id }}" method="post">
+                                    <form action="/game/addToWish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="envie" name="wish">
                                     </form>
+                                    <form action="/gameuser/{{ $game->slug }}" method="post" class="game-card-deleteRelation">
+                                        @csrf
+                                        <input type="submit" value="" name="delete">
+                                    </form>
                                 </div>
                             </div>
-                            <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
+                            <a href="/jeu/{{ $game->slug }}">{{ $game->name }}</a>
                         </div>
                         @endforeach
                     @endforeach
@@ -96,21 +126,25 @@
                             <div class="game-card-img-container">
                                 <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
                                 <div class="game-card-button-wrapper">
-                                    <form action="#" method="post">
+                                    <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="En cours" name="curent">
                                     </form>
-                                    <form action="#" method="post">
+                                    <form action="/game/addToFinish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="Terminé" name="finish">
                                     </form>
-                                    <form action="/jeu/ajouter/{{ $game->id }}" method="post">
+                                    <form action="/game/addToWish/{{ $game->slug }}" method="post">
                                         @csrf
                                         <input type="submit" value="envie" name="wish">
                                     </form>
+                                    <form action="/gameuser/{{ $game->slug }}" method="post" class="game-card-deleteRelation">
+                                        @csrf
+                                        <input type="submit" value="" name="delete">
+                                    </form>
                                 </div>
                             </div>
-                            <a href="/jeu/{{ $game->id }}">{{ $game->name }}</a>
+                            <a href="/jeu/{{ $game->slug }}">{{ $game->name }}</a>
                         </div>
                         @endforeach
                     @endforeach

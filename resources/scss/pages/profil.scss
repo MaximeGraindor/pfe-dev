@@ -71,6 +71,30 @@
     }
 }
 
+.profil-badges{
+    padding: 2rem;
+    background-color: $color-second;
+    border-radius: 5px;
+    font-family: $font-content;
+    .badges-content{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}
+
+.badges-item{
+    text-align: center;
+    img{
+        width: 150px;
+        margin-bottom: 0.5rem;
+    }
+    span{
+        display: block;
+        font-size: pxToRem(14);
+    }
+}
+
 .profil-content{
     padding: 0rem 7rem;
     section{

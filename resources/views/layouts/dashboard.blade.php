@@ -34,10 +34,10 @@
                             <a href="/parcourir" class="sidebar-menu-link {{request()->route()->named('browse') ? ' sidebar-active' : ''}}">Parcourir</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="#" class="sidebar-menu-link {{request()->route()->named('community') ? ' sidebar-active' : ''}}">Communauté</a>
+                            <a href="/communaute" class="sidebar-menu-link {{request()->route()->named('community') ? ' sidebar-active' : ''}}">Communauté</a>
                         </li>
                         <li class="sidebar-menu-item">
-                            <a href="/profil" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
+                            <a href="/profil/{{ Auth::user()->pseudo }}" class="sidebar-menu-link {{request()->route()->named('profil') ? ' sidebar-active' : ''}}">Profil</a>
                         </li>
                         @can('add-game', Game::class)
                             <li class="sidebar-menu-item">
@@ -79,7 +79,7 @@
                             <a href="/profil/{{ Auth::user()->pseudo }}">
                                 {{ Auth::user()->pseudo }}
                             </a>
-                            <img src="/img/Login-background.jpg" alt="Photo de profil">
+                            <div><img src="/img/{{Auth::user()->picture}}" alt="Photo de profil"></div>
                         </div>
                     </div>
                 </div>

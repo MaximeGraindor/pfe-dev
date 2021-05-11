@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Mode;
+use App\Models\User;
+use App\Models\Badge;
 use App\Models\Genre;
 use App\Models\Support;
 use App\Models\GameUser;
@@ -129,6 +131,11 @@ class GameController extends Controller
      */
     public function addToCurrent(Game $game)
     {
+        if(!GameUser::where('user_id', Auth::user()->id)->exists()){
+            //Si pas de jeu, on ajoute un badge à l'utilisateur de
+            $currentUser = User::where('id', Auth::user()->id)->first();
+            $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+        }
         // Vérifie si le jeu est déjà présent dans la liste
         if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
@@ -153,6 +160,11 @@ class GameController extends Controller
      */
     public function addToFinish(Game $game)
     {
+        if(!GameUser::where('user_id', Auth::user()->id)->exists()){
+            //Si pas de jeu, on ajoute un badge à l'utilisateur de
+            $currentUser = User::where('id', Auth::user()->id)->first();
+            $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+        }
         // Vérifie si le jeu est déjà présent dans la liste
         if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux terminés');
@@ -177,6 +189,11 @@ class GameController extends Controller
      */
     public function addToWish(Game $game)
     {
+        if(!GameUser::where('user_id', Auth::user()->id)->exists()){
+            //Si pas de jeu, on ajoute un badge à l'utilisateur de
+            $currentUser = User::where('id', Auth::user()->id)->first();
+            $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+        }
         // Vérifie si le jeu est déjà présent dans la liste
         if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $game->id], ['user_id', Auth::user()->id]])->exists()){
             return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste d\'envie');

@@ -57,6 +57,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+
+        $user->load('badges');
+
         $currentGamesList = User::with(['games' => function ($query){
             $query->wherePivot('relation', 'en cours');
         }])

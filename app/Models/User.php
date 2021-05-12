@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Badge;
+use App\Models\ActivityLog;
 use Overtrue\LaravelFollow\Followable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Contracts\Activity;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,6 +63,10 @@ class User extends Authenticatable
     public function badges()
     {
         return $this->belongsToMany(Badge::class, 'badge_users');
+    }
+    public function activities()
+    {
+        return $this->hasMany(ActivityLog::class, 'causer_id');
     }
 
     // ATTRIBUTES

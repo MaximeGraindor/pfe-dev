@@ -12,6 +12,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FollowersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,11 @@ Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
 Route::get('/calendrier', [CalendarController::class, 'index'])->name('calendar');
 Route::get('/communaute', [CommunityController::class, 'show'])->name('community');
 Route::get('/profil', [UserController::class, 'show'])->name('profil');
+
 Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])->name('profil');
+Route::get('/profil/{user:pseudo}/abonnes', [FollowsController::class, 'showFollowers'])->name('followers');
+Route::get('/profil/{user:pseudo}/abonnements', [FollowsController::class, 'showFollowings'])->name('followers');
+
 Route::post('/profil/{user:pseudo}/follow', [FollowsController::class, 'store']);
 Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');

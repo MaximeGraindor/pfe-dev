@@ -18,7 +18,7 @@ class BadgeSeeder extends Seeder
         Badge::insert([
             'name' => 'Premier commentaire',
             'slug' => 'premier-commentaire',
-            'img' => '/',
+            'img' => 'badge-comment.svg',
             'description' => 'Vous avez posté votre premier commentaire',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -26,7 +26,7 @@ class BadgeSeeder extends Seeder
         Badge::insert([
             'name' => 'Premier jeu ajouté',
             'slug' => 'premier-jeu',
-            'img' => '/',
+            'img' => 'badge-game.svg',
             'description' => 'Vous avez ajouté votre premier jeu',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

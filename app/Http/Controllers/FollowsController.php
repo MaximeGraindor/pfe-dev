@@ -19,4 +19,12 @@ class FollowsController extends Controller
 
         return back();
     }
+
+    public function showFollowers(User $user){
+        return Auth::user()->followers()->get();
+    }
+
+    public function showFollowings(User $user){
+        return Auth::user()->followings()->get();
+    }
 }

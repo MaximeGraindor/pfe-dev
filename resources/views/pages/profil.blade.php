@@ -21,11 +21,11 @@
                 <div class="profil-activity">
                     <div class="profil-activity-card">
                         <p>Abonnements</p>
-                        <span>{{$user->followings->count()}}</span>
+                        <a href="/profil/{{$user->pseudo }}/abonnements">{{$user->followings->count()}}</a>
                     </div>
                     <div class="profil-activity-card">
                         <p>Abonnés</p>
-                        <span>{{$user->followers->count()}}</span>
+                        <a href="/profil/{{$user->pseudo }}/abonnes">{{$user->followers->count()}}</a>
                     </div>
                 </div>
             </div>

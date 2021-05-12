@@ -1321,6 +1321,10 @@ body {
 .profil-activity .profil-activity-card p {
   margin-bottom: 0.5rem;
 }
+.profil-activity .profil-activity-card a {
+  color: white;
+  text-decoration: none;
+}
 .profil-activity .profil-activity-card:not(:last-child) {
   margin-right: 2rem;
 }
@@ -1378,60 +1382,68 @@ body {
 }
 
 .users-content-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 4rem;
   margin: 5rem 0 0 0;
 }
 
-.users-user {
+.users-item {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   background-color: #222831;
-  display: flex;
-  box-sizing: border-box;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  border: 2px solid black;
+  border-radius: 5px;
+  padding: 1.5rem 2.5rem;
+  flex: 1 1 0px;
 }
-.users-user .user-left {
+.users-item:not(:last-child) {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.users-item-top {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 1rem;
-  border-right: 2px solid black;
+  margin-bottom: 1rem;
 }
-.users-user .user-left img {
-  width: 100px;
-  height: 100px;
+.users-item-top div {
+  margin-right: 1rem;
   border-radius: 50%;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
 }
-.users-user .user-right {
-  padding: 1rem;
+.users-item-top div img {
+  width: 100%;
 }
-
-.user-pseudo {
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+.users-item-top .users-item-pseudo {
+  font-size: 1.375rem;
   color: white;
-  font-size: 1.25rem;
-  text-decoration: none;
-  margin: 0.7rem 0;
 }
 
-.user-follow-button {
+.users-item-follows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: white;
+}
+.users-item-follows span {
+  display: block;
+}
+.users-item-follows span:first-child {
+  margin-bottom: 0.5rem;
+}
+
+.users-item-button {
+  width: 100%;
   padding: 0.4rem 1.2rem;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   border-radius: 5px;
   border: none;
-  background-color: #121528;
+  background-color: #262B48;
   color: white;
   font-size: 1rem;
-}
-
-.user-right-games {
-  display: flex;
-}
-.user-right-games img {
-  margin-right: 0.5rem;
-  width: 30px;
+  border: 1px solid black;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }
 
 .dashboard-addGame {

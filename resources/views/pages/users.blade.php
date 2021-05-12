@@ -8,23 +8,28 @@
         <div class="users-content">
             <div class="users-content-wrapper">
                 @foreach ($result as $user)
-                    <div class="users-user">
-                        <div class="user-left">
-                            <img src="/img/Login-background.jpg" alt="Photo de profil">
-                            <a href="/profil/{{$user->pseudo}}" class="user-pseudo">
-                                {{$user->pseudo}}
-                            </a>
-                            <input type="submit" value="Suivre" class="user-follow-button">
+                <div class="users-item">
+                    <div class="users-item-top">
+                        <div><img src="./img/{{$user->picture}}" alt="Photo de profil"></div>
+                        <span class="users-item-pseudo">
+                            {{$user->pseudo}}
+                        </span>
+                    </div>
+                    <div class="users-item-follows">
+                        <div>
+                            <span>Abonnements</span>
+                            <span>{{$user->followings->count()}}</span>
                         </div>
-                        <div class="user-right">
-                            <div class="user-right-games">
-                                @foreach ($user->games as $game)
-                                    <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
-                                @endforeach
-                            </div>
-
+                        <div>
+                            <span>Abonnés</span>
+                            <span>{{$user->followers->count()}}</span>
                         </div>
                     </div>
+                    <form action="/profil/{{$user->pseudo }}/follow" method="post" class="info-top-follow">
+                        @csrf
+                        <input class="users-item-button" type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
+                    </form>
+                </div>
                 @endforeach
             </div>
         </div>

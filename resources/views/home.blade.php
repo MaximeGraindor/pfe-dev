@@ -11,8 +11,8 @@
                     <h2 role="heading" aria-level="2" class="hidden">
                         Naviguation principal
                     </h2>
-                    <a href="/register">S'inscrire</a>
-                    <a href="/login">Se connecter</a>
+                    <a href="/register" class="header-menu-register">S'inscrire</a>
+                    <a href="/login" class="header-menu-login">Se connecter</a>
                 </nav>
             </header>
         </div>
@@ -73,7 +73,7 @@
                     A propos de Gameon
                 </h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis officia magni ex, illum molestiae eveniet quisquam? Tenetur nemo, dolor sequi, minima debitis impedit a et iure suscipit nam cum. Lorem ipsum dolor sit.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima?
                 </p>
             </div>
         </div>
@@ -82,11 +82,11 @@
     <section class="home-rewards">
         <div class="home-rewards-wrap content-size">
             <div class="rewards-right">
-                <h2 class="rewards-title">
+                <h2 class="rewards-title" role="heading" aria-level="2">
                     Remportez des badges
                 </h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis officia magni ex, illum molestiae eveniet quisquam? Tenetur nemo, dolor sequi, minima debitis impedit a et iure suscipit nam cum. Lorem ipsum dolor sit.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima?
                 </p>
             </div>
             <div class="rewards-left">
@@ -101,11 +101,11 @@
                 <img src="./img/home-comments.jpg" alt="">
             </div>
             <div class="comments-right">
-                <h2 class="comments-title">
+                <h2 class="comments-title" role="heading" aria-level="2">
                     Partagez votre avis
                 </h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis officia magni ex, illum molestiae eveniet quisquam? Tenetur nemo, dolor sequi, minima debitis impedit a et iure suscipit nam cum. Lorem ipsum dolor sit.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt inventore aut, cupiditate distinctio numquam ratione cum iusto voluptate, aliquid blanditiis ducimus recusandae obcaecati consectetur vero ab facere quam. Alias, minima?
                 </p>
             </div>
         </div>
@@ -113,11 +113,11 @@
 
     <section class="home-videogames">
         <div class="videogames-wrap content-size">
-            <h2 class="videogames-title">
+            <h2 class="videogames-title" role="heading" aria-level="2">
                 32 467 jeux vidéos
             </h2>
             <section class="videogames-lastrelease">
-                <h3 class="videogames-title-second">
+                <h3 class="videogames-title-second" role="heading" aria-level="3">
                     Jeux favoris
                 </h3>
                 <div class="videogames-content">
@@ -132,7 +132,7 @@
                 </div>
             </section>
             <section class="videogames-lastrelease">
-                <h3 class="videogames-title-second">
+                <h3 class="videogames-title-second" role="heading" aria-level="3">
                     Dernière sortie
                 </h3>
                 <div class="videogames-content">

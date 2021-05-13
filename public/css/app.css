@@ -106,12 +106,11 @@ body {
   background-image: url("./../img/home-background.png");
   padding-bottom: 18rem;
   background-repeat: no-repeat;
-  background-size: 100%;
   background-position: center;
 }
 
 .home-intro-wrapper {
-  padding: 0 4rem;
+  padding: 0 3rem;
 }
 
 .home-intro-weight {
@@ -123,9 +122,9 @@ body {
   background-image: url("./../img/home-intro-background.jpg");
   background-position: center;
   height: 340px;
-  width: 90%;
   border: 4px solid #262B48;
   margin: 0 auto 4rem;
+  max-width: 1600px;
 }
 
 .home-intro-title {
@@ -144,6 +143,7 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   color: white;
   margin-bottom: 4rem;
+  line-height: 3rem;
 }
 
 .home-intro-cta {
@@ -169,6 +169,7 @@ body {
   justify-content: center;
   gap: 5rem;
   margin-top: 5rem;
+  flex-wrap: wrap;
 }
 
 .infos-item {
@@ -214,7 +215,7 @@ body {
 }
 
 .home-gameon {
-  padding: 5rem;
+  padding: 8rem 0;
 }
 .home-gameon .home-gameon-wrap {
   display: flex;
@@ -231,7 +232,7 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  top: -150px;
+  top: -200px;
   left: 15%;
   box-shadow: 5px 5px 15px -7px #434980;
 }
@@ -409,6 +410,50 @@ body {
   background-image: url("./../img/facebook.svg");
 }
 
+@media screen and (max-width: 780px) {
+  .home-gameon .home-gameon-wrap {
+    flex-direction: column-reverse;
+  }
+
+  .home-gameon .gameon-left {
+    flex: 0 0 100%;
+  }
+  .home-gameon .gameon-left img {
+    width: 100%;
+    position: static;
+  }
+
+  .home-gameon {
+    padding: 4rem 0;
+  }
+
+  .home-gameon .gameon-right {
+    text-align: center;
+  }
+
+  .home-background {
+    padding-bottom: 7rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-intro-title {
+    font-size: 2.5rem;
+  }
+
+  .home-intro-banner {
+    height: 200px;
+    background-size: 100%;
+    margin: 0 auto 2rem;
+  }
+
+  .header-menu-register {
+    display: none;
+  }
+
+  .home-intro-cta .intro-cta-login {
+    font-size: 1.5rem;
+  }
+}
 .login-splitscreen {
   height: 100vh;
   display: flex;

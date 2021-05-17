@@ -14,7 +14,12 @@ use App\Models\Plateforme;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+
 use App\Http\Requests\StoreGameRequest;
+use MarcReichel\IGDBLaravel\Models\Game as IGDBGame;
+use MarcReichel\IGDBLaravel\Builder as IGDB;
+use MarcReichel\IGDBLaravel\Models\Game as IGDBModelGame;
 
 class GameController extends Controller
 {
@@ -23,12 +28,16 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $games = Game::with('publisher', 'modes', 'plateformes', 'supports', 'genres')->get();
-        $publishers = Publisher::all();
-        //return $games;
-        return view('pages.browse', compact('games', 'publishers'));
+
+        /* $games = IGDBGame::Where('name', 'Warframe')
+        ->with(['platforms', 'cover'])
+        ->get(); */
+
+
+        $games = IGDBGame::search('hitman')->with(['platforms', 'cover'])->paginate(50);
+        return view('pages.browse', compact('games'));
     }
 
     /**
@@ -81,8 +90,11 @@ class GameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show(IGDBModelGame $game, Request $request)
     {
+
+        return collect(request()->segments())->last();
+
         $game->load(['comments' => function ($comments){
             $comments->with('user')->get();
         }]);

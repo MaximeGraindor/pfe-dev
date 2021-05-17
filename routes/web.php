@@ -59,4 +59,4 @@ Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])
 
 
 
-Route::get('/jeu/{game:slug}', [GameController::class, 'show']);
+Route::get('/jeu/{game}', [GameController::class, 'show']);

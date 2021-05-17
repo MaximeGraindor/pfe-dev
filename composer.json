@@ -17,6 +17,7 @@
         "laravel/helpers": "^1.4",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.4",
+        "marcreichel/igdb-laravel": "^2.1",
         "overtrue/laravel-follow": "^2.3",
         "spatie/laravel-activitylog": "^3.17"
     },

@@ -13,8 +13,8 @@ class CommunityController extends Controller
 {
     public function show(){
         $usersSuggest = User::all()->random(3)->where('id', '!=', Auth::user()->id);
-        $followers = Auth::user()->followings()->with('activities')->get();
-        //return $followers;
+        $followers = Auth::user()->followings()->with('activities')->first();
+        return $followers;
 
         /* $user = User::with('activities')->where('pseudo', 'ZeDOver')->first();
         return $user->activities[0]->properties; */

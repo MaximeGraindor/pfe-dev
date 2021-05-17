@@ -1210,7 +1210,8 @@ body {
   position: relative;
 }
 .game-card-img-container img {
-  width: 200px;
+  width: 271px;
+  height: 377px;
   vertical-align: bottom;
   border-radius: 0.3125rem;
 }

@@ -1,60 +1,17 @@
+
 @extends('layouts.dashboard')
 @section('title', 'Parcourir')
 
 @section('content')
     <div class="dashboard-browse">
         <div class="browse-header">
-            <form action="#" method="post" class="browse-form">
-                <div class="browse-multiselect">
-                    <div class="selectBox">
-                        <select>
-                            <option>Éditeur</option>
-                        </select>
-                        <div class="overSelect"></div>
-                    </div>
-                    <div class="checkboxes">
-                        @foreach ($publishers as $publisher)
-                            <label for="ubisoft">
-                            <input type="checkbox" id="ubisoft"/>{{ $publisher->name }}</label>
-                        @endforeach
-                    </div>
+            <form action="#" method="get" class="browse-form">
+                <div class="browse-name">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name">
                 </div>
-                <div class="browse-multiselect">
-                    <div class="selectBox">
-                        <select>
-                            <option>Mode de jeu</option>
-                        </select>
-                        <div class="overSelect"></div>
-                    </div>
-                    <div class="checkboxes">
-                        <label for="ubisoft">
-                        <input type="checkbox" id="ubisoft"/>Ubisoft</label>
-                    </div>
                 </div>
-                <div class="browse-multiselect">
-                    <div class="selectBox">
-                        <select>
-                            <option>Plateforme</option>
-                        </select>
-                        <div class="overSelect"></div>
-                    </div>
-                    <div class="checkboxes">
-                        <label for="ubisoft">
-                        <input type="checkbox" id="ubisoft"/>Ubisoft</label>
-                    </div>
-                </div>
-                <div class="browse-multiselect">
-                    <div class="selectBox">
-                        <select>
-                            <option>Genre</option>
-                        </select>
-                        <div class="overSelect"></div>
-                    </div>
-                    <div class="checkboxes">
-                        <label for="ubisoft">
-                        <input type="checkbox" id="ubisoft"/>Ubisoft</label>
-                    </div>
-                </div>
+
                 <div class="browse-form-submit">
                     <input type="submit" value="Rechercher">
                 </div>
@@ -62,11 +19,14 @@
         </div>
 
         <div class="browse-content">
-
             @foreach ($games as $game)
                 <div class="browse-game-card">
                     <div class="game-card-img-container">
-                        <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                        <img
+                            src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg"
+                            alt=""
+                            height="{{$game->cover ? $game->cover->height : null}}"
+                            width="{{$game->cover ? $game->cover->height : null}}">
                         <div class="game-card-button-wrapper">
                             <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                 @csrf
@@ -86,5 +46,6 @@
                 </div>
             @endforeach
         </div>
+
     </div>
 @endsection

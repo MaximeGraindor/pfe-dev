@@ -33,9 +33,9 @@
     background-color: $color-second;
     border-radius: 5px;
     .release-cover{
-        flex: 1 1 700px;
         img{
-            width: 100%;
+            width: 180.6px;
+            height: 251.3px;
             vertical-align: bottom;
             border-radius: 5px 0 0 5px;
         }
@@ -45,23 +45,25 @@
 .release-infos{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     color: white;
     padding: 2rem;
-
+    flex: 1;
     .release-title{
         font-family: $font-heading;
         font-size: pxToRem(20);
+        margin-bottom: 1.250rem;
     }
     .release-about{
         font-family: $font-content;
         font-size: pxToRem(14);
         line-height: 1.2rem;
+        margin-bottom: 1.250rem;
     }
 
     .release-bottom{
         display: flex;
         gap: 1rem;
+        margin-top: auto;
         .release-date{
             font-family: $font-content;
             background-color: #2E325C;

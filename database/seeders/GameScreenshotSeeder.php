@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class GameImageSeeder extends Seeder
+class GameScreenshotSeeder extends Seeder
 {
     /**
      * Run the database seeds.

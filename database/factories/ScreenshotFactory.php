@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Image;
+use App\Models\Screenshot;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class ScreenshotFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Image::class;
+    protected $model = Screenshot::class;
 
     /**
      * Define the model's default state.

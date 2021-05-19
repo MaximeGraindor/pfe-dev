@@ -23,7 +23,6 @@ class CreateGamesTable extends Migration
             $table->string('trailer')->nullable();
             $table->string('classification')->nullable();
             $table->date('release_date');
-            $table->foreignId('publisher_id')->constrained;
             $table->timestamps();
         });
     }

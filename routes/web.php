@@ -26,11 +26,30 @@ use App\Http\Controllers\FollowersController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/parcourir', [GameController::class, 'index'])->name('browse');
-Route::get('/calendrier', [CalendarController::class, 'index'])->name('calendar');
-Route::get('/communaute', [CommunityController::class, 'show'])->name('community');
-Route::get('/profil', [UserController::class, 'show'])->name('profil');
+
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
+
+    Route::get('/parcourir', [GameController::class, 'index'])
+        ->name('browse');
+
+    Route::get('/jeu/{game}', [GameController::class, 'show']);
+
+    Route::get('/calendrier', [CalendarController::class, 'index'])
+        ->name('calendar');
+
+    Route::get('/communaute', [CommunityController::class, 'show'])
+        ->name('community');
+
+    Route::get('/profil', [UserController::class, 'show'])
+        ->name('profil');
+});
+
+
+
+
 
 Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])->name('profil');
 Route::get('/profil/{user:pseudo}/abonnes', [FollowsController::class, 'showFollowers'])->name('followers');
@@ -59,4 +78,4 @@ Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])
 
 
 
-Route::get('/jeu/{game}', [GameController::class, 'show']);
+

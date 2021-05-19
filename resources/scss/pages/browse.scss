@@ -2,50 +2,21 @@
     padding: 5rem 7rem;
 }
 
-.browse-form{
+.browse-filter{
     display: flex;
     justify-content: flex-end;
     gap: 2rem;
-}
-
-.browse-multiselect {
-    width: 200px;
-    position: relative;
-    .selectBox {
-        position: relative;
-    }
-
-    .selectBox select {
-        width: 100%;
-        padding: 0.8rem 0.9rem;
-        background-color: $color-second;
-        color: white;
+    select, input{
         font-family: $font-content;
-        border-radius: 2rem;
-        font-size: 1rem;
+        font-size: pxToRem(15);
+        color: white;
+        background-color: $color-second;
+        width: 200px;
+        padding: 0.6rem 0.9rem;
+        border: 1px solid black;
+        border-radius: 5px;
         border: 1px solid white;
-    }
-
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-    #checkboxes {
-        display: none;
-        border: 1px #dadada solid;
-    }
-
-    #checkboxes label {
-        display: block;
-    }
-
-    #checkboxes label:hover {
-        background-color: #1e90ff;
-    }
+}
 }
 
 .browse-form-submit{

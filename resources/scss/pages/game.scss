@@ -4,8 +4,9 @@
     opacity: 0.5;
     img{
         width: 100%;
-        height: 250px;
+        height: 350px;
         object-fit: cover;
+        filter: blur(5px);
     }
 }
 
@@ -16,18 +17,20 @@
 }
 
 .game-header{
-    position: relative;
-    top: -125px;
     display: flex;
+    position: relative;
+    top: -40px;
 
     .game-cover{
+        width: 271px;
+        height: 377px;
         border-radius: 2rem;
         margin-right: 3rem;
     }
 
     .game-title{
         font-size: 2rem;
-        margin-top: 5rem;
+        margin-top: 6rem;
         margin-bottom: 2rem;
         color: white;
     }
@@ -35,7 +38,7 @@
     .game-description{
         font-family: $font-content;
         font-size: 1.25rem;
-        line-height: 1.50rem;
+        line-height: 1.8rem;
         color: white;
         width: 700px;
     }
@@ -49,6 +52,7 @@
 }
 
 .game-characteristics{
+    margin-top: 4rem;
     dl{
         border: 2px solid black;
     }
@@ -79,21 +83,16 @@
     }
 }
 
-.gallery-grid{
-    display: grid;
-    //grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: 1fr 250px;
-    grid-template-rows: repeat(5, 1fr);
-    grid-gap: 25px;
-
-    .gallery-big{
-        grid-column: 1/1 ;
-        grid-row: 1/6 ;
+.gallery-content{
+    .gallerry-current-img{
         width: 100%;
+        margin-bottom: 1rem;
     }
 
-    .gallery-little{
-        width: 60%;
+    .gallery-thumb{
+        img:not(:last-child){
+            margin-right: 0.5rem;
+        }
     }
 }
 

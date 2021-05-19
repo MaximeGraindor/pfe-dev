@@ -7,6 +7,13 @@
                 <h2 class="feed-title">
                     Activités des abonnements
                 </h2>
+                @foreach($followers as $key => $follower)
+                    @if($follower->activities)
+                        @foreach($follower->acti activities as $key => $value)
+
+                        @endforeach
+                    @endif
+                @endforeach
                 <div class="feed-activity">
                     <div class="activity-top">
                         <img src="./img/message.svg" alt="Photo de profil">

@@ -22,7 +22,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/cyberpunk-2077-cover.jpg',
             'banner_path' => '/games/banner/cyberpunk-2077-banner.jpg',
             'release_date' => '2020/12/10',
-            'publisher_id' => '1',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
 
@@ -35,7 +34,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/watch-dogs-cover.jpg',
             'banner_path' => '/games/banner/watch-dogs-banner.jpg',
             'release_date' => '2014/05/24',
-            'publisher_id' => '2',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
 
@@ -48,7 +46,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/assassins-creed-valhalla-cover.jpg',
             'banner_path' => '/games/banner/assassins-creed-valhalla-banner.jpg',
             'release_date' => '2020/11/10',
-            'publisher_id' => '2',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
 
@@ -61,7 +58,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/hitman-3-cover.jpg',
             'banner_path' => '/games/banner/hitman-3-banner.jpg',
             'release_date' => '2021/01/20',
-            'publisher_id' => '3',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
 
@@ -74,7 +70,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/watch-dogs-2-cover.jpg',
             'banner_path' => '/games/banner/watch-dogs-2-banner.jpg',
             'release_date' => '2021/01/20',
-            'publisher_id' => '2',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
 
@@ -87,7 +82,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/watch-dogs-legion-cover.jpg',
             'banner_path' => '/games/banner/watch-dogs-legion-banner.jpg',
             'release_date' => '2020/10/29',
-            'publisher_id' => '2',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -99,7 +93,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/dark-souls-3-cover.jpg',
             'banner_path' => '/games/banner/dark-souls-3-banner.jpg',
             'release_date' => '2016/04/12',
-            'publisher_id' => '5',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -111,7 +104,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/grand-theft-auto-5-cover.jpg',
             'banner_path' => '/games/banner/grand-theft-auto-5-banner.jpg',
             'release_date' => '2013/09/17',
-            'publisher_id' => '4',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -123,7 +115,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/the-witcher-3-wild-hunt-cover.jpg',
             'banner_path' => '/games/banner/the-witcher-3-wild-hunt-banner.jpg',
             'release_date' => '2015/05/19',
-            'publisher_id' => '1',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -135,7 +126,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/portal-2-cover.jpg',
             'banner_path' => '/games/banner/portal-2-banner.jpg',
             'release_date' => '2011/04/19',
-            'publisher_id' => '1',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
@@ -147,7 +137,6 @@ class GameSeeder extends Seeder
             'cover_path' => '/games/cover/dead-space-2-cover.jpg',
             'banner_path' => '/games/banner/dead-space-2-banner.jpg',
             'release_date' => '2011/01/27',
-            'publisher_id' => '1',
             'created_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);

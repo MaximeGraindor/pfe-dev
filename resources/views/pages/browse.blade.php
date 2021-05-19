@@ -5,11 +5,37 @@
 @section('content')
     <div class="dashboard-browse">
         <div class="browse-header">
-            <form action="#" method="get" class="browse-form">
-                <div class="browse-name">
-                    <label for="name">Nom</label>
-                    <input type="text" id="name" name="name">
+            <form action="#" method="get" class="browse-filter">
+                <div class="browse-platform">
+                    <label for="platform" class="hidden">Plateforme</label>
+                    <select name="platform" id="platform">
+                        <option value="">Plateforme</option>
+                        @foreach($platforms as $platform)
+                            <option value="{{$platform->name}}">{{$platform->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
+                <div class="browse-genre">
+                    <label for="genre" class="hidden">Plateforme</label>
+                    <select name="genre" id="genre">
+                        <option value="">Genre</option>
+                        {{-- @foreach($genres as $genre)
+                            <option value="{{$genre->name}}">{{$genre->name}}</option>
+                        @endforeach --}}
+                    </select>
+                </div>
+                <div class="browse-mode">
+                    <label for="mode" class="hidden">Plateforme</label>
+                    <select name="mode" id="mode">
+                        <option value="">Mode de jeu</option>
+                        {{-- @foreach($modes as $mode)
+                            <option value="{{$mode->name}}">{{$mode->name}}</option>
+                        @endforeach --}}
+                    </select>
+                </div>
+                <div class="browse-name">
+                    <label for="name" class="hidden">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="rechercher">
                 </div>
 
                 <div class="browse-form-submit">

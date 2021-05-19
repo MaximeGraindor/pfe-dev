@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GameImage;
+use App\Models\Screenshot;
 use Illuminate\Http\Request;
 
-class GameImageController extends Controller
+class ScreenshotController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class GameImageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\GameImage  $gameImage
+     * @param  \App\Models\Screenshot  $screenshot
      * @return \Illuminate\Http\Response
      */
-    public function show(GameImage $gameImage)
+    public function show(Screenshot $screenshot)
     {
         //
     }
@@ -52,10 +52,10 @@ class GameImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\GameImage  $gameImage
+     * @param  \App\Models\Screenshot  $screenshot
      * @return \Illuminate\Http\Response
      */
-    public function edit(GameImage $gameImage)
+    public function edit(Screenshot $screenshot)
     {
         //
     }
@@ -64,10 +64,10 @@ class GameImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\GameImage  $gameImage
+     * @param  \App\Models\Screenshot  $screenshot
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GameImage $gameImage)
+    public function update(Request $request, Screenshot $screenshot)
     {
         //
     }
@@ -75,10 +75,10 @@ class GameImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\GameImage  $gameImage
+     * @param  \App\Models\Screenshot  $screenshot
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GameImage $gameImage)
+    public function destroy(Screenshot $screenshot)
     {
         //
     }

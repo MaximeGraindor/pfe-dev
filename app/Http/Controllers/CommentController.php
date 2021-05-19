@@ -8,6 +8,8 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use MarcReichel\IGDBLaravel\Models\Game as IGDBGame;
+
 class CommentController extends Controller
 {
     /**
@@ -36,8 +38,25 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IGDBGame $game, Request $request)
     {
+        return $currentGame = IGDBGame::select([
+            'name',
+            'slug',
+            'cover',
+            'summary',
+            'first_release_date',
+            'game_modes',
+            'genres',
+            'involved_companies',
+            'multiplayer_modes',
+            'platforms',
+            'screenshots',
+            'websites',
+            'game_modes'])
+        ->where('slug', collect(request()->segments())->last())
+        ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes', 'genres'])
+        ->first();
         //Vérifie si un commentaire existe déja
         if(!Comment::where('user_Id', Auth::user()->id)->exists()){
             //Si pas de commentaire, on ajoute un badge à l'utilisateur de

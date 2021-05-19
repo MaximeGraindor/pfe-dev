@@ -26,11 +26,6 @@ class Game extends Model
         return $this->belongsToMany(Plateforme::class, 'game_plateformes');
     }
 
-    public function supports()
-    {
-        return $this->belongsToMany(Support::class, 'game_supports');
-    }
-
     public function genres()
     {
         return $this->belongsToMany(Genre::class, 'game_genres');
@@ -46,8 +41,13 @@ class Game extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function images()
+    public function screenshots()
     {
-        return $this->belongsToMany(Image::class, 'game_images');
+        return $this->belongsToMany(Screenshot::class, 'game_screenshots');
+    }
+
+    public function publishers()
+    {
+        return $this->belongsToMany(Publisher::class, 'game_publishers');
     }
 }

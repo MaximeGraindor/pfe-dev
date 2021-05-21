@@ -5,21 +5,42 @@
         <div class="game-banner">
             <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{$game->screenshots ? $game->screenshots[0]->image_id : null}}.jpg" alt="">
         </div>
+
         <div class="game-content">
+
             <div class="game-header">
+                {{-- @if(property_exists($game, 'image_id')) --}}
                 <img
                     src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg"
                     alt=""
                     height="{{$game->cover ? $game->cover->height : null}}"
                     width="{{$game->cover ? $game->cover->height : null}}"
-                    class="game-cover">
+                    class="game-cover"
+                >
+                {{-- @else
+                    <img
+                        src="{{ asset('storage/games/cover/' . $game->cover_path) }}"
+                        alt=""
+                        height="{{$game->cover ? $game->cover->height : null}}"
+                        width="{{$game->cover ? $game->cover->height : null}}"
+                        class="game-cover"
+                    >
+                @endif
+ --}}
                 <div class="game-header-infos">
                     <h2 class="game-title">
                         {{ $game->name }}
                     </h2>
-                    <p class="game-description">
-                        {{ $game->summary }}
-                    </p>
+                    @if(property_exists($game, 'description'))
+                        <p class="game-description">
+                            {{ $game->description }}
+                        </p>
+                    @else
+                        <p class="game-description">
+                            {{ $game->summary }}
+                        </p>
+                    @endif
+
                 </div>
             </div>
 
@@ -108,7 +129,7 @@
                 <h2 class="comments-title">
                     Commentaires
                 </h2>
-                <form action="/comments" method="post">
+                <form action="/{{$game->slug}}/comments" method="post">
                     @csrf
                     <textarea name="commentContent" id="" cols="30" rows="10"  placeholder="écrivez un commentaire"></textarea>
                     <input type="hidden" name="gameId" value="{{ $game->id }}">

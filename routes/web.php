@@ -59,7 +59,7 @@ Route::post('/profil/{user:pseudo}/follow', [FollowsController::class, 'store'])
 Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
 Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
 
-Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/{name:slug}/comments', [CommentController::class, 'store'])->name('comment.store');
 
 
 Route::get('/admin/ajouter-jeu', [GameController::class, 'create'])

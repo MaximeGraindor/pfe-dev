@@ -5,6 +5,7 @@
 .browse-filter{
     display: flex;
     justify-content: flex-end;
+    justify-content: center;
     gap: 2rem;
     select, input{
         font-family: $font-content;
@@ -19,15 +20,14 @@
 }
 }
 
-.browse-form-submit{
+.browse-submit{
     input{
         width: 100%;
-        padding: 0.8rem 0.9rem;
+        padding: 0.6rem 0.9rem;
         background-color: $color-second;
         color: white;
         font-family: $font-content;
-        border-radius: 2rem;
-        font-size: 1rem;
+        border-radius: 5px;
         border: 1px solid white;
         cursor: pointer;
     }
@@ -35,30 +35,82 @@
 
 .browse-content{
     margin-top: 4rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     gap: 3.5rem;
 }
 
 .browse-game-card{
     display: flex;
-    flex-direction: column;
     flex: 0;
+    background-color: $color-second;
+    border-radius: pxToRem(5);
+    border: 2px solid black;
+}
+
+.browse-card-img{
+    padding: 0.5rem;
+    img{
+        width: 162.6px;
+        height: 226.2px;
+        border-radius: pxToRem(5);
+        vertical-align: bottom;
+        object-fit: cover;
+    }
+
+}
+
+.browse-card-infos{
+    font-family: $font-content;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
     a{
         color: white;
         font-family: $font-content;
-        font-size: 1.175rem;
+        font-size: pxToRem(18);
         text-decoration: none;
         margin-top: 0.5rem;
         line-height: 1.50rem
+    }
+    .browse-card-infos-platforms{
+        margin-top: 1rem;
+        span{
+            padding: 0.3rem 0.4rem;
+            background-color: #101216;
+            border-radius: 5px;
+            font-family: $font-content;
+            font-size: pxToRem(13);
+            color: white;
+        }
+    }
+    .browse-card-infos-summary{
+        margin-top: 1rem;
+        font-size: pxToRem(14);
+        line-height: 1.2rem;
+        color: white;
+    }
+    .browse-card-infos-cta{
+        margin-top: auto;
+        select{
+            font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+            font-size: 0.9375rem;
+            color: white;
+            background-color: #101216;
+            width: 200px;
+            padding: 0.6rem 0.9rem;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
     }
 }
 
 .game-card-img-container{
     position: relative;
     img{
-        width: 271px;
-        height: 377px;
+        width: 162.6px;
+        height: 226.2px;
         vertical-align: bottom;
         border-radius: pxToRem(5);
     }
@@ -67,88 +119,6 @@
         border-radius: pxToRem(5);
     }
 
-}
-
-.game-card-img-container:hover{
-    .game-card-button-wrapper{
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.5);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.25rem;
-        input{
-            font-family: $font-content;
-            padding: 0.8rem 0.9rem;
-            background-color: $color-third;
-            color: white;
-            border: 1px solid white;
-            width: 135px;
-            border-radius: pxToRem(5);
-            flex: 1;
-            &:hover{
-                background-color: $color-main;
-            }
-        }
-        .game-card-deleteRelation{
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            input{
-                background-image: url('./../img/close.svg');
-                background-repeat: no-repeat;
-                background-size: 50%;
-                background-position: center;
-                border: none;
-                background-color: transparent;
-                width: auto;
-                cursor: pointer;
-                padding: 0.3rem 0.8rem;
-            }
-        }
-    }
-}
-
-.selectbox{
-    position: relative;
-    .overSelect{
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-
-}
-.checkboxes{
-    display: none;
-    border: 1px solid white;
-    background-color: #222831;
-    position: absolute;
-    left: 0;
-    right: 0;
-    color: white;
-    border-radius: 2rem;
-    z-index: 2;
-    label{
-        display: flex;
-        align-items: center;
-        padding: 0.8rem 0.9rem;
-        font-family: $font-content;
-    }
-    input{
-        margin-right: 7px;
-    }
-}
-
-.checkboxesEl-on{
-    display: block !important;
 }
 
 

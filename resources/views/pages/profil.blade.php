@@ -8,14 +8,16 @@
             <div class="profil-info">
                 <div class="profil-info-top">
                     <p class="info-top-pseudo">{{$user->pseudo }}</p>
-                    <a href="/profil/modifier" title="Modifier son profil" class="info-top-update">
-                        <img src="/img/settings.svg" alt="Modifier son profil">
-                    </a>
+
                     @if(Auth::user()->id !== $user->id)
                         <form action="/profil/{{$user->pseudo }}/follow" method="post" class="info-top-follow">
                             @csrf
                             <input type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
                         </form>
+                    @else
+                        <a href="/profil/modifier" title="Modifier son profil" class="info-top-update">
+                            <img src="/img/settings.svg" alt="Modifier son profil">
+                        </a>
                     @endif
                 </div>
                 <div class="profil-activity">

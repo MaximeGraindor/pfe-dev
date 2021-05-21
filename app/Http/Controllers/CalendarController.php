@@ -10,7 +10,8 @@ use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use MarcReichel\IGDBLaravel\Models\Game as IGDB_API_Game;
+
+use MarcReichel\IGDBLaravel\Models\Game as IGDBGame;
 use MarcReichel\IGDBLaravel\Builder as IGDB;
 
 class CalendarController extends Controller
@@ -22,10 +23,13 @@ class CalendarController extends Controller
      */
     public function index(Request $request)
     {
-        $games = IGDB_API_Game::with(['platforms', 'cover'])
-                ->search($request->name ? $request->name : '')
-                ->orderBy('first_release_date', 'desc')
-                ->paginate();
+        $games = IGDBGame::with(['platforms', 'cover']);
+        if($request->name){
+            $games->whereLike('name', '%' . $request->name . '%', false);
+        };
+
+
+        $games = $games->paginate(50);
 
         return view('pages.calendar', compact('games'));
     }

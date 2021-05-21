@@ -98,23 +98,27 @@ class GameController extends Controller
      */
     public function show(IGDBGame $game, Request $request)
     {
+        if(!(Game::where('slug', collect(request()->segments())->last()))->exists()){
+            $game = IGDBGame::select([
+                'name',
+                'slug',
+                'cover',
+                'summary',
+                'first_release_date',
+                'game_modes', 'genres',
+                'involved_companies',
+                'multiplayer_modes',
+                'platforms',
+                'screenshots',
+                'websites',
+                'game_modes'])
+            ->where('slug', collect(request()->segments())->last())
+            ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes'])
+            ->first();
+        }else{
+            $game = Game::where('slug', collect(request()->segments())->last())->with('screenshots', 'comments')->first();
+        }
 
-        $game = IGDBGame::select([
-            'name',
-            'slug',
-            'cover',
-            'summary',
-            'first_release_date',
-            'game_modes', 'genres',
-            'involved_companies',
-            'multiplayer_modes',
-            'platforms',
-            'screenshots',
-            'websites',
-            'game_modes'])
-        ->where('slug', collect(request()->segments())->last())
-        ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes'])
-        ->first();
 
         //return $game->involved_companies[0]->company;
 
@@ -165,7 +169,7 @@ class GameController extends Controller
     public function addToCurrent(IGDBGame $game)
     {
         // On récupere le jeu sélectionné
-        return $currentGame = IGDBGame::select([
+        $currentGame = IGDBGame::select([
             'name',
             'slug',
             'cover',
@@ -180,7 +184,7 @@ class GameController extends Controller
             'websites',
             'game_modes'])
         ->where('slug', collect(request()->segments())->last())
-        ->with(['platforms.platform_logo', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes', 'genres'])
+        ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes', 'genres'])
         ->first();
 
         // On vérifie que le jeu n'est pas dans la DB
@@ -190,8 +194,8 @@ class GameController extends Controller
             $gameToSave->name = $currentGame->name;
             $gameToSave->slug = $currentGame->slug;
             $gameToSave->description = $currentGame->summary;
-            $gameToSave->cover_path = $currentGame->cover->image_id . '.jpg';
-            $gameToSave->banner_path = $currentGame->screenshots[0]->image_id . '.jpg';
+            $gameToSave->cover_path = $currentGame->cover ? $currentGame->cover->image_id . '.jpg' : 'game-cover-default.jpg';
+            $gameToSave->banner_path = $currentGame->screenshots ? $currentGame->screenshots[0]->image_id . '.jpg' : null;
             $gameToSave->release_date = $currentGame->first_release_date;
             $gameToSave->save();
 
@@ -233,18 +237,19 @@ class GameController extends Controller
                 }
             }
 
+            if($currentGame->screenshots){
+                foreach($currentGame->screenshots as $key => $gameScreenshot) {
+                    //return $gameScreenshot->image_id;
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $contentsScreenshot = file_get_contents($urlScreenshot);
+                    $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
+                    Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
 
-            foreach($currentGame->screenshots as $key => $gameScreenshot) {
-                //return $gameScreenshot->image_id;
-                $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
-                $contentsScreenshot = file_get_contents($urlScreenshot);
-                $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
-                Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
-
-                $screenshot = new Screenshot();
-                $screenshot->name = $gameScreenshot->image_id;
-                $screenshot->save();
-                $gameToSave->plateformes()->attach($screenshot->id);
+                    $screenshot = new Screenshot();
+                    $screenshot->name = $gameScreenshot->image_id;
+                    $screenshot->save();
+                    $gameToSave->screenshots()->attach($screenshot->id);
+                }
             }
 
             //Enregistre les images sur le disque
@@ -283,16 +288,20 @@ class GameController extends Controller
             return redirect()->back();
 
         }else{
-            $currentGame = Game::where('slug', collect(request()->segments())->last())->get();
+
+            $currentGame = Game::where('slug', collect(request()->segments())->last())->first();
+
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
             }
+            //return Auth::user()->id;
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
                 return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
             };
+
 
             // vérifie si le jeu appartient déjà à une autre liste
             if(GameUser::where([['game_id', $currentGame->id],['user_id', Auth::user()->id]])->exists()){
@@ -341,8 +350,8 @@ class GameController extends Controller
             $gameToSave->name = $currentGame->name;
             $gameToSave->slug = $currentGame->slug;
             $gameToSave->description = $currentGame->summary;
-            $gameToSave->cover_path = $currentGame->cover->image_id . '.jpg';
-            $gameToSave->banner_path = $currentGame->screenshots[0]->image_id . '.jpg';
+            $gameToSave->cover_path = $currentGame->cover ? $currentGame->cover->image_id . '.jpg' : 'game-cover-default.jpg';
+            $gameToSave->banner_path = $currentGame->screenshots ? $currentGame->screenshots[0]->image_id . '.jpg' : null;
             $gameToSave->release_date = $currentGame->first_release_date;
             $gameToSave->save();
 
@@ -385,17 +394,19 @@ class GameController extends Controller
                 }
             }
 
-            foreach($currentGame->screenshots as $key => $gameScreenshot) {
-                //return $gameScreenshot->image_id;
-                $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
-                $contentsScreenshot = file_get_contents($urlScreenshot);
-                $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
-                Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
+            if($currentGame->screenshots){
+                foreach($currentGame->screenshots as $key => $gameScreenshot) {
+                    //return $gameScreenshot->image_id;
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $contentsScreenshot = file_get_contents($urlScreenshot);
+                    $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
+                    Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
 
-                $screenshot = new Screenshot();
-                $screenshot->name = $gameScreenshot->image_id;
-                $screenshot->save();
-                $gameToSave->plateformes()->attach($screenshot->id);
+                    $screenshot = new Screenshot();
+                    $screenshot->name = $gameScreenshot->image_id;
+                    $screenshot->save();
+                    $gameToSave->screenshots()->attach($screenshot->id);
+                }
             }
 
             //Enregistre les images sur le disque
@@ -415,7 +426,7 @@ class GameController extends Controller
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
-                $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->first());
             }
 
             // Vérifie si le jeu est déjà présent dans la liste
@@ -434,7 +445,7 @@ class GameController extends Controller
             return redirect()->back();
 
         }else{
-            $currentGame = Game::where('slug', collect(request()->segments())->last())->get();
+            $currentGame = Game::where('slug', collect(request()->segments())->last())->first();
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
@@ -491,8 +502,8 @@ class GameController extends Controller
             $gameToSave->name = $currentGame->name;
             $gameToSave->slug = $currentGame->slug;
             $gameToSave->description = $currentGame->summary;
-            $gameToSave->cover_path = $currentGame->cover->image_id . '.jpg';
-            $gameToSave->banner_path = $currentGame->screenshots[0]->image_id . '.jpg';
+            $gameToSave->cover_path = $currentGame->cover ? $currentGame->cover->image_id . '.jpg' : 'game-cover-default.jpg';
+            $gameToSave->banner_path = $currentGame->screenshots ? $currentGame->screenshots[0]->image_id . '.jpg' : null;
             $gameToSave->release_date = $currentGame->first_release_date;
             $gameToSave->save();
 
@@ -535,17 +546,19 @@ class GameController extends Controller
                 }
             }
 
-            foreach($currentGame->screenshots as $key => $gameScreenshot) {
-                //return $gameScreenshot->image_id;
-                $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
-                $contentsScreenshot = file_get_contents($urlScreenshot);
-                $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
-                Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
+            if($currentGame->screenshots){
+                foreach($currentGame->screenshots as $key => $gameScreenshot) {
+                    //return $gameScreenshot->image_id;
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $contentsScreenshot = file_get_contents($urlScreenshot);
+                    $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
+                    Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
 
-                $screenshot = new Screenshot();
-                $screenshot->name = $gameScreenshot->image_id;
-                $screenshot->save();
-                $gameToSave->plateformes()->attach($screenshot->id);
+                    $screenshot = new Screenshot();
+                    $screenshot->name = $gameScreenshot->image_id;
+                    $screenshot->save();
+                    $gameToSave->screenshots()->attach($screenshot->id);
+                }
             }
 
             //Enregistre les images sur le disque
@@ -584,7 +597,7 @@ class GameController extends Controller
             return redirect()->back();
 
         }else{
-            $currentGame = Game::where('slug', collect(request()->segments())->last())->get();
+            $currentGame = Game::where('slug', collect(request()->segments())->last())->first();
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();

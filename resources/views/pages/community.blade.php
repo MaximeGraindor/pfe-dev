@@ -7,12 +7,14 @@
                 <h2 class="feed-title">
                     Activités des abonnements
                 </h2>
-                @foreach($followers as $key => $follower)
-                    @if($follower->activities)
-                        @foreach($follower->acti activities as $key => $value)
+                @foreach($activities as $key => $activity)
+                    {{-- @dd($activity->getExtraProperty('attributes')) --}}
+                    <p>
+                        {{$activity->causer->pseudo}} à écris un commentaire sur
+                    </p>
+                    @foreach($activity->getExtraProperty('attributes')  as $gameAttribute)
 
-                        @endforeach
-                    @endif
+                    @endforeach
                 @endforeach
                 <div class="feed-activity">
                     <div class="activity-top">
@@ -26,32 +28,8 @@
                         img
                     </div>
                 </div>
-                <div class="feed-activity">
-                    <div class="activity-top">
-                        <img src="./img/message.svg" alt="Photo de profil">
-                        <span>Zed</span>
-                    </div>
-                    <div class="activity-content">
-                        à ajouter un nouveau jeu
-                    </div>
-                    <div class="activity-about">
-                        img
-                    </div>
-                </div>
-                <div class="feed-activity">
-                    <div class="activity-top">
-                        <img src="./img/message.svg" alt="Photo de profil">
-                        <span>Zed</span>
-                    </div>
-                    <div class="activity-content">
-                        à ajouter un nouveau jeu
-                    </div>
-                    <div class="activity-about">
-                        img
-                    </div>
-                </div>
             </div>
-            <div class="community-right">
+            {{-- <div class="community-right">
                 <div class="community-suggestions">
                     <h2 class="suggestions-title">
                         Suggestions
@@ -81,7 +59,7 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

@@ -8,7 +8,7 @@
         <div class="users-content">
             <div class="users-content-wrapper">
                 @foreach ($result as $user)
-                <div class="users-item">
+                <a href="/profil/{{$user->pseudo}}" class="users-item">
                     <div class="users-item-top">
                         <div><img src="./img/{{$user->picture}}" alt="Photo de profil"></div>
                         <span class="users-item-pseudo">
@@ -29,7 +29,7 @@
                         @csrf
                         <input class="users-item-button" type="submit" value="{{Auth::user()->isFollowing($user) ? 'Se désabonner' : 's\'abonner'}}">
                     </form>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>

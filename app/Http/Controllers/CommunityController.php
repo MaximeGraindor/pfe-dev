@@ -12,15 +12,19 @@ use Spatie\Activitylog\Models\Activity;
 class CommunityController extends Controller
 {
     public function show(){
-        $usersSuggest = User::all()->random(3)->where('id', '!=', Auth::user()->id);
-        $followers = Auth::user()->followings()->with('activities')->get();
-        return $followers;
+        /* $usersSuggest = User::all()->random(3)->where('id', '!=', Auth::user()->id); */
 
-        /* $user = User::with('activities')->where('pseudo', 'ZeDOver')->first();
-        return $user->activities[0]->properties; */
+        $activities = Activity::all()->sortByDesc('created_at');
 
-        //return $activity = Activity::all();
+        $games = Game::whereIn('id', $activities->pluck('id')->flatten())
+            ->get()
+            ->mapWithKeys(function ($game) {
+                return [$game->id => $game];
+            });
 
-        return view('pages.community', compact('usersSuggest'));
+        return $games;//->toArray();
+
+
+        return view('pages.community', compact(/*'usersSuggest' , */'activities', 'games'));
     }
 }

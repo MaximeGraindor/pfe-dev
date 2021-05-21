@@ -38,6 +38,8 @@
             background-color: $color-third;
             color: white;
             font-size: 1rem;
+            border: 1px solid black;
+            margin-left: 2rem;
             &:hover{
                 cursor: pointer;
             }

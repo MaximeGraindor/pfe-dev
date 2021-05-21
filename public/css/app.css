@@ -892,6 +892,7 @@ body {
   color: white;
   border: none;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .dashboard-top-right {
@@ -948,6 +949,58 @@ body {
 .dashboard-activity section h2 {
   font-size: 2rem;
   margin-bottom: 1.75rem;
+}
+
+.activity-game-card a {
+  color: white;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: block;
+  max-width: 162.6px;
+  line-height: 1.2rem;
+}
+
+.game-card-img-container:hover .game-card-button-wrapper {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+.game-card-img-container:hover .game-card-button-wrapper input {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.4rem 0.5rem;
+  background-color: #262B48;
+  color: white;
+  border: 1px solid white;
+  width: 135px;
+  border-radius: 0.3125rem;
+  flex: 1;
+}
+.game-card-img-container:hover .game-card-button-wrapper input:hover {
+  background-color: #13171C;
+}
+.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation input {
+  background-image: url("./../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  width: auto;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
 }
 
 .dashboard-calendar {
@@ -1136,6 +1189,7 @@ body {
 .browse-filter {
   display: flex;
   justify-content: flex-end;
+  justify-content: center;
   gap: 2rem;
 }
 .browse-filter select, .browse-filter input {
@@ -1150,130 +1204,101 @@ body {
   border: 1px solid white;
 }
 
-.browse-form-submit input {
+.browse-submit input {
   width: 100%;
-  padding: 0.8rem 0.9rem;
+  padding: 0.6rem 0.9rem;
   background-color: #222831;
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  border-radius: 2rem;
-  font-size: 1rem;
+  border-radius: 5px;
   border: 1px solid white;
   cursor: pointer;
 }
 
 .browse-content {
   margin-top: 4rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3.5rem;
 }
 
 .browse-game-card {
   display: flex;
-  flex-direction: column;
   flex: 0;
+  background-color: #222831;
+  border-radius: 0.3125rem;
+  border: 2px solid black;
 }
-.browse-game-card a {
+
+.browse-card-img {
+  padding: 0.5rem;
+}
+.browse-card-img img {
+  width: 162.6px;
+  height: 226.2px;
+  border-radius: 0.3125rem;
+  vertical-align: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.browse-card-infos {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.browse-card-infos a {
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  font-size: 1.175rem;
+  font-size: 1.125rem;
   text-decoration: none;
   margin-top: 0.5rem;
   line-height: 1.5rem;
+}
+.browse-card-infos .browse-card-infos-platforms {
+  margin-top: 1rem;
+}
+.browse-card-infos .browse-card-infos-platforms span {
+  padding: 0.3rem 0.4rem;
+  background-color: #101216;
+  border-radius: 5px;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.8125rem;
+  color: white;
+}
+.browse-card-infos .browse-card-infos-summary {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  color: white;
+}
+.browse-card-infos .browse-card-infos-cta {
+  margin-top: auto;
+}
+.browse-card-infos .browse-card-infos-cta select {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9375rem;
+  color: white;
+  background-color: #101216;
+  width: 200px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .game-card-img-container {
   position: relative;
 }
 .game-card-img-container img {
-  width: 271px;
-  height: 377px;
+  width: 162.6px;
+  height: 226.2px;
   vertical-align: bottom;
   border-radius: 0.3125rem;
 }
 .game-card-img-container .game-card-button-wrapper {
   display: none;
   border-radius: 0.3125rem;
-}
-
-.game-card-img-container:hover .game-card-button-wrapper {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.25rem;
-}
-.game-card-img-container:hover .game-card-button-wrapper input {
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  padding: 0.8rem 0.9rem;
-  background-color: #262B48;
-  color: white;
-  border: 1px solid white;
-  width: 135px;
-  border-radius: 0.3125rem;
-  flex: 1;
-}
-.game-card-img-container:hover .game-card-button-wrapper input:hover {
-  background-color: #13171C;
-}
-.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-.game-card-img-container:hover .game-card-button-wrapper .game-card-deleteRelation input {
-  background-image: url("./../img/close.svg");
-  background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: center;
-  border: none;
-  background-color: transparent;
-  width: auto;
-  cursor: pointer;
-  padding: 0.3rem 0.8rem;
-}
-
-.selectbox {
-  position: relative;
-}
-.selectbox .overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.checkboxes {
-  display: none;
-  border: 1px solid white;
-  background-color: #222831;
-  position: absolute;
-  left: 0;
-  right: 0;
-  color: white;
-  border-radius: 2rem;
-  z-index: 2;
-}
-.checkboxes label {
-  display: flex;
-  align-items: center;
-  padding: 0.8rem 0.9rem;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-}
-.checkboxes input {
-  margin-right: 7px;
-}
-
-.checkboxesEl-on {
-  display: block !important;
 }
 
 .profil-banner {
@@ -1317,6 +1342,8 @@ body {
   background-color: #262B48;
   color: white;
   font-size: 1rem;
+  border: 1px solid black;
+  margin-left: 2rem;
 }
 .profil-info-top .info-top-follow input:hover {
   cursor: pointer;
@@ -1415,12 +1442,13 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   background-color: #222831;
   border-radius: 5px;
-  padding: 1.5rem 2.5rem;
-  flex: 1 1 0px;
+  padding: 1rem 1.2rem;
+  flex: 1;
+  border: 1px solid black;
+  text-decoration: none;
 }
-.users-item:not(:last-child) {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+.users-item:hover {
+  box-shadow: 1px 1px 10px black;
 }
 
 .users-item-top {
@@ -1432,8 +1460,8 @@ body {
   margin-right: 1rem;
   border-radius: 50%;
   overflow: hidden;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 .users-item-top div img {
   width: 100%;
@@ -1448,6 +1476,9 @@ body {
   justify-content: space-between;
   margin-bottom: 1rem;
   color: white;
+}
+.users-item-follows div:first-child {
+  margin-right: 1rem;
 }
 .users-item-follows span {
   display: block;

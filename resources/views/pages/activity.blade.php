@@ -7,9 +7,9 @@
             <div class="activity-section-wrapper">
                 @foreach ($currentGamesList as $games)
                     @foreach ($games->games as $game)
-                    <div class="browse-game-card">
+                    <div class="activity-game-card">
                         <div class="game-card-img-container">
-                            <img src="{{ asset('storage/games/cover/' . $game->cover_path) }}" alt="{{$game->cover_path }}">
+                            <img src="{{ $game->cover_path ? asset('storage/games/cover/' . $game->cover_path) : '/img/game-cover-default.jpg' }}" alt="{{$game->cover_path }}">
                             <div class="game-card-button-wrapper">
                                 <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
                                     @csrf
@@ -40,7 +40,7 @@
             <div class="activity-section-wrapper">
                 @foreach ($finishGamesList as $games)
                     @foreach ($games->games as $game)
-                    <div class="browse-game-card">
+                    <div class="activity-game-card">
                         <div class="game-card-img-container">
                             <img src="{{ asset('storage/games/cover/' . $game->cover_path) }}" alt="{{$game->cover_path }}">
                             <div class="game-card-button-wrapper">
@@ -73,7 +73,7 @@
             <div class="activity-section-wrapper">
                 @foreach ($wishGamesList as $games)
                     @foreach ($games->games as $game)
-                    <div class="browse-game-card">
+                    <div class="activity-game-card">
                         <div class="game-card-img-container">
                             <img src="{{ asset('storage/games/cover/' . $game->cover_path) }}" alt="{{$game->cover_path }}">
                             <div class="game-card-button-wrapper">

@@ -29,6 +29,7 @@
     box-sizing: border-box;
     background-color: #1f242c;
     padding: 2rem;
+    border-radius: 5px;
     &:not(:first-child){
         margin-top: 1rem;
     }
@@ -42,7 +43,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    div{
+    .feed-activity-top-img{
         margin-right: 1rem;
         border-radius: 50%;
         overflow: hidden;
@@ -54,14 +55,24 @@
     }
     p{
         font-size: pxToRem(17);
-        span{
+        a{
             font-weight: bold;
+            text-decoration: none;
+            font-style: italic;
+            color: white;
         }
+    }
+    span{
+        font-weight: 500;
+        font-size: 14px;
     }
 }
 .feed-activity-bottom{
     display: flex;
     margin-bottom: 1rem;
+    background-color: #1a1e25;
+    border-radius: 5px;
+    padding: 1rem;
     img{
         width: 93.65px;
         height: 130.1472px;

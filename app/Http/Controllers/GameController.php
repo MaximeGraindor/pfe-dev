@@ -121,15 +121,13 @@ class GameController extends Controller
             ->where('slug', collect(request()->segments())->last())
             ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes'])
             ->first();
+            return view('pages.game.gameAPI', compact('game'));
         }else{
             $game = Game::where('slug', collect(request()->segments())->last())->with('screenshots', 'comments')->first();
+            return view('pages.game.gameAPI', compact('game'));
         }
 
 
-        //return $game->involved_companies[0]->company;
-
-
-        return view('pages.game', compact('game'));
     }
 
     /**

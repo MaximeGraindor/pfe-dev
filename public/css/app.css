@@ -1112,6 +1112,7 @@ body {
   box-sizing: border-box;
   background-color: #1f242c;
   padding: 2rem;
+  border-radius: 5px;
 }
 .feed-activity:not(:first-child) {
   margin-top: 1rem;
@@ -1126,26 +1127,36 @@ body {
   align-items: center;
   margin-bottom: 1rem;
 }
-.feed-activity-top div {
+.feed-activity-top .feed-activity-top-img {
   margin-right: 1rem;
   border-radius: 50%;
   overflow: hidden;
   width: 50px;
   height: 50px;
 }
-.feed-activity-top div img {
+.feed-activity-top .feed-activity-top-img img {
   width: 100%;
 }
 .feed-activity-top p {
   font-size: 1.0625rem;
 }
-.feed-activity-top p span {
+.feed-activity-top p a {
   font-weight: bold;
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+.feed-activity-top span {
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .feed-activity-bottom {
   display: flex;
   margin-bottom: 1rem;
+  background-color: #1a1e25;
+  border-radius: 5px;
+  padding: 1rem;
 }
 .feed-activity-bottom img {
   width: 93.65px;
@@ -1371,12 +1382,15 @@ body {
   align-items: center;
   padding: 0rem 7rem;
 }
-.profil-header img {
+.profil-header .profil-header-picture {
   width: 250px;
   height: 250px;
-  -webkit-clip-path: ellipse(50% 50%);
-          clip-path: ellipse(50% 50%);
+  border-radius: 50%;
   margin-right: 2rem;
+  overflow: hidden;
+}
+.profil-header .profil-header-picture img {
+  width: 100%;
 }
 
 .profil-info-top {
@@ -1406,11 +1420,11 @@ body {
 }
 
 .info-top-update {
-  margin-left: 0.5rem;
+  margin-left: 2rem;
 }
 .info-top-update img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .profil-activity {

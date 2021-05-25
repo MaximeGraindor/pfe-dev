@@ -4,7 +4,9 @@
     <div class="dashboard-profil">
         <div class="profil-banner"></div>
         <div class="profil-header">
-            <div><img src="/img/{{$user->picture}}" alt="Photo de profil"></div>
+            <div class="profil-header-picture">
+                <img src="/img/{{$user->picture}}" alt="Photo de profil">
+            </div>
             <div class="profil-info">
                 <div class="profil-info-top">
                     <p class="info-top-pseudo">{{$user->pseudo }}</p>
@@ -16,7 +18,7 @@
                         </form>
                     @else
                         <a href="/profil/modifier" title="Modifier son profil" class="info-top-update">
-                            <img src="/img/settings.svg" alt="Modifier son profil">
+                            <img src="/img/edit-button.svg" alt="Modifier son profil">
                         </a>
                     @endif
                 </div>

@@ -29,7 +29,20 @@
             </div>
         </div>
         <div class="profil-update">
-
+            <form action="#" method="post">
+                <div class="profil-update-picture">
+                    <label for="picture">Photo de profil</label>
+                    <input type="file">
+                </div>
+                <div class="profil-update-pseudo">
+                    <label for="pseudo">Photo de profil</label>
+                    <input type="text" id="pseudo" name="pseudo">
+                </div>
+                <div class="profil-update-email">
+                    <label for="picture">Photo de profil</label>
+                    <input type="file">
+                </div>
+            </form>
         </div>
     </div>
 @endsection

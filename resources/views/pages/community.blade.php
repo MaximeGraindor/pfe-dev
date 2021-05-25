@@ -11,23 +11,26 @@
                     <div class="feed-activity">
                         @if(array_key_exists('game_id', $activity->getExtraProperty('attributes')))
                         <div class="feed-activity-top feed-comment">
-                            <div>
+                            <div class="feed-activity-top-img">
                                 <img src="/img/{{$activity->causer->picture}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
                             </div>
-                            <p>
-                                <span>{{$activity->causer->pseudo}}</span> à écris un commentaire sur <span>{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}</span>
-                            </p>
+                            <div class="feed-activity-top-infos">
+                                <p>
+                                    <a href="/profil/{{$activity->causer->pseudo}}">{{$activity->causer->pseudo}}</a> à écris un commentaire sur <a href="/jeu/{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->slug}}">{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}</a>
+                                </p>
+                                <span>
+                                   {{date('j/m/Y', strtotime($activity->created_at))}}
+                                </span>
+                            </div>
                         </div>
                         <div class="feed-activity-bottom">
-                            <img src="{{ asset('storage/games/cover/' . App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->cover_path)}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+                            <img
+                                src="{{ asset('storage/games/cover/' . App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->cover_path)}}"
+                                alt="cover de {{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}">
                             <p>
                                 {{Str::limit($activity->getExtraProperty('attributes')['content'], 400, $end='...') }}
                             </p>
-
                         </div>
-                            <p>
-
-                        </p>
                         @endif
                     </div>
                 @endforeach

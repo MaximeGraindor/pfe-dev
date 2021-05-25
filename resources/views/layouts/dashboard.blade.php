@@ -10,6 +10,7 @@
 
         {{-- CSS --}}
         @livewireStyles
+        @toastr_css
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     </head>
 
@@ -92,8 +93,11 @@
         </div>
 
         @livewireScripts
-        <script src="{{ asset('/js/app.js') }}"></script>
+        @jquery
+        @toastr_js
+        @toastr_render
 
+        <script src="{{ asset('/js/app.js') }}"></script>
     </body>
 
 </html>

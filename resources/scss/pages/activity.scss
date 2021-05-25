@@ -27,6 +27,10 @@
     }
 }
 
+.game-card-button-wrapper{
+    display: none;
+}
+
 .game-card-img-container:hover{
     .game-card-button-wrapper{
         position: absolute;

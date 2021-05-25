@@ -123,8 +123,10 @@ class GameController extends Controller
             ->first();
             return view('pages.game.gameAPI', compact('game'));
         }else{
-            $game = Game::where('slug', collect(request()->segments())->last())->with('screenshots', 'comments')->first();
-            return view('pages.game.gameAPI', compact('game'));
+             $game = Game::where('slug', collect(request()->segments())->last())
+                ->with('comments', 'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
+                ->first();
+            return view('pages.game.gameLocal', compact('game'));
         }
 
 
@@ -278,7 +280,8 @@ class GameController extends Controller
 
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $gameToSave->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
+                toastr()->error('le jeu est déjà présent dans la liste', 'Erreur');
+                return redirect()->back();
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -288,7 +291,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
 
         }else{
@@ -303,7 +306,8 @@ class GameController extends Controller
             //return Auth::user()->id;
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
+                toastr()->error('le jeu est déjà présent dans la liste', 'Erreur');
+                return redirect()->back();
             };
 
 
@@ -314,7 +318,7 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
         }
 
@@ -435,7 +439,8 @@ class GameController extends Controller
 
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $gameToSave->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
+                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
+                return redirect()->back();
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -445,7 +450,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
 
         }else{
@@ -457,7 +462,8 @@ class GameController extends Controller
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux termine');
+                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
+                return redirect()->back();
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -467,7 +473,7 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
         }
     }
@@ -587,7 +593,7 @@ class GameController extends Controller
 
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $gameToSave->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux en cours');
+                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -597,7 +603,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
 
         }else{
@@ -609,7 +615,7 @@ class GameController extends Controller
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                return redirect()->back()->with('error', 'Ce jeu appartient déjà à la liste des jeux envie');
+                                return redirect()->back();
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -619,7 +625,7 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
-
+            toastr()->success('Le jeu a bient été ajouté', 'Succès');
             return redirect()->back();
         }
     }

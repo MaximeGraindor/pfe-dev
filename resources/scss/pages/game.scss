@@ -148,11 +148,29 @@
     border: 2px solid black;
     margin-bottom: 1.5rem;
     .game-comment-user{
-        font-size: 1.750rem;
+        display: flex;
+        align-items: center;
+        div{
+            margin-right: 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            img{
+                width: 100%;
+            }
+        }
+        span{
+            font-size: pxToRem(25);
+        }
+        margin-bottom: 1.5rem;
+    }
+    .game-comment-date{
+        font-size: pxToRem(14);
         margin-bottom: 1.5rem;
     }
     .game-comment-content{
-        line-height: 1.4rem;
-        font-size: 1.2rem;
+        line-height: 1.6rem;
+        font-size: pxToRem(18);
     }
 }

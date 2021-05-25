@@ -135,20 +135,6 @@
                     <input type="hidden" name="gameId" value="{{ $game->id }}">
                     <input type="submit" value="Envoyer">
                 </form>
-                @if($game->comments)
-                <div class="comments-wrapper">
-                    @foreach ($game->comments as $comment)
-                        <div class="game-comment">
-                            <p class="game-comment-user">
-                                {{ $comment->user->pseudo }}
-                            </p>
-                            <p class="game-comment-content">
-                                {{ $comment->content }}
-                            </p>
-                        </div>
-                    @endforeach
-                </div>
-                @endif
             </section>
 
         </div>

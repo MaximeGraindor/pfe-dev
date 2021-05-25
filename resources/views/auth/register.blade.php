@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="register-submit">
-                    <input type="hidden" name="picture" value="./user-picture-default.jpg">
+                    <input type="hidden" name="picture" value="user-picture-default.jpg">
                     <input type="submit" name="submit" value="Se connecter">
                 </div>
             </form>

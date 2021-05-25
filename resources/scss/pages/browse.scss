@@ -35,14 +35,14 @@
 
 .browse-content{
     margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 3.5rem;
 }
 
 .browse-game-card{
     display: flex;
-    flex: 0;
+    flex: 1 500px;
     background-color: $color-second;
     border-radius: pxToRem(5);
     border: 2px solid black;
@@ -58,6 +58,52 @@
         object-fit: cover;
     }
 
+}
+
+.browse-card-img:hover{
+    position: relative;
+    .game-card-button-wrapper{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        input{
+            font-family: $font-content;
+            padding: 0.4rem 0.5rem;
+            background-color: $color-third;
+            color: white;
+            border: 1px solid white;
+            width: 135px;
+            border-radius: pxToRem(5);
+            flex: 1;
+            &:hover{
+                background-color: $color-main;
+            }
+        }
+        .game-card-deleteRelation{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            input{
+                background-image: url('./../img/close.svg');
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position: center;
+                border: none;
+                background-color: transparent;
+                width: auto;
+                cursor: pointer;
+                padding: 0.3rem 0.8rem;
+            }
+        }
+    }
 }
 
 .browse-card-infos{

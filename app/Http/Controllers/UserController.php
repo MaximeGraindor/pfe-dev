@@ -79,6 +79,8 @@ class UserController extends Controller
         ->get();
 
         return view('pages.profil', compact('user', 'currentGamesList', 'finishGamesList', 'wishGamesList'));
+
+
     }
 
     /**

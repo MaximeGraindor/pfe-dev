@@ -45,9 +45,7 @@
         </div>
 
         <div class="browse-content">
-
             @foreach ($games as $game)
-
                 <div class="browse-game-card">
                     <div class="browse-card-img">
                         <img
@@ -55,6 +53,20 @@
                             alt=""
                             height="{{$game->cover ? $game->cover->height : null}}"
                             width="{{$game->cover ? $game->cover->height : null}}">
+                        <div class="game-card-button-wrapper">
+                            <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
+                                @csrf
+                                <input type="submit" value="En cours" name="curent">
+                            </form>
+                            <form action="/game/addToFinish/{{ $game->slug }}" method="post">
+                                @csrf
+                                <input type="submit" value="Terminé" name="finish">
+                            </form>
+                            <form action="/game/addToWish/{{ $game->slug }}"" method="post">
+                                @csrf
+                                <input type="submit" value="envie" name="wish">
+                            </form>
+                        </div>
                     </div>
                     <div class="browse-card-infos">
                         <a href="/jeu/{{ $game->slug }}">{{ Str::limit($game->name, 50, $end='...') }} <span>({{date('Y', strtotime($game->first_release_date))}})</span></a>
@@ -66,22 +78,8 @@
                             </div>
                         @endif
                         <p class="browse-card-infos-summary">
-                            {{$game->summary ? Str::limit($game->summary, 100, $end='...') : 'Pas de synopsis'}}
+                            {{$game->summary ? Str::limit($game->summary, 300, $end='...') : 'Pas de synopsis'}}
                         </p>
-                        <div class="browse-card-infos-cta">
-                            <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
-                                @csrf
-                                <input type="submit" value="En cours" name="curent">
-                            </form>
-                            <form action="/game/addToFinish/{{ $game->slug }}" method="post">
-                                @csrf
-                                <input type="submit" value="Terminé" name="finish">
-                            </form>
-                            <form action="/game/addToWish/{{ $game->slug }}" method="post">
-                                @csrf
-                                <input type="submit" value="envie" name="wish">
-                            </form>
-                        </div>
                     </div>
                 </div>
             @endforeach

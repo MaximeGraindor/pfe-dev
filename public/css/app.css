@@ -960,6 +960,10 @@ body {
   line-height: 1.2rem;
 }
 
+.game-card-button-wrapper {
+  display: none;
+}
+
 .game-card-img-container:hover .game-card-button-wrapper {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1284,14 +1288,14 @@ body {
 
 .browse-content {
   margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 3.5rem;
 }
 
 .browse-game-card {
   display: flex;
-  flex: 0;
+  flex: 1 500px;
   background-color: #222831;
   border-radius: 0.3125rem;
   border: 2px solid black;
@@ -1307,6 +1311,52 @@ body {
   vertical-align: bottom;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.browse-card-img:hover {
+  position: relative;
+}
+.browse-card-img:hover .game-card-button-wrapper {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+.browse-card-img:hover .game-card-button-wrapper input {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.4rem 0.5rem;
+  background-color: #262B48;
+  color: white;
+  border: 1px solid white;
+  width: 135px;
+  border-radius: 0.3125rem;
+  flex: 1;
+}
+.browse-card-img:hover .game-card-button-wrapper input:hover {
+  background-color: #13171C;
+}
+.browse-card-img:hover .game-card-button-wrapper .game-card-deleteRelation {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.browse-card-img:hover .game-card-button-wrapper .game-card-deleteRelation input {
+  background-image: url("./../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  width: auto;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
 }
 
 .browse-card-infos {
@@ -1769,10 +1819,28 @@ body {
   margin-bottom: 1.5rem;
 }
 .game-comment .game-comment-user {
-  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.game-comment .game-comment-user div {
+  margin-right: 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+}
+.game-comment .game-comment-user div img {
+  width: 100%;
+}
+.game-comment .game-comment-user span {
+  font-size: 1.5625rem;
+}
+.game-comment .game-comment-date {
+  font-size: 0.875rem;
   margin-bottom: 1.5rem;
 }
 .game-comment .game-comment-content {
-  line-height: 1.4rem;
-  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-size: 1.125rem;
 }

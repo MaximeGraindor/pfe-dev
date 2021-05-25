@@ -56,10 +56,25 @@
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>
                         <dd>
-                            @if($game->involved_companies)
-                                @foreach($game->involved_companies as $key => $involved_company)
+                            @if($game->publishers)
+                                @foreach($game->publishers as $key => $publisher)
                                     <span>
-                                        {{ $involved_company->company->name }}
+                                        {{ $publisher->name }}
+                                    </span>
+                                @endforeach
+                            @else
+                                <span>Pas d'éditeurs répertoriés</span>
+                            @endif
+
+                        </dd>
+                    </div>
+                    <div class="characteristics-wrap">
+                        <dt>Genres</dt>
+                        <dd>
+                            @if($game->genres)
+                                @foreach($game->genres as $key => $genre)
+                                    <span>
+                                        {{ $genre->name }}
                                     </span>
                                 @endforeach
                             @else
@@ -71,8 +86,8 @@
                     <div class="characteristics-wrap">
                         <dt>Mode de jeu</dt>
                         <dd>
-                            @if($game->game_modes)
-                                @foreach($game->game_modes as $key => $mode)
+                            @if($game->modes)
+                                @foreach($game->modes as $key => $mode)
                                     <span>
                                         {{ $mode->name }}
                                     </span>
@@ -88,10 +103,10 @@
                     <div class="characteristics-wrap">
                         <dt>Plateforme</dt>
                         <dd>
-                            @if($game->platforms)
-                                @foreach($game->platforms as $key => $platform)
+                            @if($game->plateformes)
+                                @foreach($game->plateformes as $key => $platform)
                                     <span>
-                                        {{ $platform->abbreviation }},
+                                        {{ $platform->name }},
                                     </span>
                                 @endforeach
                             @else
@@ -139,8 +154,12 @@
                 <div class="comments-wrapper">
                     @foreach ($game->comments as $comment)
                         <div class="game-comment">
-                            <p class="game-comment-user">
-                                {{ $comment->user->pseudo }}
+                            <div class="game-comment-user">
+                                <div><img src="/img/{{$comment->user->picture}}" alt="Photo de profil"></div>
+                                <span>{{ $comment->user->pseudo }}</span>
+                            </div>
+                            <p class="game-comment-date">
+                                {{date('j/m/Y', strtotime($comment->created_at ))}}
                             </p>
                             <p class="game-comment-content">
                                 {{ $comment->content }}

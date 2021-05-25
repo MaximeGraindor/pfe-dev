@@ -36,10 +36,16 @@ class GameController extends Controller
     {
 
         $platforms = IGDBPlatform::all();
+        $genres = IGDBGenre::all();
 
-        $games = IGDBGame::with(['platforms', 'cover']);
+        $games = IGDBGame::with(['platforms', 'cover', 'genres'])->whereHas('platforms');
+
         if($request->name){
             $games->whereLike('name', '%' . $request->name . '%', false);
+        };
+
+        if($request->platforms){
+            $games->where('platforms.abbreviation', '$request->platforms');
         };
 
         $games = $games->paginate(50);

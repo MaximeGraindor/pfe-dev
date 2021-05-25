@@ -77,6 +77,18 @@
     }
 }
 
+.profil-game-card{
+    a{
+        color: white;
+        text-decoration: none;
+        margin-top: 0.5rem;
+        display: block;
+        max-width: 162.6px;
+        line-height: 1.2rem;
+        font-family: $font-content;
+    }
+}
+
 .profil-badges{
     padding: 2rem;
     background-color: $color-second;

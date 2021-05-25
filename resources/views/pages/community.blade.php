@@ -8,28 +8,31 @@
                     Activités des abonnements
                 </h2>
                 @foreach($activities as $key => $activity)
-                    {{-- @dd($activity->getExtraProperty('attributes')) --}}
-                    <p>
-                        {{$activity->causer->pseudo}} à écris un commentaire sur
-                    </p>
-                    @foreach($activity->getExtraProperty('attributes')  as $gameAttribute)
+                    <div class="feed-activity">
+                        @if(array_key_exists('game_id', $activity->getExtraProperty('attributes')))
+                        <div class="feed-activity-top feed-comment">
+                            <div>
+                                <img src="/img/{{$activity->causer->picture}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+                            </div>
+                            <p>
+                                <span>{{$activity->causer->pseudo}}</span> à écris un commentaire sur <span>{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}</span>
+                            </p>
+                        </div>
+                        <div class="feed-activity-bottom">
+                            <img src="{{ asset('storage/games/cover/' . App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->cover_path)}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+                            <p>
+                                {{Str::limit($activity->getExtraProperty('attributes')['content'], 400, $end='...') }}
+                            </p>
 
-                    @endforeach
+                        </div>
+                            <p>
+
+                        </p>
+                        @endif
+                    </div>
                 @endforeach
-                <div class="feed-activity">
-                    <div class="activity-top">
-                        <img src="./img/message.svg" alt="Photo de profil">
-                        <span>Zed</span>
-                    </div>
-                    <div class="activity-content">
-                        à ajouter un nouveau jeu
-                    </div>
-                    <div class="activity-about">
-                        img
-                    </div>
-                </div>
             </div>
-            {{-- <div class="community-right">
+            <div class="community-right">
                 <div class="community-suggestions">
                     <h2 class="suggestions-title">
                         Suggestions
@@ -59,7 +62,7 @@
                     </div>
                     @endforeach
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 @endsection

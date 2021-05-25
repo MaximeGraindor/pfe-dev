@@ -1088,6 +1088,7 @@ body {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .community-feed {
@@ -1099,6 +1100,7 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   line-height: 1.5rem;
   border-radius: 5px;
+  max-width: 800px;
 }
 .community-feed .feed-title {
   font-size: 1.875rem;
@@ -1106,14 +1108,68 @@ body {
   margin-bottom: 2rem;
 }
 
-.activity-top {
+.feed-activity {
+  box-sizing: border-box;
+  background-color: #1f242c;
+  padding: 2rem;
+}
+.feed-activity:not(:first-child) {
+  margin-top: 1rem;
+}
+.feed-activity:not(:last-child) {
+  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
+}
+
+.feed-activity-top {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
-.activity-top img {
-  width: 40px;
+.feed-activity-top div {
   margin-right: 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+}
+.feed-activity-top div img {
+  width: 100%;
+}
+.feed-activity-top p {
+  font-size: 1.0625rem;
+}
+.feed-activity-top p span {
+  font-weight: bold;
+}
+
+.feed-activity-bottom {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.feed-activity-bottom img {
+  width: 93.65px;
+  height: 130.1472px;
+  border-radius: 0.3125rem;
+  vertical-align: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1rem;
+}
+.feed-activity-bottom p {
+  font-size: 0.9375rem;
+}
+.feed-activity-bottom p::before, .feed-activity-bottom p::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url("./../img/left-quote.svg");
+  background-size: 100%;
+}
+.feed-activity-bottom p::after {
+  transform: rotate(180deg);
+  margin-top: 5px;
 }
 
 .community-suggestions {
@@ -1259,7 +1315,7 @@ body {
 .browse-card-infos .browse-card-infos-platforms {
   margin-top: 1rem;
 }
-.browse-card-infos .browse-card-infos-platforms span {
+.browse-card-infos .browse-card-infos-platforms a {
   padding: 0.3rem 0.4rem;
   background-color: #101216;
   border-radius: 5px;
@@ -1377,6 +1433,16 @@ body {
 }
 .profil-activity .profil-activity-card:not(:last-child) {
   margin-right: 2rem;
+}
+
+.profil-game-card a {
+  color: white;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: block;
+  max-width: 162.6px;
+  line-height: 1.2rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 
 .profil-badges {

@@ -7,19 +7,18 @@
   \*****************************/
 /***/ (() => {
 
-var selectbox = document.querySelectorAll('.selectBox');
-var checkboxesEl = document.querySelector('.checkboxes');
-console.log(selectbox);
+var countCommentsElt = document.querySelectorAll('.feed-activity-comments');
+var ListCommentsElt = document.querySelectorAll('.feed-activity-reply');
+console.log(countCommentsElt);
 
 var _loop = function _loop(i) {
-  console.log(selectbox[i]);
-  selectbox[i].addEventListener('click', function () {
-    checkboxesEl.classList.toggle('checkboxesEl-on');
-    console.log(selectbox[i]);
+  countCommentsElt[i].addEventListener('click', function () {
+    console.log(countCommentsElt[i]);
+    ListCommentsElt[i].classList.toggle('feed-activity-reply-disable');
   });
 };
 
-for (var i = 0; i < selectbox.length; i++) {
+for (var i = 0; i < countCommentsElt.length; i++) {
   _loop(i);
 }
 

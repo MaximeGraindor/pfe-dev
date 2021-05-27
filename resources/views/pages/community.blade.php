@@ -35,7 +35,7 @@
                             <span class="feed-activity-comments">{{count($activity->replies)}}</span>
                             <span class="feed-activity-likes">{{count($activity->replies)}}</span>
                         </div>
-                        <div class="feed-activity-reply">
+                        <div class="feed-activity-reply feed-activity-reply-disable">
                             <form action="/communaute/{{$activity->id}}/replies" method="post">
                                 @csrf
                                 <label for="reply">Commentaire</label>

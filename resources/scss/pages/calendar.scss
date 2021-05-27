@@ -32,6 +32,10 @@
     display: flex;
     background-color: $color-second;
     border-radius: 5px;
+    text-decoration: none;
+    &:hover{
+        box-shadow:  1px 1px 10px black;;
+    }
     .release-cover{
         img{
             width: 180.6px;

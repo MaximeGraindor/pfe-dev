@@ -47,7 +47,7 @@
             <div class="calendar-content-wrapper">
                 @if($games->count())
                     @foreach ($games as $game)
-                    <div class="calendar-release">
+                    <a href="/jeu/{{$game->slug}}" class="calendar-release">
                         <div class="release-cover">
                             <img
                             src="{{$game->cover ? "https://images.igdb.com/igdb/image/upload/t_cover_big/".$game->cover->image_id.".jpg" :'/img/game-cover-default.jpg' }}"
@@ -64,7 +64,7 @@
                                 <span class="release-date">Date de sortie&nbsp;: {{$game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) : 'Pas de date'}}</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 @else
                     <p class="calendar-noResults">

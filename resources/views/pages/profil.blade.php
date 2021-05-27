@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        @if(route('calendar'))
+        {{-- @if(route('calendar'))
             <section class="profil-update">
                 <h2 class="profil-update-title">
                     Modifier votre profil
@@ -72,7 +72,7 @@
                     </div>
                 </form>
             </section>
-        @else
+        @else --}}
             <div class="profil-content">
                 <section class="profil-badges">
                     <h2 class="badges-title">
@@ -194,7 +194,7 @@
                     </div>
                 </section>
             </div>
-        @endif
+        {{-- @endif --}}
 
     </div>
 @endsection

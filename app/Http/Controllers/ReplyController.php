@@ -42,7 +42,7 @@ class ReplyController extends Controller
         Reply::insert([
             'user_id' => Auth::user()->id,
             'activity_id' => $activity->id,
-            'content' => $request->replyContent,
+            'content' => $request->reply,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

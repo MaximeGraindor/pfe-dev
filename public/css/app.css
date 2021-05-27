@@ -1089,6 +1089,10 @@ body {
   display: flex;
   background-color: #222831;
   border-radius: 5px;
+  text-decoration: none;
+}
+.calendar-release:hover {
+  box-shadow: 1px 1px 10px black;
 }
 .calendar-release .release-cover img {
   width: 180.6px;
@@ -1173,7 +1177,7 @@ body {
 }
 .feed-activity:not(:last-child) {
   border-bottom: 2px solid black;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .feed-activity-top {
@@ -1301,6 +1305,10 @@ body {
   border: 1px solid black;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   cursor: pointer;
+}
+
+.feed-activity-reply-disable {
+  display: none;
 }
 
 .feed-activity-reply form {

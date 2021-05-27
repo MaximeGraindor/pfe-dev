@@ -1,23 +1,13 @@
-const selectbox = document.querySelectorAll('.selectBox')
-const checkboxesEl = document.querySelector('.checkboxes')
 
-console.log(selectbox);
+const countCommentsElt = document.querySelectorAll('.feed-activity-comments');
+const ListCommentsElt = document.querySelectorAll('.feed-activity-reply');
 
-for (let i = 0; i < selectbox.length; i++) {
+console.log(countCommentsElt);
 
-    console.log(
-        selectbox[i]
-    );
-
-    selectbox[i].addEventListener('click', () => {
-        checkboxesEl.classList.toggle('checkboxesEl-on')
-        console.log(
-            selectbox[i]
-        );
+for (let i = 0; i < countCommentsElt.length; i++) {
+    countCommentsElt[i].addEventListener('click', () =>{
+        console.log(countCommentsElt[i]);
+        ListCommentsElt[i].classList.toggle('feed-activity-reply-disable')
     })
 
-
-
 }
-
-

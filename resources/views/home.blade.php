@@ -121,10 +121,10 @@
                     Jeux favoris
                 </h3>
                 <div class="videogames-content">
-                    @foreach ($lastRelease as $game)
+                    @foreach ($games as $game)
                         <a href="/jeu/{{ $game->id }}" class="videogames-game-card">
                             <div class="videogames-card-img-container">
-                                <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                                <img src="{{ $game->cover_path ? asset('storage/games/cover/' . $game->cover_path) : '/img/game-cover-default.jpg' }}" alt="{{$game->cover_path }}">
                             </div>
                             <p class="videogames-game-title">{{ $game->name }}</p>
                         </a>
@@ -136,9 +136,9 @@
                     Dernière sortie
                 </h3>
                 <div class="videogames-content">
-                    @foreach ($lastRelease as $game)
+                    @foreach ($games as $game)
                         <a href="/jeu/{{ $game->id }}" class="videogames-game-card">
-                            <p class="videogames-game-date">{{ ($game->release_date)->format('j M Y') }}</p>
+                            <p class="videogames-game-date">{{ $game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) }}</p>
                             <div class="videogames-card-img-container">
                                 <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
                             </div>

@@ -236,22 +236,6 @@
         font-size: 2rem;
         margin-bottom: 2rem;
         color: white;
-        &::before{
-            content: "";
-            display: inline-block;
-            width: 50px;
-            height: 3px;
-            background-color: white;
-            vertical-align: middle;
-        }
-        &::after{
-            content: "";
-            display: inline-block;
-            width: 1044px;
-            height: 3px;
-            background-color: white;
-            vertical-align: middle;
-        }
     }
 
     .videogames-title-second{
@@ -336,6 +320,23 @@
 
 
 // RESPONSIVE
+@media screen and (max-width: 1050px) {
+    .home-rewards .home-rewards-wrap{
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+    .home-comments .home-comments-wrap{
+        flex-direction: column-reverse;
+        padding: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 945px) {
+    .home-rewards, .home-comments {
+        padding: 2rem 3rem 2rem;
+    }
+}
+
 @media screen and (max-width: 780px) {
     .home-gameon .home-gameon-wrap {
         flex-direction: column-reverse;

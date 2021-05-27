@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
-use App\Models\GameUser;
+use App\Models\Reply;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\Models\Activity;
 
-class GameUserController extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,18 +36,27 @@ class GameUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Activity $activity)
     {
-        //
+        //return $activity;
+        Reply::insert([
+            'user_id' => Auth::user()->id,
+            'activity_id' => $activity->id,
+            'content' => $request->replyContent,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\GameUser  $gameUser
+     * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function show(GameUser $gameUser)
+    public function show(Reply $reply)
     {
         //
     }
@@ -54,10 +64,10 @@ class GameUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\GameUser  $gameUser
+     * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function edit(GameUser $gameUser)
+    public function edit(Reply $reply)
     {
         //
     }
@@ -66,10 +76,10 @@ class GameUserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\GameUser  $gameUser
+     * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GameUser $gameUser)
+    public function update(Request $request, Reply $reply)
     {
         //
     }
@@ -77,13 +87,11 @@ class GameUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\GameUser  $gameUser
+     * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GameUser $gameUser)
+    public function destroy(Reply $reply)
     {
-        $game = Game::where('slug', collect(request()->segments()[1]))->first();
-        Auth::user()->games()->detach($game);
-        return redirect()->back();
+        //
     }
 }

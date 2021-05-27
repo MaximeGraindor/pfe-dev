@@ -13,6 +13,7 @@ use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FollowersController;
+use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,38 +44,50 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/communaute', [CommunityController::class, 'show'])
         ->name('community');
 
+    Route::post('/communaute/{activity:id}/replies', [ReplyController::class, 'store'])
+        ->name('reply.store');
+
+
     Route::get('/profil', [UserController::class, 'show'])
         ->name('profil');
+
+    Route::get('/profil/edit', [UserController::class, 'edit'])
+        ->name('user.profil-edit');
+
+    Route::post('/profil/update', [UserController::class, 'update'])
+        ->name('user.profil-update');
+
+    Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])
+        ->name('profil.show');
+    Route::post('/profil/{user:pseudo}/follow', [FollowsController::class, 'store'])
+        ->name('user.follow');
+
+
+
+    Route::get('/profil/{user:pseudo}/abonnes', [FollowsController::class, 'follows'])
+        ->name('followers');
+    Route::get('/profil/{user:pseudo}/abonnements', [FollowsController::class, 'follows'])
+        ->name('following');
+
+
+
+
+    Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
+    Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
+
+    Route::post('/{game:slug}/comments', [CommentController::class, 'store'])->name('comment.store');
+
+    Route::post('/game/addToCurrent/{game:slug}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
+    Route::post('/game/addToFinish/{game:slug}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
+    Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])->name('game.addToWish');
+
+    Route::post('/gameuser/{game:slug}/delete', [GameUserController::class, 'destroy'])->name('game-user.destroy');
+
+
+
 });
 
 
-
-
-
-Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])->name('profil');
-Route::get('/profil/{user:pseudo}/abonnes', [FollowsController::class, 'showFollowers'])->name('followers');
-Route::get('/profil/{user:pseudo}/abonnements', [FollowsController::class, 'showFollowings'])->name('followers');
-
-Route::post('/profil/{user:pseudo}/follow', [FollowsController::class, 'store']);
-Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
-Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
-
-Route::post('/{name:slug}/comments', [CommentController::class, 'store'])->name('comment.store');
-
-
-Route::get('/admin/ajouter-jeu', [GameController::class, 'create'])
-    ->middleware('can:add-game')
-    ->name('game.create');
-
-Route::post('/admin/ajouter-jeu/store', [GameController::class, 'store'])
-    ->middleware('can:add-game')
-    ->name('game.create');
-
-
-
-Route::post('/game/addToCurrent/{game:slug}', [GameController::class, 'addToCurrent'])->name('game.addToCurrent');
-Route::post('/game/addToFinish/{game:slug}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
-Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])->name('game.addToWish');
 
 
 

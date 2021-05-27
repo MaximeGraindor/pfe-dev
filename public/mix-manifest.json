@@ -1,11 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/activity-background.jpg": "/img/activity-background.jpg",
     "/img/badge-comment.svg": "/img/badge-comment.svg",
     "/img/badge-game.svg": "/img/badge-game.svg",
     "/img/close.svg": "/img/close.svg",
     "/img/comment.svg": "/img/comment.svg",
     "/img/console.svg": "/img/console.svg",
+    "/img/edit-button.svg": "/img/edit-button.svg",
     "/img/facebook.svg": "/img/facebook.svg",
     "/img/game-cover-default.jpg": "/img/game-cover-default.jpg",
     "/img/home-about.jpg": "/img/home-about.jpg",
@@ -26,5 +28,5 @@
     "/img/twitter.svg": "/img/twitter.svg",
     "/img/user-picture-default.jpg": "/img/user-picture-default.jpg",
     "/img/user.svg": "/img/user.svg",
-    "/img/edit-button.svg": "/img/edit-button.svg"
+    "/img/like.svg": "/img/like.svg"
 }

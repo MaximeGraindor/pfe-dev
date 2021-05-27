@@ -7,7 +7,7 @@
         </p>
         <div class="users-content">
             <div class="users-content-wrapper">
-                @foreach ($result as $user)
+                @foreach ($users as $user)
                 <a href="/profil/{{$user->pseudo}}" class="users-item">
                     <div class="users-item-top">
                         <div><img src="./img/{{$user->picture}}" alt="Photo de profil"></div>

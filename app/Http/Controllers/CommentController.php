@@ -117,7 +117,7 @@ class CommentController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -143,20 +143,52 @@ class CommentController extends Controller
             Storage::put('/public/games/banner/'.$name, $contentsBanner);
 
             /////////////////////////////////////////////////////////////////
+
+            // Badge
+            $badge = Badge::where('slug', 'premier-commentaire')->first();
+
+            if(!Comment::where('user_id', Auth::user()->id)->exists()){
+                //Si pas de jeu, on ajoute un badge à l'utilisateur de
+                $currentUser = User::where('id', Auth::user()->id)->first();
+                $currentUser->badges()->attach($badge->id);
+
+                activity()
+                ->performedOn(Badge::where('slug', 'premier-commentaire')->first())
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'name' => $badge->name,
+                    'img' => $badge->img,
+                    'description' => $badge->description,
+                    'badge_id' => $badge->id
+                ])
+                ->log('Badge gagné');
+            }
+
+
+
             $comment = Comment::create([
                 'user_id' => Auth::user()->id,
                 'game_id' => $gameToSave->id,
                 'content' => $request->commentContent,
             ]);
 
+
+
         }else{
             $currentGame = Game::where('slug', collect(request()->segments())->first())->first();
+
+            if(!Comment::where('user_id', Auth::user()->id)->exists()){
+                //Si pas de jeu, on ajoute un badge à l'utilisateur de
+                $currentUser = User::where('id', Auth::user()->id)->first();
+                $currentUser->badges()->attach(Badge::where('slug', 'premier-commentaire')->get());
+            }
 
             $comment = Comment::create([
                 'user_id' => Auth::user()->id,
                 'game_id' => $currentGame->id,
                 'content' => $request->commentContent,
             ]);
+
         }
 
         return back();

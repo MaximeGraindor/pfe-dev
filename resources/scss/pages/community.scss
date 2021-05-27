@@ -165,4 +165,101 @@
 }
 
 
+// REPLIES
+.feed-activity-reply{
+    form{
+        margin-bottom: 4rem;
+        label{
+            margin-bottom: 5px;
+            display: block;
+        }
+        input{
+            width: 150px;
+            background-color: #222831;
+            border: 1px solid black;
+            font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+            color: white;
+            box-sizing: border-box;
+            padding: 0.5rem 2.5rem;
+            float: right;
+        }
+        textarea{
+            width: 100%;
+            background-color: #222831;
+            border: 1px solid black;
+            resize: none;
+            height: 60px;
+            padding: 0.5rem;
+            font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: pxToRem(15);
+            box-sizing: border-box;
+        }
+    }
+}
+.reply-item{
+    background-color: #1a1e25;
+    padding: 1rem;
+    margin-top: 1rem;
+    &:not(:last-child){
+        margin-bottom: 1rem;
+    }
+}
+.reply-item-top{
+    display: flex;
+    align-items: center;
+    div{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        margin-right: 1rem;
+        img{
+            width: 100%;
+        }
+    }
+}
+.reply-item-bottom{
+    margin-left: 55px;
+}
+
+.feed-activity-infos{
+    display: flex;
+    justify-content: flex-end;
+    span{
+       font-size: pxToRem(19);
+       display: flex;
+       align-items: center;
+       padding: 0.5rem;
+    }
+}
+
+
+.feed-activity-comments::after{
+    content: "";
+    display: inline-block;
+    background-image: url("./../img/comment.svg");
+    background-size: 100%;
+    background-position: center;
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+
+
+}
+.feed-activity-likes::after{
+    content: "";
+    display: inline-block;
+    background-image: url("./../img/like.svg");
+    background-size: 100%;
+    background-position: center;
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+    margin-top: -10px;
+}
+
+
+
+
 

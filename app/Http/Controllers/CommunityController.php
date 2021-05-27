@@ -14,9 +14,10 @@ class CommunityController extends Controller
     public function show(){
         $usersSuggest = User::all()->random(3)->where('id', '!=', Auth::user()->id);
 
-        $activities = Activity::all()
+        $activities = Activity::with('replies.user')
         ->whereIn('causer_id', Auth::user()->followings->pluck('id'))
-        ->sortByDesc('created_at');
+        //->sortByDesc('created_at')
+        ->get();
 
         return view('pages.community', compact('usersSuggest', 'activities'));
     }

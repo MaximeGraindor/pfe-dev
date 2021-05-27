@@ -38,7 +38,7 @@ class GameController extends Controller
         $platforms = IGDBPlatform::all();
         $genres = IGDBGenre::all();
 
-        $games = IGDBGame::with(['platforms', 'cover', 'genres'])->whereHas('platforms');
+        $games = IGDBGame::with(['platforms', 'cover', 'genres'])->orderBy('aggregated_rating', 'asc');
 
         if($request->name){
             $games->whereLike('name', '%' . $request->name . '%', false);
@@ -48,7 +48,7 @@ class GameController extends Controller
             $games->where('platforms.abbreviation', '$request->platforms');
         };
 
-        $games = $games->paginate(50);
+        $games = $games->paginate(100);
         return view('pages.browse', compact('games', 'platforms'));
     }
 
@@ -246,7 +246,7 @@ class GameController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -405,7 +405,7 @@ class GameController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -559,7 +559,7 @@ class GameController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->screenshots ? $gameScreenshot->image_id : 'game-cover-default') . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id  . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);

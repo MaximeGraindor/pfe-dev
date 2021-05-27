@@ -24,12 +24,15 @@ class CalendarController extends Controller
     public function index(Request $request)
     {
         $games = IGDBGame::with(['platforms', 'cover']);
-        if($request->name){
-            $games->whereLike('name', '%' . $request->name . '%', false);
+        if($request->year){
+            $games->whereYear('first_release_date', '=', $request->year)->get();
+        }else{
+            $games->whereYear('first_release_date', '=', Carbon::now()->year);
         };
 
-
-        $games = $games->paginate(50);
+        $games = $games
+            ->OrderBy('first_release_date', 'asc')
+            ->paginate(100);
 
         return view('pages.calendar', compact('games'));
     }

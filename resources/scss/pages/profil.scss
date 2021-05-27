@@ -26,7 +26,6 @@
 .profil-info-top{
     display: flex;
     color: white;
-    justify-content: center;
     align-items: center;
     margin-top: 1rem;
     .info-top-pseudo{
@@ -52,10 +51,10 @@
 }
 
 .info-top-update{
-    margin-left: 2rem;
     img{
-        width: 25px;
-        height: 25px;
+        width: 21px;
+        height: 21px;
+        margin-left: 1rem;
     }
 }
 
@@ -131,5 +130,39 @@
             font-size: 2rem;
             margin-bottom: 1.75rem;
         }
+    }
+}
+
+
+// UPDATE PROFIL
+.profil-update{
+    padding: 0rem 7rem 4rem;
+    color: white;
+    .profil-update-title{
+        font-size: 2rem;
+        margin-bottom: 1.75rem;
+    }
+}
+
+.profil-update-form{
+    font-family: $font-content;
+    label{
+        color: white;
+        display: block;
+        margin-bottom: 0.3rem;
+        font-size: pxToRem(20);
+    }
+    input{
+        font-size: pxToRem(18);
+        padding: 0.6rem 1.2rem;
+        background-color: $color-second;
+        color: white;
+        border: none;
+        width: 400px;
+        box-sizing: border-box;
+        resize: none;
+        border: 1px solid #434980;
+        font-family: $font-content;
+        margin-bottom: 2rem;
     }
 }

@@ -7,7 +7,7 @@
         display: flex;
         gap: 2rem;
         justify-content: center;
-        select{
+        select,input{
             font-family: $font-content;
             font-size: pxToRem(15);
             color: white;

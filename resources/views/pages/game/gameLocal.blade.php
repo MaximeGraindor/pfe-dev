@@ -128,7 +128,7 @@
                         <img src="{{asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg')}}" alt="" class="gallerry-current-img">
                         <div class="gallery-thumb">
                             @foreach($game->screenshots as $key => $screenshot)
-                                <img src="{{asset('storage/games/banner/'. $screenshot->name . '.jpg')}}" alt="">
+                                <img src="{{asset('storage/games/screenshots/'. $screenshot->name . '.jpg')}}" alt="{{$screenshot->name}}">
                             @endforeach
                         </div>
                     </div>

@@ -15,15 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            //UserSeeder::class,
-            //GameSeeder::class,
-            //PublisherSeeder::class,
-            //SupportSeeder::class,
-            //PlateformeSeeder::class,
-            //GenreSeeder::class,
-            //ModeSeeder::class,
-            //RoleSeeder::class,
-            //GameUserSeeder::class,
+            UserSeeder::class,
+            RoleSeeder::class,
             BadgeSeeder::class
         ]);
     }

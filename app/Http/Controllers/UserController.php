@@ -20,12 +20,14 @@ class UserController extends Controller
             $users->where('pseudo','like', '%'.request('pseudo').'%');
         }
 
-        $result = $users->get()->map(function ($query) {
-            $query->setRelation('games', $query->games->take(5));
-            return $query;
-        });
+        foreach ($users as $user) {
+            $user->following_count = $user->followings->count();
+            $user->followers_count = $user->followers->count();
+        }
 
-        return view('pages.users', compact('result'));
+        $users = $users->get();
+
+        return view('pages.users', compact('users'));
     }
 
     /**
@@ -35,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -91,7 +93,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('pages.updateProfil');
+        return view('pages.profil', [
+            'user' => Auth::user()
+        ]);
     }
 
     /**
@@ -103,7 +107,18 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
+        $validated = $request->validate([
+            'pseudo' => 'unique:users|max:10',
+            'email' => 'email'
+        ]);
+
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->update([
+            $validated
+        ]);
+
+        return redirect()->back();
     }
 
     /**

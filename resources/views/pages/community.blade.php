@@ -16,7 +16,7 @@
                             </div>
                             <div class="feed-activity-top-infos">
                                 <p>
-                                    <a href="/profil/{{$activity->causer->pseudo}}">{{$activity->causer->pseudo}}</a> à écris un commentaire sur <a href="/jeu/{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->slug}}">{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}</a>
+                                    <a href="/profil/{{$activity->causer->pseudo}}">{{$activity->causer->pseudo}}</a> a écrit un commentaire sur <a href="/jeu/{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->slug}}">{{App\Models\Game::find($activity->getExtraProperty('attributes')['game_id'])->name}}</a>
                                 </p>
                                 <span>
                                    {{date('j/m/Y', strtotime($activity->created_at))}}
@@ -30,6 +30,31 @@
                             <p>
                                 {{Str::limit($activity->getExtraProperty('attributes')['content'], 400, $end='...') }}
                             </p>
+                        </div>
+                        <div class="feed-activity-infos">
+                            <span class="feed-activity-comments">{{count($activity->replies)}}</span>
+                            <span class="feed-activity-likes">{{count($activity->replies)}}</span>
+                        </div>
+                        <div class="feed-activity-reply">
+                            <form action="/communaute/{{$activity->id}}/replies" method="post">
+                                @csrf
+                                <label for="reply">Commentaire</label>
+                                <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                                <input type="submit" value="Envoyer">
+                            </form>
+                            @foreach($activity->replies as $replies)
+                            <div class="reply-item">
+                                <div class="reply-item-top">
+                                    <div><img src="./img/{{$replies->user->picture}}" alt=""></div>
+                                    <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                                </div>
+                                <div class="reply-item-bottom">
+                                    <p>
+                                        {{$replies->content}}
+                                    </p>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                         @endif
                     </div>

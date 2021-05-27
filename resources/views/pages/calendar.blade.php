@@ -5,19 +5,7 @@
     <div class="content-size dashboard-calendar">
 
         <div class="calendar-filter">
-            <form action="#" method="post">
-                <div class="calendar-filter-plateforme">
-                    <label for="plateforme" class="hidden">Mode de jeu</label>
-                    <select name="plateforme" id="plateforme">
-                        <option value="">Mode de jeu</option>
-                    </select>
-                </div>
-                <div class="calendar-filter-support">
-                    <label for="support" class="hidden">Support</label>
-                    <select name="support" id="support">
-                        <option value="">Support</option>
-                    </select>
-                </div>
+            <form action="#" method="get">
                 <div class="calendar-filter-month">
                     <label for="month" class="hidden">Mois</label>
                     <select name="month" id="month">
@@ -50,6 +38,9 @@
                         <option value="2026">2026</option>
                     </select>
                 </div>
+                <div class="calendar-filter-submit">
+                    <input type="submit" value="Filtrer">
+                </div>
             </form>
         </div>
         <div class="calendar-content">
@@ -70,8 +61,7 @@
                                 {{$game->summary ? Str::limit($game->summary, 220, $end='...') : 'Pas de synopsis'}}
                             </p>
                             <div class="release-bottom">
-                                <span class="release-date">{{$game->first_release_date ? $game->first_release_date : 'Pas de date'}}</span>
-                                <span class="release-trailer">bande annonce</span>
+                                <span class="release-date">Date de sortie&nbsp;: {{$game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) : 'Pas de date'}}</span>
                             </div>
                         </div>
                     </div>
@@ -84,8 +74,5 @@
 
             </div>
         </div>
-    </div>
-    <div class="calendar-paginate">
-        {{$games->links()}}
     </div>
 @endsection

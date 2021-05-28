@@ -165,6 +165,39 @@
 }
 
 
+.feed-activity-infos{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    span{
+       font-size: pxToRem(19);
+       display: flex;
+       align-items: center;
+       padding: 0.5rem;
+       &:hover{
+        background-color: $color-third;
+        cursor: pointer;
+        border: 2px solid black;
+    }
+    }
+    form{
+        display: flex;
+        &:hover{
+            background-color: $color-third;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+        button{
+            font-size: pxToRem(19);
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+    }
+}
+
+
 // REPLIES
 .feed-activity-reply-disable{
     display: none;
@@ -226,18 +259,6 @@
     margin-left: 55px;
 }
 
-.feed-activity-infos{
-    display: flex;
-    justify-content: flex-end;
-    span{
-       font-size: pxToRem(19);
-       display: flex;
-       align-items: center;
-       padding: 0.5rem;
-    }
-}
-
-
 .feed-activity-comments::after{
     content: "";
     display: inline-block;
@@ -247,9 +268,18 @@
     width: 23px;
     height: 23px;
     margin-left: 5px;
-
-
 }
+.likes-active::after{
+    content: "";
+    display: inline-block;
+    background-image: url("./../img/like-active.svg") !important;
+    background-size: 100%;
+    background-position: center;
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+}
+
 .feed-activity-likes::after{
     content: "";
     display: inline-block;

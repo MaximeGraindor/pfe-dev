@@ -33,7 +33,11 @@
                         </div>
                         <div class="feed-activity-infos">
                             <span class="feed-activity-comments">{{count($activity->replies)}}</span>
-                            <span class="feed-activity-likes">{{count($activity->replies)}}</span>
+                            <form action="/activity/{{$activity->id}}/like" method="post">
+                                @csrf
+                                <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}">{{$activity->likers()->count()}}</button>
+                            </form>
+
                         </div>
                         <div class="feed-activity-reply feed-activity-reply-disable">
                             <form action="/communaute/{{$activity->id}}/replies" method="post">

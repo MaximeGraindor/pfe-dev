@@ -13,6 +13,7 @@ use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FollowersController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReplyController;
 
 /*
@@ -44,8 +45,13 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/communaute', [CommunityController::class, 'show'])
         ->name('community');
 
+    Route::post('/activity/{activity:id}/like', [LikeController::class, 'store'])
+        ->name('activity.like');
+
     Route::post('/communaute/{activity:id}/replies', [ReplyController::class, 'store'])
         ->name('reply.store');
+
+
 
 
     Route::get('/profil', [UserController::class, 'show'])

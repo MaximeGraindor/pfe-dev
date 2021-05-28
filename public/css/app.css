@@ -1307,6 +1307,38 @@ body {
   cursor: pointer;
 }
 
+.feed-activity-infos {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.feed-activity-infos span {
+  font-size: 1.1875rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.feed-activity-infos span:hover {
+  background-color: #262B48;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.feed-activity-infos form {
+  display: flex;
+}
+.feed-activity-infos form:hover {
+  background-color: #262B48;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.feed-activity-infos form button {
+  font-size: 1.1875rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+
 .feed-activity-reply-disable {
   display: none;
 }
@@ -1369,21 +1401,21 @@ body {
   margin-left: 55px;
 }
 
-.feed-activity-infos {
-  display: flex;
-  justify-content: flex-end;
-}
-.feed-activity-infos span {
-  font-size: 1.1875rem;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-}
-
 .feed-activity-comments::after {
   content: "";
   display: inline-block;
   background-image: url("./../img/comment.svg");
+  background-size: 100%;
+  background-position: center;
+  width: 23px;
+  height: 23px;
+  margin-left: 5px;
+}
+
+.likes-active::after {
+  content: "";
+  display: inline-block;
+  background-image: url("./../img/like-active.svg") !important;
   background-size: 100%;
   background-position: center;
   width: 23px;

@@ -9,7 +9,6 @@
         <div class="game-content">
 
             <div class="game-header">
-                {{-- @if(property_exists($game, 'image_id')) --}}
                 <img
                     src="{{asset('storage/games/cover/'.$game->cover_path)}}"
                     alt=""
@@ -17,20 +16,23 @@
                     width="{{$game->cover ? $game->cover->height : null}}"
                     class="game-cover"
                 >
-                {{-- @else
-                    <img
-                        src="{{ asset('storage/games/cover/' . $game->cover_path) }}"
-                        alt=""
-                        height="{{$game->cover ? $game->cover->height : null}}"
-                        width="{{$game->cover ? $game->cover->height : null}}"
-                        class="game-cover"
-                    >
-                @endif
- --}}
                 <div class="game-header-infos">
                     <h2 class="game-title">
                         {{ $game->name }}
                     </h2>
+                    <form action="/jeu/{{$game->id}}/rating" method="post" class="game-rating">
+                        @csrf
+                        <div class="rating">
+                            <label for="rating">Note&nbsp;</label>
+                            <select name="rating" id="rating">
+                                @for($i = 1; $i <= 5; $i++)
+                                    <option value="{{$i}}" {{-- {{($i === number_format($currentNoteFromCurrentUSer->value)) ? 'selected' : null }} --}} >{{$i}}</option>
+                                @endfor
+                            </select>
+                            <input type="submit" value="envoyer">
+                        </div>
+                        <span>En moyenne : {{$game->ratingsAVG()}}</span>
+                    </form>
                     @if(property_exists($game, 'description'))
                         <p class="game-description">
                             {{ $game->description }}
@@ -128,7 +130,7 @@
                         <img src="{{asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg')}}" alt="" class="gallerry-current-img">
                         <div class="gallery-thumb">
                             @foreach($game->screenshots as $key => $screenshot)
-                                <img src="{{asset('storage/games/screenshots/'. $screenshot->name . '.jpg')}}" alt="{{$screenshot->name}}">
+                                <img src="{{asset('storage/games/screenshots/'. $screenshot->name . '.jpg')}}" alt="{{$screenshot->name}}" class="gallery-thumb-img">
                             @endforeach
                         </div>
                     </div>

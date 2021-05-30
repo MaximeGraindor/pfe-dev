@@ -72,6 +72,13 @@
     justify-content: space-between;
 }
 
+.dashboard-top-title-rp{
+    font-size: pxToRem(35);
+    color: white;
+    font-family: $font-content;
+    display: none;
+}
+
 .dashboard-top-form{
 
     input[type="search"]{
@@ -133,4 +140,27 @@
         border-radius: 50%;
     }
 
+}
+
+// RESPONSIVE
+@media screen and (max-width: 1400px){
+    .dashboard-sidebar{
+        display: none;
+    }
+    .dashboard-right{
+        margin-left: 0;
+    }
+
+    .dashboard-top-form{
+        display: none;
+    }
+
+    .dashboard-top-title-rp{
+        display: block;
+    }
+
+    .dashboard-top {
+        padding: 1.35rem 3rem;
+        align-items: center;
+    }
 }

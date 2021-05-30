@@ -61,6 +61,9 @@
             <div class="dashboard-right">
                 <div class="dashboard-top">
                     <div class="dashboard-top-left">
+                        <p class="dashboard-top-title-rp">
+                            Gameon
+                        </p>
                         <form action="/utilisateurs" class="dashboard-top-form">
                             <label for="search" class="hidden">Rechercher</label>
                             <input type="search" id="search" placeholder="Utilisateurs" name="pseudo">
@@ -84,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="dashboard-content">
                     @yield('content')
                 </div>
@@ -100,6 +102,17 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
         <script src="{{ asset('/js/app.js') }}"></script>
+
+        {{-- <script type="module" src="node_modules/laravel-echo">
+            import Echo from "laravel-echo";
+
+            //window.Pusher = require("pusher-js");
+            Echo.private(`orders.${follower}`)
+                .listen('OrderShipmentStatusUpdated', (e) => {
+                    console.log(e.order);
+                });
+
+        </script> --}}
     </body>
 
 </html>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\FollowsNotifications;
-use App\Models\Reply;
 use Carbon\Carbon;
+use App\Models\Reply;
 use Illuminate\Http\Request;
+use App\Events\FollowsNotification;
+use App\Events\FollowsNotifications;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
 
@@ -47,8 +48,6 @@ class ReplyController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-
-        /* event(new FollowsNotifications('hello world')); */
 
         return redirect()->back();
     }

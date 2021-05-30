@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\GameUser;
 use Illuminate\Http\Request;
+use App\Events\FollowsNotification;
 use Illuminate\Support\Facades\Auth;
 use MarcReichel\IGDBLaravel\Models\Game as IGDBModelGame;
 
@@ -38,6 +39,8 @@ class DashboardController extends Controller
             ->orWhere('slug', 'dying-light-2')
             ->get();
 
+
+        //event(new FollowsNotification('hello world'));
 
         return view('pages.activity', compact('currentGamesList', 'finishGamesList', 'wishGamesList', 'suggestGames'));
     }

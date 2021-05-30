@@ -1,3 +1,7 @@
+// Imports
+import gameGallery from './partials/gameGallery'
+
+gameGallery.init()
 
 const countCommentsElt = document.querySelectorAll('.feed-activity-comments');
 const ListCommentsElt = document.querySelectorAll('.feed-activity-reply');
@@ -12,7 +16,8 @@ for (let i = 0; i < countCommentsElt.length; i++) {
 
 }
 
-import Pusher from "pusher-js"
+
+/* import Pusher from "pusher-js"
 
 Pusher.logToConsole = true;
 
@@ -21,6 +26,6 @@ Pusher.logToConsole = true;
     });
 
     var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
+    channel.bind('follows-notification', function(data) {
       alert(JSON.stringify(data));
-    });
+    }); */

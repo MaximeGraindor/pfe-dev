@@ -172,6 +172,17 @@ class CommentController extends Controller
                 'content' => $request->commentContent,
             ]);
 
+            activity()
+                ->performedOn($comment)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'name' => $badge->name,
+                    'img' => $badge->img,
+                    'description' => $badge->description,
+                    'badge_id' => $badge->id
+                ])
+                ->log('Commentaire écrit');
+
 
 
         }else{
@@ -188,6 +199,16 @@ class CommentController extends Controller
                 'game_id' => $currentGame->id,
                 'content' => $request->commentContent,
             ]);
+
+            activity()
+                ->performedOn($comment)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'content' => $comment->content,
+                    'game_id' => $comment->game_id,
+                    'user_id' => $comment->user_id,
+                ])
+                ->log('Commentaire écrit');
 
         }
 

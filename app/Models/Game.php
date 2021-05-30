@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Nagy\LaravelRating\Traits\Rate\Rateable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Game extends Model
 {
-    use HasFactory;
+    use HasFactory, Rateable;
 
     protected $dates = ['release_date'];
 

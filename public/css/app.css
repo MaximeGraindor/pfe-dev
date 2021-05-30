@@ -878,6 +878,13 @@ body {
   justify-content: space-between;
 }
 
+.dashboard-top-title-rp {
+  font-size: 2.1875rem;
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  display: none;
+}
+
 .dashboard-top-form input[type=search] {
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   padding: 0.7rem 1.5rem;
@@ -935,6 +942,28 @@ body {
   border-radius: 50%;
 }
 
+@media screen and (max-width: 1400px) {
+  .dashboard-sidebar {
+    display: none;
+  }
+
+  .dashboard-right {
+    margin-left: 0;
+  }
+
+  .dashboard-top-form {
+    display: none;
+  }
+
+  .dashboard-top-title-rp {
+    display: block;
+  }
+
+  .dashboard-top {
+    padding: 1.35rem 3rem;
+    align-items: center;
+  }
+}
 .dashboard-activity {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
@@ -1179,6 +1208,9 @@ body {
   border-bottom: 2px solid black;
   margin-bottom: 3rem;
 }
+.feed-activity:hover {
+  box-shadow: 1px 1px 10px black;
+}
 
 .feed-activity-top {
   display: flex;
@@ -1198,13 +1230,13 @@ body {
 .feed-activity-top p {
   font-size: 1.0625rem;
 }
-.feed-activity-top p a {
+.feed-activity-top p a, .feed-activity-top p span {
   font-weight: bold;
   text-decoration: none;
   font-style: italic;
   color: white;
 }
-.feed-activity-top span {
+.feed-activity-top .feed-activity-top-date {
   font-weight: 500;
   font-size: 14px;
 }
@@ -1309,7 +1341,6 @@ body {
 
 .feed-activity-infos {
   display: flex;
-  gap: 0.5rem;
   justify-content: flex-end;
 }
 .feed-activity-infos span {
@@ -1321,7 +1352,6 @@ body {
 .feed-activity-infos span:hover {
   background-color: #262B48;
   cursor: pointer;
-  border: 2px solid black;
 }
 .feed-activity-infos form {
   display: flex;
@@ -1329,7 +1359,6 @@ body {
 .feed-activity-infos form:hover {
   background-color: #262B48;
   cursor: pointer;
-  border: 2px solid black;
 }
 .feed-activity-infos form button {
   font-size: 1.1875rem;
@@ -1353,7 +1382,7 @@ body {
 .feed-activity-reply form input {
   width: 150px;
   background-color: #222831;
-  border: 1px solid black;
+  border: 2px solid black;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   color: white;
   box-sizing: border-box;
@@ -1363,7 +1392,7 @@ body {
 .feed-activity-reply form textarea {
   width: 100%;
   background-color: #222831;
-  border: 1px solid black;
+  border: 2px solid black;
   resize: none;
   height: 60px;
   padding: 0.5rem;
@@ -1978,6 +2007,10 @@ body {
   width: 100%;
   margin-bottom: 1rem;
 }
+.gallery-content .gallery-thumb {
+  display: flex;
+  overflow: auto;
+}
 .gallery-content .gallery-thumb img:not(:last-child) {
   margin-right: 0.5rem;
 }
@@ -2054,4 +2087,26 @@ body {
 .game-comment .game-comment-content {
   line-height: 1.6rem;
   font-size: 1.125rem;
+}
+
+.game-rating {
+  color: white;
+  padding: 0.5rem 2rem;
+  background-color: #262B48;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.game-rating label {
+  font-size: 1.25rem;
+}
+.game-rating select, .game-rating input {
+  font-size: 0.9375rem;
+  color: white;
+  background-color: #222831;
+  padding: 0.6rem 0.6rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  border: 1px solid white;
 }

@@ -35,7 +35,10 @@
     }
     &:not(:last-child){
         border-bottom: 2px solid black;
-        margin-bottom: 3rem;
+        margin-bottom: 3+rem;
+    }
+    &:hover{
+        box-shadow: 1px 1px 10px black;
     }
 }
 
@@ -55,14 +58,14 @@
     }
     p{
         font-size: pxToRem(17);
-        a{
+        a, span{
             font-weight: bold;
             text-decoration: none;
             font-style: italic;
             color: white;
         }
     }
-    span{
+    .feed-activity-top-date{
         font-weight: 500;
         font-size: 14px;
     }
@@ -167,7 +170,6 @@
 
 .feed-activity-infos{
     display: flex;
-    gap: 0.5rem;
     justify-content: flex-end;
     span{
        font-size: pxToRem(19);
@@ -177,7 +179,6 @@
        &:hover{
         background-color: $color-third;
         cursor: pointer;
-        border: 2px solid black;
     }
     }
     form{
@@ -185,7 +186,6 @@
         &:hover{
             background-color: $color-third;
             cursor: pointer;
-            border: 2px solid black;
         }
         button{
             font-size: pxToRem(19);
@@ -212,7 +212,7 @@
         input{
             width: 150px;
             background-color: #222831;
-            border: 1px solid black;
+            border: 2px solid black;
             font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
             color: white;
             box-sizing: border-box;
@@ -222,7 +222,7 @@
         textarea{
             width: 100%;
             background-color: #222831;
-            border: 1px solid black;
+            border: 2px solid black;
             resize: none;
             height: 60px;
             padding: 0.5rem;

@@ -90,6 +90,8 @@
     }
 
     .gallery-thumb{
+        display: flex;
+        overflow: auto;
         img:not(:last-child){
             margin-right: 0.5rem;
         }
@@ -174,3 +176,27 @@
         font-size: pxToRem(18);
     }
 }
+
+//rating
+.game-rating{
+        color: white;
+        padding: 0.5rem 2rem;
+        background-color: $color-third;
+        font-family: $font-content;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        label{
+            font-size: pxToRem(20);
+        }
+        select, input{
+            font-size: 0.9375rem;
+            color: white;
+            background-color: #222831;
+            padding: 0.6rem 0.6rem;
+            border: 1px solid black;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+}
+

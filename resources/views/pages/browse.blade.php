@@ -19,18 +19,18 @@
                     <label for="genre" class="hidden">Plateforme</label>
                     <select name="genre" id="genre">
                         <option value="">Genre</option>
-                        {{-- @foreach($genres as $genre)
+                        @foreach($genres as $genre)
                             <option value="{{$genre->name}}">{{$genre->name}}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
                 <div class="browse-mode">
                     <label for="mode" class="hidden">Plateforme</label>
                     <select name="mode" id="mode">
                         <option value="">Mode de jeu</option>
-                        {{-- @foreach($modes as $mode)
+                        @foreach($modes as $mode)
                             <option value="{{$mode->name}}">{{$mode->name}}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
                 <div class="browse-name">

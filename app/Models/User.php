@@ -5,16 +5,17 @@ namespace App\Models;
 use App\Models\Badge;
 use App\Models\ActivityLog;
 use Overtrue\LaravelFollow\Followable;
+use Overtrue\LaravelLike\Traits\Liker;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Contracts\Activity;
+use Nagy\LaravelRating\Traits\Rate\CanRate;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Overtrue\LaravelLike\Traits\Liker;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, Followable, Liker;
+    use HasFactory, Notifiable, Followable, Liker, CanRate;
 
     /**
      * The attributes that are mass assignable.

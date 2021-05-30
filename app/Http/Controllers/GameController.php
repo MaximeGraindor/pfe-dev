@@ -11,19 +11,21 @@ use App\Models\Support;
 use App\Models\GameUser;
 use App\Models\Publisher;
 use App\Models\Plateforme;
+use App\Models\Screenshot;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
+use Illuminate\Support\Facades\Http;
+use Nagy\LaravelRating\Models\Rating;
 use App\Http\Requests\StoreGameRequest;
-use App\Models\Screenshot;
 use Illuminate\Support\Facades\Storage;
+use MarcReichel\IGDBLaravel\Models\Modes;
 use MarcReichel\IGDBLaravel\Builder as IGDB;
 use MarcReichel\IGDBLaravel\Models\Game as IGDBGame;
 use MarcReichel\IGDBLaravel\Models\Genre as IGDBGenre;
-use MarcReichel\IGDBLaravel\Models\Modes;
 use MarcReichel\IGDBLaravel\Models\Platform as IGDBPlatform;
+use MarcReichel\IGDBLaravel\Models\GameMode as IGDBMode;
 
 class GameController extends Controller
 {
@@ -34,22 +36,27 @@ class GameController extends Controller
      */
     public function index(Request $request)
     {
-
         $platforms = IGDBPlatform::all();
         $genres = IGDBGenre::all();
+        $modes = IGDBMode::all();
 
         $games = IGDBGame::with(['platforms', 'cover', 'genres'])->orderBy('aggregated_rating', 'asc');
 
-        if($request->name){
+        if($request->platform){
+            $games->whereHas('platforms')
+            ->where('platforms.abbreviation', $request->platform);
+        };
+
+        /* if($request->name){
             $games->whereLike('name', '%' . $request->name . '%', false);
         };
 
         if($request->platforms){
             $games->where('platforms.abbreviation', '$request->platforms');
-        };
+        }; */
 
-        $games = $games->paginate(100);
-        return view('pages.browse', compact('games', 'platforms'));
+        $games = $games->paginate(20);
+        return view('pages.browse', compact('games', 'platforms', 'genres', 'modes'));
     }
 
     /**
@@ -123,10 +130,13 @@ class GameController extends Controller
             ->first();
             return view('pages.game.gameAPI', compact('game'));
         }else{
-             $game = Game::where('slug', collect(request()->segments())->last())
+            $game = Game::where('slug', collect(request()->segments())->last())
                 ->with('comments', 'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
                 ->first();
-            return view('pages.game.gameLocal', compact('game'));
+            $currentNoteFromCurrentUSer = Rating::where('model_id', Auth::user()->id)
+                ->where('rateable_id', $game->id)
+                ->first();
+            return view('pages.game.gameLocal', compact('game', 'currentNoteFromCurrentUSer'));
         }
 
 
@@ -245,7 +255,6 @@ class GameController extends Controller
 
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
-                    //return $gameScreenshot->image_id;
                     $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
@@ -276,6 +285,10 @@ class GameController extends Controller
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
 
             // Vérifie si le jeu est déjà présent dans la liste
@@ -292,18 +305,34 @@ class GameController extends Controller
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($gameToSave)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'en cours',
+                    'name' => $gameToSave->name,
+                    'cover_path' => $gameToSave->cover_path,
+                    'banner_path' => $gameToSave->banner_path,
+                    'description' => $gameToSave->description
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
 
         }else{
 
             $currentGame = Game::where('slug', collect(request()->segments())->last())->first();
-
+            //Si pas de jeu, on ajoute un badge à l'utilisateur
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
-                //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
-            //return Auth::user()->id;
+
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
                 toastr()->error('le jeu est déjà présent dans la liste', 'Erreur');
@@ -319,6 +348,19 @@ class GameController extends Controller
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($currentGame)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'en cours',
+                    'name' => $currentGame->name,
+                    'cover_path' => $currentGame->img,
+                    'banner_path' => $currentGame->description,
+                    'description' => $currentGame->id
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
         }
 
@@ -435,6 +477,10 @@ class GameController extends Controller
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->first());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
 
             // Vérifie si le jeu est déjà présent dans la liste
@@ -451,6 +497,19 @@ class GameController extends Controller
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($gameToSave)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'termine',
+                    'name' => $gameToSave->name,
+                    'cover_path' => $gameToSave->cover_path,
+                    'banner_path' => $gameToSave->banner_path,
+                    'description' => $gameToSave->description
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
 
         }else{
@@ -459,6 +518,10 @@ class GameController extends Controller
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
@@ -474,6 +537,19 @@ class GameController extends Controller
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($gameToSave)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'termine',
+                    'name' => $currentGame->name,
+                    'cover_path' => $currentGame->cover_path,
+                    'banner_path' => $currentGame->banner_path,
+                    'description' => $currentGame->description
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
         }
     }
@@ -589,6 +665,10 @@ class GameController extends Controller
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
 
             // Vérifie si le jeu est déjà présent dans la liste
@@ -604,6 +684,19 @@ class GameController extends Controller
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($gameToSave)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'envie',
+                    'name' => $gameToSave->name,
+                    'cover_path' => $gameToSave->cover_path,
+                    'banner_path' => $gameToSave->banner_path,
+                    'description' => $gameToSave->description
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
 
         }else{
@@ -612,10 +705,14 @@ class GameController extends Controller
                 //Si pas de jeu, on ajoute un badge à l'utilisateur de
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('name', 'Premier jeu ajouté')->get());
+                activity()
+                ->performedOn(Badge::where('name', 'Premier jeu ajouté')->first())
+                ->causedBy(Auth::user()->id)
+                ->log('Badge gagné');
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                                return redirect()->back();
+                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -626,7 +723,27 @@ class GameController extends Controller
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
             toastr()->success('Le jeu a bient été ajouté', 'Succès');
+
+            activity()
+                ->performedOn($currentGame)
+                ->causedBy(Auth::user()->id)
+                ->withProperties([
+                    'relation' => 'envie',
+                    'name' => $currentGame->name,
+                    'cover_path' => $currentGame->cover_path,
+                    'banner_path' => $currentGame->banner_path,
+                    'description' => $currentGame->description
+                ])
+                ->log('Jeu ajouté');
+
             return redirect()->back();
         }
+    }
+
+    public function rating(Request $request, Game $game)
+    {
+        Auth::user()->rate($game, $request->rating);
+
+        return redirect()->back();
     }
 }

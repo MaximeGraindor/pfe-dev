@@ -116,7 +116,7 @@
             <h2 class="videogames-title" role="heading" aria-level="2">
                 32 467 jeux vidéos
             </h2>
-            <section class="videogames-lastrelease">
+            {{-- <section class="videogames-lastrelease">
                 <h3 class="videogames-title-second" role="heading" aria-level="3">
                     Jeux favoris
                 </h3>
@@ -146,7 +146,7 @@
                         </a>
                     @endforeach
                 </div>
-            </section>
+            </section> --}}
         </div>
     </section>
 

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function(){
         ->name('browse');
 
     Route::get('/jeu/{game}', [GameController::class, 'show']);
+    Route::post('/jeu/{game}/rating', [GameController::class, 'rating']);
 
     Route::get('/calendrier', [CalendarController::class, 'index'])
         ->name('calendar');

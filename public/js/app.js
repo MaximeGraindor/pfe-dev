@@ -27,18 +27,14 @@ var _loop = function _loop(i) {
 for (var i = 0; i < countCommentsElt.length; i++) {
   _loop(i);
 }
-/* import Pusher from "pusher-js"
 
-Pusher.logToConsole = true;
-
-    var pusher = new Pusher('0fc865fa9d8073e60ca6', {
-      cluster: 'eu'
+window.onload = function () {
+  if (Laravel.userId) {
+    $.get('/notifications', function (data) {
+      addNotifications(data, "#notifications");
     });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('follows-notification', function(data) {
-      alert(JSON.stringify(data));
-    }); */
+  }
+};
 
 /***/ }),
 

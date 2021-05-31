@@ -73,11 +73,28 @@
                     <div class="dashboard-top-right">
                         <div class="dashboard-top-buttons">
                             <a href="" class="icon-messages">
-                                <img src="/img/message.svg" alt="">
+                                <img src="/img/message.svg" alt="tchat">
                             </a>
-                            <a href="/message" class="icon-notifications">
-                                <img src="/img/notifications.svg" alt="">
-                            </a>
+                            <div href="/message" class="icon-notifications">
+                                <img src="/img/notifications.svg" alt="Notifications">
+                                <div class="notifications-wrapper">
+                                    <ul>
+                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="dashboard-top-userProfil">
                             <a href="/profil/{{ Auth::user()->pseudo }}">
@@ -103,16 +120,17 @@
 
         <script src="{{ asset('/js/app.js') }}"></script>
 
-        {{-- <script type="module" src="node_modules/laravel-echo">
-            import Echo from "laravel-echo";
+        <script>
+            window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
 
-            //window.Pusher = require("pusher-js");
-            Echo.private(`orders.${follower}`)
-                .listen('OrderShipmentStatusUpdated', (e) => {
-                    console.log(e.order);
-                });
-
-        </script> --}}
+        @if(!auth()->guest())
+        <script>
+            window.Laravel.userId = <?php echo auth()->user()->id; ?>
+        </script>
+        @endif
     </body>
 
 </html>

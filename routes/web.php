@@ -49,9 +49,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/activity/{activity:id}/like', [LikeController::class, 'store'])
         ->name('activity.like');
 
-    Route::post('/communaute/{activity:id}/replies', [ReplyController::class, 'store'])
+    Route::post('/communaute/{activity:id}/reply', [ReplyController::class, 'store'])
         ->name('reply.store');
 
+    Route::post('/reply/{reply:id}/reply', [ReplyController::class, 'replyToReply'])
+        ->name('reply.store');
 
 
 

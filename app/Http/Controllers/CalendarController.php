@@ -23,7 +23,13 @@ class CalendarController extends Controller
      */
     public function index(Request $request)
     {
-        $games = IGDBGame::with(['platforms', 'cover']);
+
+        $take = 30;
+        //$skip = 3;
+        $currentPage = $request->get('page', 1);
+        $actualDate = Carbon::now();
+
+        $games = IGDBGame::with(['platforms', 'cover'])->whereYear('first_release_date', '=', $request->year);
         if($request->year){
             $games->whereYear('first_release_date', '=', $request->year)->get();
         }else{
@@ -32,8 +38,10 @@ class CalendarController extends Controller
 
         $games = $games
             ->OrderBy('first_release_date', 'asc')
-            ->paginate(100);
+            ->take($take)
+            ->skip((($currentPage - 1) * $take))
+            ->get();
 
-        return view('pages.calendar', compact('games'));
+        return view('pages.calendar', compact('games', 'actualDate'));
     }
 }

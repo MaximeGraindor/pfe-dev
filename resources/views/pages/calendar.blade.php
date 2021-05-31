@@ -2,9 +2,14 @@
 @section('title', 'Calendrier')
 
 @section('content')
-    <div class="content-size dashboard-calendar">
-
+    <div class="dashboard-calendar">
         <div class="calendar-filter">
+            <h2 class="calendar-title">
+                Calendrier des sorties
+            </h2>
+            <p class="calendar-intro">
+                Tenez vous au courant des dernières sorties pour ne rien rater&nbsp;!
+            </p>
             <form action="#" method="get">
                 <div class="calendar-filter-month">
                     <label for="month" class="hidden">Mois</label>
@@ -58,7 +63,7 @@
                         <div class="release-infos">
                             <p class="release-title">{{$game->name}}</p>
                             <p class="release-about">
-                                {{$game->summary ? Str::limit($game->summary, 220, $end='...') : 'Pas de synopsis'}}
+                                {{$game->summary ? Str::limit($game->summary, 250, $end='...') : 'Pas de synopsis'}}
                             </p>
                             <div class="release-bottom">
                                 <span class="release-date">Date de sortie&nbsp;: {{$game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) : 'Pas de date'}}</span>
@@ -72,6 +77,16 @@
                     </p>
                 @endif
 
+            </div>
+            <div class="calendar-pagniation">
+                @if (Request::has('page') && Request::get('page') > 1)
+                    <a href="{{ route('calendar', ['page' => Request::get('page') - 1]) }}">Previous page</a>
+                @endif
+                @if (Request::has('page'))
+                    <a href="{{ route('calendar', ['page' => Request::get('page') + 1]) }}">Next page</a>
+                @else
+                    <a href="{{ route('calendar', ['page' =>2]) }}">Next page</a>
+                @endif
             </div>
         </div>
     </div>

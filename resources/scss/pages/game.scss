@@ -57,7 +57,8 @@
         border: 2px solid black;
     }
     .characteristics-wrap{
-        display: flex;
+        display: grid;
+        grid-template-columns: 350px 1fr;
         dt,dd{
             background-color: $color-second;
             padding: 2rem;
@@ -67,6 +68,18 @@
         }
         dt{
             border-right: 2px solid black;
+            font-weight: bold;
+        }
+        dd{
+            span{
+                padding: 0.3rem 0.4rem;
+                background-color: #101216;
+                border-radius: 5px;
+                font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+                font-size: pxToRem(18);
+                color: white;
+                margin-right: 1rem;
+            }
         }
         &:not(:last-child){
             border-bottom: 2px solid black;

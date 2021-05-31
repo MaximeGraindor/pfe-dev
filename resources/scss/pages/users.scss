@@ -10,10 +10,9 @@
 }
 
 .users-content-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
-    margin: 5rem 0 0 0
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 3rem;
 }
 
 .users-item{

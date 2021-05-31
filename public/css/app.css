@@ -911,6 +911,7 @@ body {
 
 .dashboard-top-buttons {
   margin-right: 4rem;
+  display: flex;
 }
 .dashboard-top-buttons a {
   text-decoration: none;
@@ -921,8 +922,26 @@ body {
 .dashboard-top-buttons .icon-messages img {
   width: 30px;
 }
-.dashboard-top-buttons .icon-notifications img {
+
+.icon-notifications {
+  position: relative;
+}
+.icon-notifications img {
   width: 30px;
+}
+
+.notifications-wrapper {
+  display: none;
+  position: absolute;
+  background-color: #222831;
+  color: white;
+  width: 300px;
+  top: 65px;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  border: 2px solid white;
+}
+.notifications-wrapper ul li {
+  padding: 0.5rem 1rem;
 }
 
 .dashboard-top-userProfil {
@@ -1088,6 +1107,20 @@ body {
 
 .dashboard-calendar {
   padding: 5rem 7rem;
+  color: white;
+}
+
+.calendar-title {
+  text-align: center;
+  font-size: 3.125rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-intro {
+  text-align: center;
+  font-size: 1.5625rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  margin-bottom: 5rem;
 }
 
 .calendar-filter form {
@@ -1109,7 +1142,7 @@ body {
 
 .calendar-content-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 4rem;
   margin: 5rem 0 0 0;
 }
@@ -1134,7 +1167,7 @@ body {
   display: flex;
   flex-direction: column;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   flex: 1;
 }
 .release-infos .release-title {
@@ -1166,6 +1199,26 @@ body {
   padding: 0.8rem 0.9rem;
   flex: 50%;
   box-sizing: border-box;
+}
+
+.calendar-noResults {
+  grid-column: 1/4;
+  text-align: center;
+  font-size: 1.875rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.calendar-pagniation {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+.calendar-pagniation a {
+  color: white;
+  font-family: "Open Sans";
+  font-size: 1.3rem;
 }
 
 .dashboard-community {
@@ -1429,6 +1482,16 @@ body {
 .reply-item-bottom {
   margin-left: 55px;
 }
+.reply-item-bottom div {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+.reply-item-bottom div img {
+  width: 100%;
+}
 
 .feed-activity-comments::after {
   content: "";
@@ -1462,6 +1525,14 @@ body {
   height: 23px;
   margin-left: 5px;
   margin-top: -10px;
+}
+
+.reply-to-reply-button {
+  margin: 1rem 0 1rem;
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .dashboard-browse {
@@ -1802,10 +1873,9 @@ body {
 }
 
 .users-content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-  margin: 5rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 3rem;
 }
 
 .users-item {
@@ -1979,7 +2049,8 @@ body {
   border: 2px solid black;
 }
 .game-characteristics .characteristics-wrap {
-  display: flex;
+  display: grid;
+  grid-template-columns: 350px 1fr;
 }
 .game-characteristics .characteristics-wrap dt, .game-characteristics .characteristics-wrap dd {
   background-color: #222831;
@@ -1991,6 +2062,16 @@ body {
 }
 .game-characteristics .characteristics-wrap dt {
   border-right: 2px solid black;
+  font-weight: bold;
+}
+.game-characteristics .characteristics-wrap dd span {
+  padding: 0.3rem 0.4rem;
+  background-color: #101216;
+  border-radius: 5px;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  color: white;
+  margin-right: 1rem;
 }
 .game-characteristics .characteristics-wrap:not(:last-child) {
   border-bottom: 2px solid black;

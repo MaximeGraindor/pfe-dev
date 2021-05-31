@@ -80,6 +80,8 @@ class UserController extends Controller
         ->where('id', $user->id)
         ->get();
 
+        //return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
+
         return view('pages.profil', compact('user', 'currentGamesList', 'finishGamesList', 'wishGamesList'));
 
 
@@ -130,5 +132,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function notifications()
+    {
+        return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
     }
 }

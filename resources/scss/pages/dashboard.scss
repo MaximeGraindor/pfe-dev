@@ -1,7 +1,3 @@
-.dashboard-splitscreen{
-    //display: flex;
-}
-
 .dashboard-sidebar{
     position: fixed;
     background-color: $color-main;
@@ -108,6 +104,7 @@
 
 .dashboard-top-buttons{
     margin-right: 4rem;
+    display: flex;
     a{
         text-decoration: none;
     }
@@ -117,9 +114,27 @@
             width: 30px;
         }
     }
-    .icon-notifications{
-        img{
-            width: 30px;
+}
+
+.icon-notifications{
+    position: relative;
+    img{
+        width: 30px;
+    }
+}
+
+.notifications-wrapper{
+    display: none;
+    position: absolute;
+    background-color: $color-second;
+    color: white;
+    width: 300px;
+    top: 65px;
+    font-family: $font-content;
+    border: 2px solid white;
+    ul{
+        li{
+            padding: 0.5rem 1rem;
         }
     }
 }

@@ -16,16 +16,10 @@ for (let i = 0; i < countCommentsElt.length; i++) {
 
 }
 
-
-/* import Pusher from "pusher-js"
-
-Pusher.logToConsole = true;
-
-    var pusher = new Pusher('0fc865fa9d8073e60ca6', {
-      cluster: 'eu'
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('follows-notification', function(data) {
-      alert(JSON.stringify(data));
-    }); */
+window.onload = function(){
+    if(Laravel.userId) {
+        $.get('/notifications', function (data) {
+            addNotifications(data, "#notifications");
+        });
+    }
+}

@@ -108,7 +108,7 @@
                             @if($game->plateformes)
                                 @foreach($game->plateformes as $key => $platform)
                                     <span>
-                                        {{ $platform->name }},
+                                        {{ $platform->name }}
                                     </span>
                                 @endforeach
                             @else

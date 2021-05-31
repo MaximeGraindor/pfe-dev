@@ -40,14 +40,10 @@ class ReplyController extends Controller
      */
     public function store(Request $request, Activity $activity)
     {
-        //return $activity;
-        Reply::insert([
-            'user_id' => Auth::user()->id,
-            'activity_id' => $activity->id,
-            'content' => $request->reply,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        $activity->replies()->create([
+            'body' => $request->reply,
+            'user_id' => Auth::user()->id
+            ]);
 
         return redirect()->back();
     }
@@ -95,5 +91,15 @@ class ReplyController extends Controller
     public function destroy(Reply $reply)
     {
         //
+    }
+
+    public function replyToReply(Request $request, Reply $reply)
+    {
+        $reply->replies()->create([
+            'body' => $request->reply,
+            'user_id' => Auth::user()->id
+            ]);
+
+        return redirect()->back();
     }
 }

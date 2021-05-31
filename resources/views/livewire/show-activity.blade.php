@@ -110,8 +110,22 @@
             </div>
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->content}}
+                    {{$replies->body}}
                 </p>
+                <span>Répondre</span>
+                <form action="/reply/{{$replies->id}}/reply" method="post">
+                    @csrf
+                    <label for="reply">Commentaire</label>
+                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Envoyer">
+                </form>
+                @foreach ($replies->replies as $rep)
+                <div><img src="./img/{{$rep->user->picture}}" alt=""></div>
+                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                <p>
+                    {{$rep->body}}
+                </p>
+                @endforeach
             </div>
         </div>
         @endforeach
@@ -157,7 +171,7 @@
 
     {{-- COMMENTAIRES --}}
     <div class="feed-activity-reply feed-activity-reply-disable">
-        <form action="/communaute/{{$activity->id}}/replies" method="post">
+        <form action="/communaute/{{$activity->id}}/reply" method="post">
             @csrf
             <label for="reply">Commentaire</label>
             <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
@@ -171,7 +185,7 @@
             </div>
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->content}}
+                    {{$replies->body}}
                 </p>
             </div>
         </div>

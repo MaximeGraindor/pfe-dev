@@ -1,5 +1,19 @@
 .dashboard-calendar{
     padding: 5rem 7rem;
+    color: white;
+}
+
+.calendar-title{
+    text-align: center;
+    font-size: pxToRem(50);
+    margin-bottom: 1rem;
+}
+
+.calendar-intro{
+    text-align: center;
+    font-size: pxToRem(25);
+    font-family: $font-content;
+    margin-bottom: 5rem;
 }
 
 .calendar-filter{
@@ -23,7 +37,7 @@
 
 .calendar-content-wrapper{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     gap: 4rem;
     margin: 5rem 0 0 0
 }
@@ -50,7 +64,7 @@
     display: flex;
     flex-direction: column;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
     flex: 1;
     .release-title{
         font-family: $font-heading;
@@ -82,5 +96,25 @@
             flex: 50%;
             box-sizing: border-box;
         }
+    }
+}
+
+.calendar-noResults{
+    grid-column: 1/4;
+    text-align: center;
+    font-size:pxToRem(30);
+    font-family: $font-content;
+}
+
+.calendar-pagniation{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 4rem;
+    margin-top: 3rem;
+    a{
+        color: white;
+        font-family: 'Open Sans';
+        font-size: 1.3rem;
     }
 }

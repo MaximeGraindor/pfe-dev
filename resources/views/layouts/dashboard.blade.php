@@ -117,20 +117,7 @@
         @toastr_render
 
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
         <script src="{{ asset('/js/app.js') }}"></script>
-
-        <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-            ]); ?>
-        </script>
-
-        @if(!auth()->guest())
-        <script>
-            window.Laravel.userId = <?php echo auth()->user()->id; ?>
-        </script>
-        @endif
     </body>
 
 </html>

@@ -244,7 +244,7 @@
 .reply-item-top{
     display: flex;
     align-items: center;
-    div{
+    .reply-item-top-img{
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -257,16 +257,15 @@
 }
 .reply-item-bottom{
     margin-left: 55px;
-    div{
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        overflow: hidden;
-        margin-right: 1rem;
-        img{
-            width: 100%;
-        }
+    .reply-item-bottom-form{
+        display: block;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline;
     }
+
 }
 
 .feed-activity-comments::after{
@@ -308,6 +307,35 @@
     font-style: italic;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.reply-bottom-replies{
+    padding: 1rem;
+    background-color: #15181e;
+    .replies-user{
+        display: flex;
+        align-items: center;
+        span{
+            font-weight: bold;
+        }
+        div{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            margin-right: 1rem;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.replies-item{
+    margin-bottom: 2rem;
+    p{
+        margin-left: 3.5rem;
+    }
 }
 
 

@@ -7,50 +7,29 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
-class UserFollowed extends Notification implements ShouldQueue
+class UserFollowed extends Notification implements ShouldBroadcast
 {
     use Queueable;
 
-    protected $follower;
+    public string $message;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct(User $follower)
+    public function __construct(string $message)
     {
-        $this->follower = $follower;
+        $this->message = $message;
     }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function via($notifiable)
+    public function via($notifiable): array
     {
-        return ['database', 'broadcast'];
+        return ['broadcast'];
     }
 
-    /**
-     * Get the database representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
+    public function toBroadcast($notifiable): BroadcastMessage
     {
-        return [
-            'id' => $this->id,
-            'read_at' => null,
-            'data' => [
-                'following_id' => $this->following->id,
-                'following_name' => $this->following->name,
-                'post_id' => $this->post->id,
-            ],
-        ];
+        return new BroadcastMessage([
+            'message' => "$this->message (User $notifiable->id)"
+        ]);
     }
 }

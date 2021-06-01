@@ -1468,29 +1468,27 @@ body {
   display: flex;
   align-items: center;
 }
-.reply-item-top div {
+.reply-item-top .reply-item-top-img {
   border-radius: 50%;
   width: 40px;
   height: 40px;
   overflow: hidden;
   margin-right: 1rem;
 }
-.reply-item-top div img {
+.reply-item-top .reply-item-top-img img {
   width: 100%;
 }
 
 .reply-item-bottom {
   margin-left: 55px;
 }
-.reply-item-bottom div {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  margin-right: 1rem;
-}
-.reply-item-bottom div img {
-  width: 100%;
+.reply-item-bottom .reply-item-bottom-form {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 .feed-activity-comments::after {
@@ -1533,6 +1531,35 @@ body {
   font-style: italic;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.reply-bottom-replies {
+  padding: 1rem;
+  background-color: #15181e;
+}
+.reply-bottom-replies .replies-user {
+  display: flex;
+  align-items: center;
+}
+.reply-bottom-replies .replies-user span {
+  font-weight: bold;
+}
+.reply-bottom-replies .replies-user div {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+.reply-bottom-replies .replies-user div img {
+  width: 100%;
+}
+
+.replies-item {
+  margin-bottom: 2rem;
+}
+.replies-item p {
+  margin-left: 3.5rem;
 }
 
 .dashboard-browse {
@@ -2071,7 +2098,8 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.125rem;
   color: white;
-  margin-right: 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 .game-characteristics .characteristics-wrap:not(:last-child) {
   border-bottom: 2px solid black;
@@ -2091,9 +2119,28 @@ body {
 .gallery-content .gallery-thumb {
   display: flex;
   overflow: auto;
+  padding-bottom: 2rem;
+}
+.gallery-content .gallery-thumb img {
+  width: 450px;
+  height: 100px;
 }
 .gallery-content .gallery-thumb img:not(:last-child) {
   margin-right: 0.5rem;
+}
+.gallery-content .gallery-thumb::-webkit-scrollbar {
+  width: 1em;
+}
+.gallery-content .gallery-thumb::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.gallery-content .gallery-thumb::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #262B48;
+}
+.gallery-content .gallery-thumb::-webkit-scrollbar:vertical {
+  display: none;
 }
 
 .game-comments .comments-title {

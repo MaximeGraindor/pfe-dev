@@ -91,7 +91,7 @@
                             @if($game->platforms)
                                 @foreach($game->platforms as $key => $platform)
                                     <span>
-                                        {{ $platform->abbreviation }},
+                                        {{ $platform->abbreviation }}
                                     </span>
                                 @endforeach
                             @else
@@ -113,7 +113,7 @@
                         <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{$game->screenshots[0]->image_id}}.jpg" alt="" class="gallerry-current-img">
                         <div class="gallery-thumb">
                             @foreach($game->screenshots as $key => $screenshot)
-                                <img src="https://images.igdb.com/igdb/image/upload/t_thumb/{{$screenshot->image_id}}.jpg" alt="" class="gallery-thumb-img">
+                                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{$screenshot->image_id}}.jpg" alt="" class="gallery-thumb-img">
                             @endforeach
                         </div>
                     </div>

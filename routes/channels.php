@@ -14,6 +14,6 @@ use App\Models\User;
 |
 */
 
-Broadcast::channel('Users.{id}', function ($user, $follower) {
-    return $user->isFollowdBy($follower);
+Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
 });

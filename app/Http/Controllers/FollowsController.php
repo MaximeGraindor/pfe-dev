@@ -17,6 +17,7 @@ class FollowsController extends Controller
         }else{
             Auth::user()->follow($user);
             //$user->notify(new UserFollowed(Auth::user()));
+            $user->notify(new UserFollowed('Hello World'));
         }
 
         return back();
@@ -43,5 +44,15 @@ class FollowsController extends Controller
             return $currentUser->followers()->get();
         }
 
+    }
+
+    /**
+     * The channels the user receives notification broadcasts on.
+     *
+     * @return string
+     */
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.Models.User.'.$this->id;
     }
 }

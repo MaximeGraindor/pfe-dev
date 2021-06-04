@@ -7,7 +7,6 @@ const responsiveMenu = {
 
     showSidebar(){
         this.imgElt.addEventListener('click', () => {
-            console.log(this.sidebarElt);
             this.sidebarElt.classList.toggle('sidebar-menu-responsive')
         })
     }

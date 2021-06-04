@@ -118,8 +118,30 @@
 
 .icon-notifications{
     position: relative;
-    img{
-        width: 30px;
+    cursor: pointer;
+    .icon-notifications-img{
+        position: relative;
+        img{
+            width: 30px;
+        }
+        span{
+            color: white;
+            font-size: 1rem;
+            background-color: #444d7d;
+            padding: 0.2rem;
+            border-radius: 50%;
+            position: absolute;
+            top: -11px;
+            display: flex;
+            right: -8px;
+            width: 15px;
+            height: 15px;
+            align-items: center;
+            justify-content: center;
+            font-family: $font-content;
+            font-weight: bold;
+            border: 4px solid $color-main;
+        }
     }
 }
 
@@ -132,11 +154,30 @@
     top: 65px;
     font-family: $font-content;
     border: 2px solid white;
+    z-index: 1;
     ul{
         li{
-            padding: 0.5rem 1rem;
+            padding: 1rem 1rem;
+            line-height: 1.3rem;
         }
     }
+    .notifications-markAsRead{
+        padding: 0.5rem 1rem;
+        display: block;
+        text-align: center;
+        background-color: #444d7d;
+        color: white;
+        &:hover{
+            font-weight: bold;
+        }
+    }
+    .notifications-none{
+        padding: 0.5rem 1rem;
+    }
+}
+
+.notifications-wrapper-active{
+    display: block;
 }
 
 .dashboard-top-userProfil{

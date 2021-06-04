@@ -76,23 +76,23 @@
                                 <img src="/img/message.svg" alt="tchat">
                             </a>
                             <div href="/message" class="icon-notifications">
-                                <img src="/img/notifications.svg" alt="Notifications">
+                                <div class="icon-notifications-img">
+                                    <img src="/img/notifications.svg" alt="Notifications">
+                                    <span>{{count(Auth::user()->unreadNotifications)}}</span>
+                                </div>
                                 <div class="notifications-wrapper">
-                                    <ul>
-                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
-                                    </ul>
-                                    <ul>
-                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
-                                    </ul>
-                                    <ul>
-                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
-                                    </ul>
-                                    <ul>
-                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
-                                    </ul>
-                                    <ul>
-                                        <li class="notification-item">ZeDOver a commencé à vous suivre&nbsp;!</li>
-                                    </ul>
+                                    @if(count(Auth::user()->unreadNotifications) !== 0)
+                                        <a href="/notifications/markAsRead" class="notifications-markAsRead">Marquer comme lu</a>
+                                        @foreach(Auth::user()->unreadNotifications as $notification)
+                                        <ul>
+                                            <li class="notification-item">{{$notification->data['following_pseudo']}} a commencé à vous suivre&nbsp;!</li>
+                                        </ul>
+                                        @endforeach
+                                    @else
+                                        <p class="notifications-none">Vous n'avez pas de notification récente</p>
+                                    @endif
+
+
                                 </div>
                             </div>
                         </div>

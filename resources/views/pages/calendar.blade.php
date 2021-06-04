@@ -80,10 +80,10 @@
             </div>
             <div class="calendar-pagniation">
                 @if (Request::has('page') && Request::get('page') > 1)
-                    <a href="{{ route('calendar', ['page' => Request::get('page') - 1]) }}">Previous page</a>
+                    <a href="{{ route('calendar', ['page' => Request::get('page') - 1]) }}">Page précédente</a>
                 @endif
                 @if (Request::has('page'))
-                    <a href="{{ route('calendar', ['page' => Request::get('page') + 1]) }}">Next page</a>
+                    <a href="{{ route('calendar', ['page' => Request::get('page') + 1]) }}">Page suivante</a>
                 @else
                     <a href="{{ route('calendar', ['page' =>2]) }}">Next page</a>
                 @endif

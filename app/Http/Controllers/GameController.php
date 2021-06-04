@@ -44,16 +44,12 @@ class GameController extends Controller
 
         if($request->platform){
             $games->whereHas('platforms')
-            ->where('platforms.abbreviation', $request->platform);
+            ->where('platforms.slug', $request->platform);
         };
 
-        /* if($request->name){
+        if($request->name){
             $games->whereLike('name', '%' . $request->name . '%', false);
         };
-
-        if($request->platforms){
-            $games->where('platforms.abbreviation', '$request->platforms');
-        }; */
 
         $games = $games->paginate(20);
         return view('pages.browse', compact('games', 'platforms', 'genres', 'modes'));

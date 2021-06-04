@@ -1,10 +1,13 @@
 <?php
 
 use App\Models\GameUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowsController;
@@ -13,8 +16,6 @@ use App\Http\Controllers\GameUserController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FollowersController;
-use App\Http\Controllers\LikeController;
-use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,7 +95,13 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/gameuser/{game:slug}/delete', [GameUserController::class, 'destroy'])->name('game-user.destroy');
 
+    Route::get('/notifications/markAsRead', function(){
+        foreach (Auth::user()->unreadNotifications as $notification) {
+            $notification->markAsRead();
+        }
 
+        return redirect()->back();
+    });
 
 });
 

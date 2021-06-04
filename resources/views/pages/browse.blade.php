@@ -11,7 +11,7 @@
                     <select name="platform" id="platform">
                         <option value="">Plateforme</option>
                         @foreach($platforms as $platform)
-                            <option value="{{$platform->name}}">{{$platform->name}}</option>
+                            <option value="{{$platform->slug}}">{{$platform->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -73,7 +73,7 @@
                         @if($game->platforms)
                             <div class="browse-card-infos-platforms">
                                 @foreach($game->platforms as $platform)
-                                    <a href="?platform={{$platform->abbreviation}}">{{$platform->abbreviation}}</a>
+                                    <a href="?platform={{$platform->slug}}">{{$platform->abbreviation}}</a>
                                 @endforeach
                             </div>
                         @endif
@@ -83,6 +83,16 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="calendar-pagniation">
+            @if (Request::has('page') && Request::get('page') > 1)
+                <a href="{{ route('browse', ['page' => Request::get('page') - 1]) }}">Page précédente</a>
+            @endif
+            @if (Request::has('page'))
+                <a href="{{ route('browse', ['page' => Request::get('page') + 1]) }}">Page suivante</a>
+            @else
+                <a href="{{ route('browse', ['page' =>2]) }}">Next page</a>
+            @endif
         </div>
     </div>
 @endsection

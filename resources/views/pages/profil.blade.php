@@ -33,46 +33,6 @@
                 </div>
             </div>
         </div>
-        {{-- @if(route('calendar'))
-            <section class="profil-update">
-                <h2 class="profil-update-title">
-                    Modifier votre profil
-                </h2>
-                <form action="{{ route('user.profil-update') }}" method="post" class="profil-update-form">
-                    @csrf
-                    <div>
-                        <label for="picture" class="hidden">Photo</label>
-                        <input type="file" id="picture" name="picture" >
-                        @error('picture')
-                            <span>
-                                {{$message}}
-                            </span>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="pseudo">Pseudo</label>
-                         <input type="text" id="pseudo" name="pseudo" value="{{Auth::user()->pseudo}}">
-                         @error('pseudo')
-                            <span>
-                                {{$message}}
-                            </span>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="{{Auth::user()->email}}">
-                        @error('email')
-                            <span>
-                                {{$message}}
-                            </span>
-                        @enderror
-                    </div>
-                    <div>
-                        <input type="submit" value="Modifier">
-                    </div>
-                </form>
-            </section>
-        @else --}}
             <div class="profil-content">
                 <section class="profil-badges">
                     <h2 class="badges-title">

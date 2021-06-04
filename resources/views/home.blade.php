@@ -116,15 +116,15 @@
             <h2 class="videogames-title" role="heading" aria-level="2">
                 32 467 jeux vidéos
             </h2>
-            {{-- <section class="videogames-lastrelease">
+            <section class="videogames-lastrelease">
                 <h3 class="videogames-title-second" role="heading" aria-level="3">
-                    Jeux favoris
+                    Jeux du moment
                 </h3>
                 <div class="videogames-content">
                     @foreach ($games as $game)
                         <a href="/jeu/{{ $game->id }}" class="videogames-game-card">
                             <div class="videogames-card-img-container">
-                                <img src="{{ $game->cover_path ? asset('storage/games/cover/' . $game->cover_path) : '/img/game-cover-default.jpg' }}" alt="{{$game->cover_path }}">
+                                <img src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$game->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}" alt="Cover de{{$game->name }}">
                             </div>
                             <p class="videogames-game-title">{{ $game->name }}</p>
                         </a>
@@ -136,17 +136,17 @@
                     Dernière sortie
                 </h3>
                 <div class="videogames-content">
-                    @foreach ($games as $game)
-                        <a href="/jeu/{{ $game->id }}" class="videogames-game-card">
-                            <p class="videogames-game-date">{{ $game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) }}</p>
+                    @foreach ($lastReleases as $release)
+                        <a href="/jeu/{{ $release->id }}" class="videogames-game-card">
+                            <p class="videogames-game-date">{{ $game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) : '' }}</p>
                             <div class="videogames-card-img-container">
-                                <img src="{{ asset('storage' . $game->cover_path) }}" alt="">
+                                <img src="{{ $release->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$release->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}" alt="Cover de{{$release->name }}">
                             </div>
-                            <p class="videogames-game-title">{{ $game->name }}</p>
+                            <p class="videogames-game-title">{{ $release->name }}</p>
                         </a>
                     @endforeach
                 </div>
-            </section> --}}
+            </section>
         </div>
     </section>
 

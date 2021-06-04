@@ -133,10 +133,10 @@ class GameController extends Controller
             $game = Game::where('slug', collect(request()->segments())->last())
                 ->with('comments', 'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
                 ->first();
-            $currentNoteFromCurrentUSer = Rating::where('model_id', Auth::user()->id)
+            /* $currentNoteFromCurrentUSer = Rating::where('model_id', Auth::user()->id)
                 ->where('rateable_id', $game->id)
-                ->first();
-            return view('pages.game.gameLocal', compact('game', 'currentNoteFromCurrentUSer'));
+                ->first(); */
+            return view('pages.game.gameLocal', compact('game'));
         }
 
 

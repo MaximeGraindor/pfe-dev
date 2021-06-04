@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'S\'inscrire')
 @section('content')
 <div class="register-splitscreen">
     <div class="register-left"></div>

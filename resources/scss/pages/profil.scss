@@ -142,6 +142,9 @@
         font-size: 2rem;
         margin-bottom: 1.75rem;
     }
+    p{
+        margin-bottom: 1rem;
+    }
 }
 
 .profil-update-form{
@@ -164,5 +167,29 @@
         border: 1px solid #434980;
         font-family: $font-content;
         margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .profil-header {
+        top: -76px;
+        padding: 0rem 2rem;
+    }
+    .profil-content {
+        padding: 0rem 2rem;
+    }
+    .profil-header .profil-header-picture {
+        width: 150px;
+        height: 150px;
+    }
+    .profil-content section h2 {
+        font-size: 1.5rem;
+    }
+    .badges-item img {
+        width: 100px;
+    }
+    .badges-item span {
+        max-width: 100px;
+        line-height: 1.2rem;
     }
 }

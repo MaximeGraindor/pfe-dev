@@ -339,6 +339,25 @@
 }
 
 
+@media screen and (max-width:1000px){
+    .community-suggestions {
+        display: none;
+    }
+    .dashboard-community {
+        padding: 5rem 2rem;
+    }
+
+    .dashboard-community .community-wrapper {
+        gap: 0;
+    }
+}
+
+@media screen and (max-width:600px){
+    .community-feed {
+        padding: 1.5rem 0;
+    }
+}
+
 
 
 

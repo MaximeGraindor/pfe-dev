@@ -95,7 +95,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('pages.profil', [
+        return view('pages.updateProfil', [
             'user' => Auth::user()
         ]);
     }
@@ -112,12 +112,13 @@ class UserController extends Controller
 
         $validated = $request->validate([
             'pseudo' => 'unique:users|max:10',
+            'picture' => 'required',
             'email' => 'email'
         ]);
 
         $user = User::where('id', Auth::user()->id)->first();
         $user->update([
-            $validated
+            'pseudo' => $request->pseudo
         ]);
 
         return redirect()->back();

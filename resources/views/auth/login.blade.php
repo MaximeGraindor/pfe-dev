@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Se connecter')
 @section('content')
 <div class="login-splitscreen">
     <div class="login-left"></div>

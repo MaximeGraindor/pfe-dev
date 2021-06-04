@@ -9,13 +9,18 @@
         <div class="game-content">
 
             <div class="game-header">
-                <img
-                    src="{{asset('storage/games/cover/'.$game->cover_path)}}"
-                    alt=""
-                    height="{{$game->cover ? $game->cover->height : null}}"
-                    width="{{$game->cover ? $game->cover->height : null}}"
-                    class="game-cover"
-                >
+                <div class="game-header-cover-wrapper">
+                    <img
+                        src="{{asset('storage/games/cover/'.$game->cover_path)}}"
+                        alt=""
+                        height="{{$game->cover ? $game->cover->height : null}}"
+                        width="{{$game->cover ? $game->cover->height : null}}"
+                        class="game-cover"
+                    >
+                    @if($game->ratingsCount())
+                        <span> {{floor($game->ratingsAVG())}}/5</span>
+                    @endif
+                </div>
                 <div class="game-header-infos">
                     <h2 class="game-title">
                         {{ $game->name }}
@@ -23,15 +28,14 @@
                     <form action="/jeu/{{$game->id}}/rating" method="post" class="game-rating">
                         @csrf
                         <div class="rating">
-                            <label for="rating">Note&nbsp;</label>
+                            <label for="rating">Notez le jeu</label>
                             <select name="rating" id="rating">
                                 @for($i = 1; $i <= 5; $i++)
-                                    <option value="{{$i}}" {{-- {{($i === number_format($currentNoteFromCurrentUSer->value)) ? 'selected' : null }} --}} >{{$i}}</option>
+                                    <option value="{{$i}}">{{$i}}</option>
                                 @endfor
                             </select>
-                            <input type="submit" value="envoyer">
+                            <input type="submit" value="Noter">
                         </div>
-                        <span>En moyenne : {{$game->ratingsAVG()}}</span>
                     </form>
                     @if(property_exists($game, 'description'))
                         <p class="game-description">

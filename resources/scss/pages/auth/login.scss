@@ -99,3 +99,9 @@
 .login-input-error{
     border: 1px solid red !important;
 }
+
+@media screen and (max-width: 850px){
+    .login-form{
+        width: 400px;
+    }
+}

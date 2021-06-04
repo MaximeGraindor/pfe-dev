@@ -361,8 +361,10 @@ body {
 
 .footer-menu {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .footer-menu a {
   color: white;
@@ -411,6 +413,10 @@ body {
   .home-rewards, .home-comments {
     padding: 2rem 3rem 2rem;
   }
+
+  .home-videogames {
+    padding: 5rem 2rem;
+  }
 }
 @media screen and (max-width: 780px) {
   .home-gameon .home-gameon-wrap {
@@ -436,10 +442,15 @@ body {
   .home-background {
     padding-bottom: 7rem;
   }
+
+  .videogames-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media screen and (max-width: 600px) {
   .home-intro-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 
   .home-intro-banner {
@@ -454,6 +465,10 @@ body {
 
   .home-intro-cta .intro-cta-login {
     font-size: 1.5rem;
+  }
+
+  .videogames-content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .login-splitscreen {
@@ -556,6 +571,11 @@ body {
   border: 1px solid red !important;
 }
 
+@media screen and (max-width: 850px) {
+  .login-form {
+    width: 400px;
+  }
+}
 .register-splitscreen {
   height: 100vh;
   display: flex;
@@ -631,6 +651,11 @@ body {
   background-color: #262B48;
 }
 
+@media screen and (max-width: 800px) {
+  .register-form {
+    width: 400px;
+  }
+}
 .forgotPassword-splitscreen {
   height: 100vh;
   display: flex;
@@ -961,8 +986,33 @@ body {
   border-radius: 50%;
 }
 
+.dashboard-top-menu-responsive {
+  display: none;
+  margin-left: 2rem;
+}
+.dashboard-top-menu-responsive img {
+  width: 30px;
+}
+
+.sidebar-menu-responsive {
+  right: 0;
+  top: 97px;
+  display: block !important;
+  z-index: 1;
+  background-color: #1f252d;
+}
+
+@media screen and (max-width: 1600px) {
+  .dashboard-top-form input[type=search] {
+    width: 300px;
+  }
+}
 @media screen and (max-width: 1400px) {
   .dashboard-sidebar {
+    display: none;
+  }
+
+  .sidebar-title {
     display: none;
   }
 
@@ -979,8 +1029,21 @@ body {
   }
 
   .dashboard-top {
-    padding: 1.35rem 3rem;
+    padding: 1.35rem 2rem;
     align-items: center;
+  }
+
+  .dashboard-top-menu-responsive {
+    display: block;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dashboard-top-userProfil a {
+    display: none;
+  }
+
+  .dashboard-top-buttons {
+    margin-right: 2rem;
   }
 }
 .dashboard-activity {
@@ -1105,6 +1168,11 @@ body {
   padding: 0.3rem 0.8rem;
 }
 
+@media screen and (max-width: 800px) {
+  .activity-wrapper {
+    padding: 2rem 2rem;
+  }
+}
 .dashboard-calendar {
   padding: 5rem 7rem;
   color: white;
@@ -1127,6 +1195,7 @@ body {
   display: flex;
   gap: 2rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .calendar-filter form select, .calendar-filter form input {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
@@ -1221,6 +1290,16 @@ body {
   font-size: 1.3rem;
 }
 
+@media screen and (max-width: 800px) {
+  .dashboard-calendar {
+    padding: 5rem 2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .calendar-release {
+    width: 418px;
+  }
+}
 .dashboard-community {
   padding: 5rem 7rem;
 }
@@ -1562,6 +1641,24 @@ body {
   margin-left: 3.5rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .community-suggestions {
+    display: none;
+  }
+
+  .dashboard-community {
+    padding: 5rem 2rem;
+  }
+
+  .dashboard-community .community-wrapper {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .community-feed {
+    padding: 1.5rem 0;
+  }
+}
 .dashboard-browse {
   padding: 5rem 7rem;
 }
@@ -1570,6 +1667,7 @@ body {
   display: flex;
   justify-content: flex-end;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 .browse-filter select, .browse-filter input {
@@ -1727,6 +1825,11 @@ body {
   border-radius: 0.3125rem;
 }
 
+@media screen and (max-width: 800px) {
+  .dashboard-browse {
+    padding: 5rem 2rem;
+  }
+}
 .profil-banner {
   background-image: url("./../img/Login-background.jpg");
   width: 100%;
@@ -1864,6 +1967,9 @@ body {
   font-size: 2rem;
   margin-bottom: 1.75rem;
 }
+.profil-update p {
+  margin-bottom: 1rem;
+}
 
 .profil-update-form {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
@@ -1888,6 +1994,34 @@ body {
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 750px) {
+  .profil-header {
+    top: -76px;
+    padding: 0rem 2rem;
+  }
+
+  .profil-content {
+    padding: 0rem 2rem;
+  }
+
+  .profil-header .profil-header-picture {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profil-content section h2 {
+    font-size: 1.5rem;
+  }
+
+  .badges-item img {
+    width: 100px;
+  }
+
+  .badges-item span {
+    max-width: 100px;
+    line-height: 1.2rem;
+  }
+}
 .dashboard-users {
   padding: 5rem 7rem;
   color: white;
@@ -2063,6 +2197,21 @@ body {
   width: 700px;
 }
 
+.game-header-cover-wrapper {
+  position: relative;
+}
+.game-header-cover-wrapper span {
+  position: absolute;
+  padding: 1rem;
+  background-color: #262b48;
+  top: -34px;
+  right: 24px;
+  border-radius: 5px;
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.5625rem;
+}
+
 .characteristics-title {
   font-size: 2rem;
   color: white;
@@ -2219,15 +2368,23 @@ body {
 
 .game-rating {
   color: white;
-  padding: 0.5rem 2rem;
-  background-color: #262B48;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   display: flex;
   gap: 1rem;
+  margin-bottom: 1rem;
   align-items: center;
+}
+.game-rating div {
+  padding: 0.5rem 2rem;
+  background-color: #262B48;
+  border-radius: 5px;
 }
 .game-rating label {
   font-size: 1.25rem;
+  margin-right: 1rem;
+}
+.game-rating select {
+  margin-right: 0.5rem;
 }
 .game-rating select, .game-rating input {
   font-size: 0.9375rem;

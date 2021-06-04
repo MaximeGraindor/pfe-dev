@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title>Gameon - @yield('title')</title>
-
+        <meta name="description" content="Gameon est un site communautaire qui vous permet de créer votre propre bibliothèque de jeux vidéo!">
         {{-- CSS --}}
         @livewireStyles
         @toastr_css
@@ -101,6 +101,9 @@
                                 {{ Auth::user()->pseudo }}
                             </a>
                             <div><img src="/img/{{Auth::user()->picture}}" alt="Photo de profil"></div>
+                        </div>
+                        <div class="dashboard-top-menu-responsive">
+                            <img src="/img/responsive-menu.svg" alt="Menu responsive">
                         </div>
                     </div>
                 </div>

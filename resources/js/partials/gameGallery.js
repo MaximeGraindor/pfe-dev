@@ -2,7 +2,6 @@ const gameGallery = {
     imgBigElt : document.querySelector('.gallerry-current-img'),
     imgThumbsAll : document.querySelectorAll('.gallery-thumb-img'),
     init(){
-        console.log('HELLO WORLD CECI ETS UN TEST');
         this.changeImage()
     },
 

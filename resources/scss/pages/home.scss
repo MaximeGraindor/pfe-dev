@@ -285,8 +285,10 @@
 
 .footer-menu{
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
     a{
         color: white;
         text-decoration: none;
@@ -335,6 +337,9 @@
     .home-rewards, .home-comments {
         padding: 2rem 3rem 2rem;
     }
+    .home-videogames {
+        padding: 5rem 2rem;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -357,12 +362,16 @@
     .home-background {
         padding-bottom: 7rem;
     }
+    .videogames-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 
 @media screen and (max-width: 600px) {
     .home-intro-title{
-        font-size: 2.5rem;
+        font-size: 2.0rem;
+        line-height: 3rem;
     }
 
     .home-intro-banner {
@@ -377,6 +386,9 @@
 
     .home-intro-cta .intro-cta-login {
         font-size: 1.5rem;
+    }
+    .videogames-content {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

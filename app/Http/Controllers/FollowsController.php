@@ -26,12 +26,12 @@ class FollowsController extends Controller
     {
 
         if($request->route()->named('following')){
-            $currentUser = User::where('pseudo', request()->segments()[1])->get();
+            $currentUser = User::where('pseudo', request()->segments()[1])->first();
             return $currentUser->followings()->get();
         }
 
         if($request->route()->named('followers')){
-            $currentUser = User::where('pseudo', request()->segments()[1])->get();
+            $currentUser = User::where('pseudo', request()->segments()[1])->first();
             return $currentUser->followers()->get();
         }
 

@@ -20,4 +20,9 @@ class HomeController extends Controller
         ->get();
         return view('home', compact('games', 'lastReleases'));
     }
+
+    public function termsAndConditions()
+    {
+        return view('pages.termsAndConditions');
+    }
 }

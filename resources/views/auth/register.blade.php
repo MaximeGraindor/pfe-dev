@@ -2,6 +2,7 @@
 @section('title', 'S\'inscrire')
 @section('content')
 <div class="register-splitscreen">
+    <h1 class="hidden" role="heading" aria-level="1">Gameon</h1>
     <div class="register-left"></div>
     <div class="register-right">
         <section class="register-wrapper">
@@ -9,7 +10,7 @@
                 Inscrivez-vous
             </h2>
             <p class="register-intro">
-                déjà inscrit ? <a href="/login">Se connecter</a>
+                déjà inscrit ? <a href="/login" title="Se connecter">Se connecter</a>
             </p>
             <form action="/register" method="post" class="register-form">
                 @csrf

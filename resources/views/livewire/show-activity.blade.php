@@ -30,7 +30,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -112,7 +112,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -196,14 +196,14 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
 
     {{-- COMMENTAIRES --}}
     <div class="feed-activity-reply feed-activity-reply-disable">
-        <form action="/communaute/{{$activity->id}}/reply" method="post">
+        <form action="/communaute/{{$activity->id}}/replies" method="post">
             @csrf
             <label for="reply">Commentaire</label>
             <textarea name="reply" id="reply" cols="30" rows="10"></textarea>

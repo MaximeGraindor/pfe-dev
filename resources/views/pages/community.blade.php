@@ -3,13 +3,20 @@
 @section('content')
     <div class="dashboard-community">
         <div class="community-wrapper">
-            <div class="community-feed">
-                <h2 class="feed-title">
-                    Activités des abonnements
-                </h2>
-                @foreach($activities as $key => $activity)
-                    @livewire("show-activity", ['activity' => $activity])
-                @endforeach
+            <div>
+                <form action="/utilisateurs" class="community-form">
+                    <label for="search" class="hidden">Rechercher</label>
+                    <input type="search" id="search" placeholder="Utilisateurs" name="pseudo">
+                    <input type="submit" value="Rechercher">
+                </form>
+                <div class="community-feed">
+                    <h2 class="feed-title">
+                        Activités des abonnements
+                    </h2>
+                    @foreach($activities as $key => $activity)
+                        @livewire("show-activity", ['activity' => $activity])
+                    @endforeach
+                </div>
             </div>
             <div class="community-right">
                 <div class="community-suggestions">

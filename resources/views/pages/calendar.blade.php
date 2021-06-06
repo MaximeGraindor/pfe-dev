@@ -11,36 +11,17 @@
                 Tenez vous au courant des dernières sorties pour ne rien rater&nbsp;!
             </p>
             <form action="#" method="get">
-                <div class="calendar-filter-month">
-                    <label for="month" class="hidden">Mois</label>
-                    <select name="month" id="month">
-                        <option value="">Mois</option>
-                        <option value="janvier">Janvier</option>
-                        <option value="février">Février</option>
-                        <option value="mars">Mars</option>
-                        <option value="avril">Avril</option>
-                        <option value="mai">Mai</option>
-                        <option value="Juin">Juin</option>
-                        <option value="Juillet">Juillet</option>
-                        <option value="Août">Août</option>
-                        <option value="Septembre">Septembre</option>
-                        <option value="Octobre">Octobre</option>
-                        <option value="Novembre">Novembre</option>
-                        <option value="Décembre">Décembre</option>
-                    </select>
-                </div>
                 <div class="calendar-filter-year">
                     <label for="year" class="hidden">Année</label>
                     <select name="year" id="year">
-                        <option value="">Année</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
+                        <option value="{{\Carbon\Carbon::now()->subYears(2)->year}}">{{\Carbon\Carbon::now()->subYears(2)->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->subYear()->year}}">{{\Carbon\Carbon::now()->subYear()->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->year}}" selected class="calendar-filter-curentYear">{{\Carbon\Carbon::now()->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->addYear()->year}}">{{\Carbon\Carbon::now()->addYear()->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->addYears(2)->year}}">{{\Carbon\Carbon::now()->addYears(2)->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->addYears(3)->year}}">{{\Carbon\Carbon::now()->addYears(3)->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->addYears(4)->year}}">{{\Carbon\Carbon::now()->addYears(4)->year}}</option>
+                        <option value="{{\Carbon\Carbon::now()->addYears(5)->year}}">{{\Carbon\Carbon::now()->addYears(5)->year}}</option>
                     </select>
                 </div>
                 <div class="calendar-filter-submit">

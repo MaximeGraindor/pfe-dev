@@ -5,7 +5,7 @@
 @section('content')
     <div class="dashboard-browse">
         <div class="browse-header">
-            <form action="#" method="get" class="browse-filter">
+            <form action="/parcourir" method="get" class="browse-filter">
                 <div class="browse-platform">
                     <label for="platform" class="hidden">Plateforme</label>
                     <select name="platform" id="platform">

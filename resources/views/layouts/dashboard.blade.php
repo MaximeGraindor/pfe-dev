@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,7 @@
 
         <title>Gameon - @yield('title')</title>
         <meta name="description" content="Gameon est un site communautaire qui vous permet de créer votre propre bibliothèque de jeux vidéo!">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         {{-- CSS --}}
         @livewireStyles
         @toastr_css
@@ -18,7 +18,7 @@
         <div class="dashboard-splitscreen">
             <div class="dashboard-sidebar">
                 <h1 role="heading" aria-level="1" class="sidebar-title">
-                    Gameon <span class="hidden">- @yield('main title')</span>
+                    <a href="/dashboard" title="Gameon">Gameon <span class="hidden">- @yield('title')</span></a>
                 </h1>
                 <nav class="sidebar-menu">
                     <h2 role="heading" aria-level="2" class="hidden">
@@ -62,11 +62,11 @@
                 <div class="dashboard-top">
                     <div class="dashboard-top-left">
                         <p class="dashboard-top-title-rp">
-                            Gameon
+                            <a href="/dashboard">Gameon</a>
                         </p>
-                        <form action="/utilisateurs" class="dashboard-top-form">
+                        <form action="/parcourir" class="dashboard-top-form" method="get">
                             <label for="search" class="hidden">Rechercher</label>
-                            <input type="search" id="search" placeholder="Utilisateurs" name="pseudo">
+                            <input type="search" id="search" placeholder="Dying Light, Watch dogs, ..." name="name">
                             <input type="submit" value="Rechercher">
                         </form>
                     </div>

@@ -87,5 +87,15 @@ class User extends Authenticatable
         })->count();
     }
 
+    /**
+     * The channels the user receives notification broadcasts on.
+     *
+     * @return string
+     */
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.Models.User.'.$this->id;
+    }
+
 
 }

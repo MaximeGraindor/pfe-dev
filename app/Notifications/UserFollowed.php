@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class UserFollowed extends Notification implements ShouldQueue
 {
@@ -32,7 +33,7 @@ class UserFollowed extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -52,12 +53,20 @@ class UserFollowed extends Notification implements ShouldQueue
     }
 
     /**
-     * The channels the user receives notification broadcasts on.
+     * Get the broadcastable representation of the notification.
      *
-     * @return string
+     * @param  mixed  $notifiable
+     * @return BroadcastMessage
      */
-    public function receivesBroadcastNotificationsOn()
+    public function toBroadcast($notifiable)
     {
-        return 'App.Models.User.'.$this->id;
+        return new BroadcastMessage([
+            'id' => $this->id,
+            'read_at' => null,
+            'following_id' => $this->following->id,
+            'following_pseudo' => $this->following->pseudo,
+        ]);
     }
+
+
 }

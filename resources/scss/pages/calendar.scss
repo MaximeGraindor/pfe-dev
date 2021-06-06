@@ -36,6 +36,11 @@
     }
 }
 
+.calendar-filter-curentYear{
+    background-color: #2E325C;
+    font-weight: bold;
+}
+
 .calendar-content-wrapper{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));

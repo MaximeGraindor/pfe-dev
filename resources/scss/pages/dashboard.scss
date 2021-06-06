@@ -18,6 +18,10 @@
     font-size: 2rem;
     border-bottom: 1px solid white;
     padding-bottom: 2rem;
+    a{
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .sidebar-menu{
@@ -70,9 +74,12 @@
 
 .dashboard-top-title-rp{
     font-size: pxToRem(35);
-    color: white;
     font-family: $font-content;
     display: none;
+    a{
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .dashboard-top-form{

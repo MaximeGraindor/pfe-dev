@@ -1847,9 +1847,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_responsiveMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/responsiveMenu */ "./resources/js/partials/responsiveMenu.js");
 /* harmony import */ var _partials_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/notifications */ "./resources/js/partials/notifications.js");
 /* harmony import */ var _partials_comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/comments */ "./resources/js/partials/comments.js");
+/* harmony import */ var _partials_password__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/password */ "./resources/js/partials/password.js");
 // Imports
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+
 
 
 
@@ -1858,6 +1860,7 @@ _partials_gameGallery__WEBPACK_IMPORTED_MODULE_1__.default.init();
 _partials_responsiveMenu__WEBPACK_IMPORTED_MODULE_2__.default.init();
 _partials_notifications__WEBPACK_IMPORTED_MODULE_3__.default.init();
 _partials_comments__WEBPACK_IMPORTED_MODULE_4__.default.init();
+_partials_password__WEBPACK_IMPORTED_MODULE_5__.default.init();
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -1873,23 +1876,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
-window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
-  broadcaster: 'pusher',
-  key: "0fc865fa9d8073e60ca6",
-  cluster: "eu",
-  forceTLS: true,
-  wsHost: window.location.hostname,
-  wsPort: 6001,
-  disableStats: true,
-  auth: {
-    headers: {
-      Authorization: 'Bearer ' + document.head.querySelector('meta[name="csrf-token"]').content
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
+    broadcaster: 'pusher',
+    key: "0fc865fa9d8073e60ca6",
+    cluster: "eu",
+    forceTLS: true,
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    disableStats: true,
+    auth: {
+      headers: {
+        Authorization: 'Bearer ' + token.content
+      }
     }
-  }
-});
-window.Echo["private"]('App.Models.User.2').notification(function (notification) {
-  console.log(notification, 'new notification on realtime');
-});
+  });
+  window.Echo["private"]('App.Models.User.2').notification(function (notification) {
+    console.log(notification, 'new notification on realtime');
+  });
+}
 
 /***/ }),
 
@@ -1948,14 +1955,16 @@ var gameGallery = {
   changeImage: function changeImage() {
     var _this = this;
 
-    var _loop = function _loop(i) {
-      _this.imgThumbsAll[i].addEventListener('click', function () {
-        _this.imgBigElt.src = _this.imgThumbsAll[i].src;
-      });
-    };
+    if (this.imgThumbsAll) {
+      var _loop = function _loop(i) {
+        _this.imgThumbsAll[i].addEventListener('click', function () {
+          _this.imgBigElt.src = _this.imgThumbsAll[i].src;
+        });
+      };
 
-    for (var i = 0; i < this.imgThumbsAll.length; i++) {
-      _loop(i);
+      for (var i = 0; i < this.imgThumbsAll.length; i++) {
+        _loop(i);
+      }
     }
   }
 };
@@ -1983,12 +1992,51 @@ var notifications = {
   showNotifs: function showNotifs() {
     var _this = this;
 
-    this.iconNotifsElt.addEventListener('click', function () {
-      _this.wrapperNotifsElt.classList.toggle('notifications-wrapper-active');
-    });
+    if (this.iconNotifsElt) {
+      this.iconNotifsElt.addEventListener('click', function () {
+        _this.wrapperNotifsElt.classList.toggle('notifications-wrapper-active');
+      });
+    }
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (notifications);
+
+/***/ }),
+
+/***/ "./resources/js/partials/password.js":
+/*!*******************************************!*\
+  !*** ./resources/js/partials/password.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var password = {
+  spanElt: document.querySelector('.password-action'),
+  inputPasswordElt: document.querySelector('.password-wrapper-show input'),
+  init: function init() {
+    this.showPassword();
+  },
+  showPassword: function showPassword() {
+    var _this = this;
+
+    if (this.spanElt) {
+      this.spanElt.addEventListener('click', function () {
+        _this.spanElt.classList.toggle('hide-password');
+
+        if (_this.inputPasswordElt.type === "password") {
+          _this.inputPasswordElt.attributes["type"].value = "text";
+        } else if (_this.inputPasswordElt.type === "text") {
+          _this.inputPasswordElt.attributes["type"].value = "password";
+        }
+      });
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (password);
 
 /***/ }),
 
@@ -2012,9 +2060,11 @@ var responsiveMenu = {
   showSidebar: function showSidebar() {
     var _this = this;
 
-    this.imgElt.addEventListener('click', function () {
-      _this.sidebarElt.classList.toggle('sidebar-menu-responsive');
-    });
+    if (this.imgElt) {
+      this.imgElt.addEventListener('click', function () {
+        _this.sidebarElt.classList.toggle('sidebar-menu-responsive');
+      });
+    }
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (responsiveMenu);

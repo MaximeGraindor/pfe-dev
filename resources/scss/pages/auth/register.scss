@@ -63,6 +63,8 @@
         border-radius: 0.125rem;
         color: white;
         border: 2px solid $color-third;
+        width: 100%;
+        box-sizing: border-box;
     }
     input[type="submit"]{
         cursor: pointer;
@@ -71,6 +73,24 @@
         &:hover{
             background-color: $color-third;
         }
+    }
+}
+
+.password-wrapper-show{
+    position:relative;
+    .password-action{
+        position: absolute;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-image: url('/img/eye-password-show.svg');
+        background-size: 100%;
+        right: 15px;
+        top: 13px;
+        cursor: pointer;
+    }
+    .hide-password{
+        background-image: url('/img/eye-password-hide.svg');
     }
 }
 

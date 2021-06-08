@@ -6,9 +6,12 @@ const notifications = {
     },
 
     showNotifs(){
-        this.iconNotifsElt.addEventListener('click', () => {
-            this.wrapperNotifsElt.classList.toggle('notifications-wrapper-active')
-        })
+        if (this.iconNotifsElt) {
+            this.iconNotifsElt.addEventListener('click', () => {
+                this.wrapperNotifsElt.classList.toggle('notifications-wrapper-active')
+            })
+        }
+
     }
 }
 

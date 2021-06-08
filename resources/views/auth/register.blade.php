@@ -41,10 +41,13 @@
 
                 <div class="register-password">
                     <label for="password">Mot de passe</label>
-                    <input  type="password"
-                            id="password"
-                            name="password"
-                            class="@if($errors->has('password'))login-input-error @endif" >
+                    <div class="password-wrapper-show">
+                        <input  type="password"
+                                id="password"
+                                name="password"
+                                class="@if($errors->has('password'))login-input-error @endif" >
+                        <span class="password-action"></span>
+                    </div>
                     @error('password')
                         <span class="login-error">{{ $message }}</span>
                     @enderror
@@ -69,4 +72,5 @@
         </section>
     </div>
 </div>
+<script src="{{ asset('/js/app.js') }}"></script>
 @endsection

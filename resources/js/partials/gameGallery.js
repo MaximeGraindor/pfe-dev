@@ -6,10 +6,12 @@ const gameGallery = {
     },
 
     changeImage(){
-        for (let i = 0; i < this.imgThumbsAll.length; i++) {
-            this.imgThumbsAll[i].addEventListener('click', () => {
-                this.imgBigElt.src = this.imgThumbsAll[i].src
-            })
+        if (this.imgThumbsAll) {
+            for (let i = 0; i < this.imgThumbsAll.length; i++) {
+                this.imgThumbsAll[i].addEventListener('click', () => {
+                    this.imgBigElt.src = this.imgThumbsAll[i].src
+                })
+            }
         }
     }
 }

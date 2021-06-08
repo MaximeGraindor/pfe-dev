@@ -6,9 +6,11 @@ const responsiveMenu = {
     },
 
     showSidebar(){
-        this.imgElt.addEventListener('click', () => {
-            this.sidebarElt.classList.toggle('sidebar-menu-responsive')
-        })
+        if (this.imgElt) {
+            this.imgElt.addEventListener('click', () => {
+                this.sidebarElt.classList.toggle('sidebar-menu-responsive')
+            })
+        }
     }
 }
 

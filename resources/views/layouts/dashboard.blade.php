@@ -49,7 +49,7 @@
                 </nav>
                 <div class="sidebar-logout">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
+                        Se deconnecter
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

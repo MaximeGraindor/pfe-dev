@@ -29,5 +29,7 @@
     "/img/settings.svg": "/img/settings.svg",
     "/img/twitter.svg": "/img/twitter.svg",
     "/img/user-picture-default.jpg": "/img/user-picture-default.jpg",
-    "/img/user.svg": "/img/user.svg"
+    "/img/user.svg": "/img/user.svg",
+    "/img/eye-password-hide.svg": "/img/eye-password-hide.svg",
+    "/img/eye-password-show.svg": "/img/eye-password-show.svg"
 }

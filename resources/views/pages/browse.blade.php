@@ -11,7 +11,7 @@
                     <select name="platform" id="platform">
                         <option value="">Plateforme</option>
                         @foreach($platforms as $platform)
-                            <option value="{{$platform->slug}}">{{$platform->name}}</option>
+                            <option value="{{$platform->abbreviation}}" {{ $platform->abbreviation === $request->platform ? 'selected' : ''}}>{{$platform->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -20,7 +20,7 @@
                     <select name="genre" id="genre">
                         <option value="">Genre</option>
                         @foreach($genres as $genre)
-                            <option value="{{$genre->name}}">{{$genre->name}}</option>
+                            <option value="{{$genre->name}}" {{ $genre->name === $request->genre ? 'selected' : ''}}>{{$genre->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -29,7 +29,7 @@
                     <select name="mode" id="mode">
                         <option value="">Mode de jeu</option>
                         @foreach($modes as $mode)
-                            <option value="{{$mode->slug}}">{{$mode->name}}</option>
+                            <option value="{{$mode->name}}" {{ $mode->name === $request->mode ? 'selected' : ''}}>{{$mode->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -73,7 +73,7 @@
                         @if($game->platforms)
                             <div class="browse-card-infos-platforms">
                                 @foreach($game->platforms as $platform)
-                                    <a href="?platform={{$platform->slug}}">{{$platform->abbreviation}}</a>
+                                    <a href="?platform={{$platform->abbreviation}}">{{$platform->abbreviation}}</a>
                                 @endforeach
                             </div>
                         @endif

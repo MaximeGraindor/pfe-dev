@@ -56,11 +56,26 @@
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>
                         <dd>
-                            @if($game->involved_companies)
-                                @foreach($game->involved_companies as $key => $involved_company)
-                                    <span>
-                                        {{ $involved_company->company->name }}
-                                    </span>
+                            @if($game->publishers)
+                                @foreach($game->publishers as $key => $publisher)
+                                    <a href="/parcourir?publisher={{$publisher->name}}">
+                                        {{ $publisher->name }}
+                                    </a>
+                                @endforeach
+                            @else
+                                <span>Pas d'éditeurs répertoriés</span>
+                            @endif
+
+                        </dd>
+                    </div>
+                    <div class="characteristics-wrap">
+                        <dt>Genres</dt>
+                        <dd>
+                            @if($game->genres)
+                                @foreach($game->genres as $key => $genre)
+                                    <a href="/parcourir?genre={{$genre->name}}">
+                                        {{ $genre->name }}
+                                    </a>
                                 @endforeach
                             @else
                                 <span>Pas d'éditeurs répertoriés</span>
@@ -71,11 +86,11 @@
                     <div class="characteristics-wrap">
                         <dt>Mode de jeu</dt>
                         <dd>
-                            @if($game->game_modes)
-                                @foreach($game->game_modes as $key => $mode)
-                                    <span>
-                                        {{ $mode->name }}
-                                    </span>
+                            @if($game->modes)
+                                @foreach($game->modes as $key => $mode)
+                                <a href="/parcourir?mode={{$mode->name}}">
+                                    {{ $mode->name }}
+                                </a>
                                 @endforeach
                             @else
                                 <span>
@@ -88,11 +103,11 @@
                     <div class="characteristics-wrap">
                         <dt>Plateforme</dt>
                         <dd>
-                            @if($game->platforms)
-                                @foreach($game->platforms as $key => $platform)
-                                    <span>
-                                        {{ $platform->abbreviation }}
-                                    </span>
+                            @if($game->plateformes)
+                                @foreach($game->plateformes as $key => $platform)
+                                    <a href="/parcourir?platform={{$platform->name}}">
+                                        {{ $platform->name }}
+                                    </a>
                                 @endforeach
                             @else
                                 <span>Pas de plateformes répertoriés</span>

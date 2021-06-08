@@ -86,7 +86,7 @@
             font-weight: bold;
         }
         dd{
-            span{
+            a{
                 padding: 0.3rem 0.4rem;
                 background-color: #101216;
                 border-radius: 5px;
@@ -95,6 +95,7 @@
                 color: white;
                 display: inline-block;
                 margin-bottom: 0.5rem;
+                text-decoration: none;
             }
         }
         &:not(:last-child){

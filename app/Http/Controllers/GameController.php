@@ -36,20 +36,33 @@ class GameController extends Controller
      */
     public function index(Request $request)
     {
+
         $platforms = IGDBPlatform::all();
         $genres = IGDBGenre::all();
         $modes = IGDBMode::all();
 
-        $games = IGDBGame::with(['platforms', 'cover', 'genres'])->orderBy('aggregated_rating', 'asc');
+        $games = IGDBGame::with(['platforms', 'cover', 'genres', 'game_modes', 'involved_companies.company' => ['id', 'name']])
+            ->orderBy('aggregated_rating', 'asc');
+
 
         if($request->platform){
             $games->whereHas('platforms')
-            ->where('platforms.slug', $request->platform);
+            ->where('platforms.abbreviation', $request->platform);
+        };
+
+        if($request->genre){
+            $games->whereHas('genres')
+            ->where('genres.name', $request->genre);
         };
 
         if($request->mode){
-            $games->whereHas('modes')
-            ->where('modes.slug', $request->platform);
+            $games->whereHas('game_modes')
+            ->where('game_modes.name', $request->mode);
+        };
+
+        if($request->publisher){
+            $games->whereHas('involved_companies.company')
+            ->where('involved_companies.company.name', $request->publisher);
         };
 
         if($request->name){
@@ -57,7 +70,7 @@ class GameController extends Controller
         };
 
         $games = $games->paginate(20);
-        return view('pages.browse', compact('games', 'platforms', 'genres', 'modes'));
+        return view('pages.browse', compact('request', 'games', 'platforms', 'genres', 'modes'));
     }
 
     /**
@@ -119,7 +132,8 @@ class GameController extends Controller
                 'cover',
                 'summary',
                 'first_release_date',
-                'game_modes', 'genres',
+                'game_modes',
+                'genres',
                 'involved_companies',
                 'multiplayer_modes',
                 'platforms',
@@ -127,7 +141,7 @@ class GameController extends Controller
                 'websites',
                 'game_modes'])
             ->where('slug', collect(request()->segments())->last())
-            ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes'])
+            ->with(['platforms', 'cover', 'screenshots', 'websites', 'involved_companies.company' => ['id', 'name'], 'game_modes', 'genres'])
             ->first();
             return view('pages.game.gameAPI', compact('game'));
         }else{

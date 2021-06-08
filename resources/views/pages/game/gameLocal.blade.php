@@ -64,9 +64,9 @@
                         <dd>
                             @if($game->publishers)
                                 @foreach($game->publishers as $key => $publisher)
-                                    <span>
+                                    <a href="/parcourir?publisher={{$publisher->name}}">
                                         {{ $publisher->name }}
-                                    </span>
+                                    </a>
                                 @endforeach
                             @else
                                 <span>Pas d'éditeurs répertoriés</span>
@@ -79,9 +79,9 @@
                         <dd>
                             @if($game->genres)
                                 @foreach($game->genres as $key => $genre)
-                                    <span>
+                                    <a href="/parcourir?genre={{$genre->name}}">
                                         {{ $genre->name }}
-                                    </span>
+                                    </a>
                                 @endforeach
                             @else
                                 <span>Pas d'éditeurs répertoriés</span>
@@ -94,9 +94,9 @@
                         <dd>
                             @if($game->modes)
                                 @foreach($game->modes as $key => $mode)
-                                    <span>
-                                        {{ $mode->name }}
-                                    </span>
+                                <a href="/parcourir?mode={{$mode->name}}">
+                                    {{ $mode->name }}
+                                </a>
                                 @endforeach
                             @else
                                 <span>
@@ -111,9 +111,9 @@
                         <dd>
                             @if($game->plateformes)
                                 @foreach($game->plateformes as $key => $platform)
-                                    <span>
+                                    <a href="/parcourir?platform={{$platform->name}}">
                                         {{ $platform->name }}
-                                    </span>
+                                    </a>
                                 @endforeach
                             @else
                                 <span>Pas de plateformes répertoriés</span>

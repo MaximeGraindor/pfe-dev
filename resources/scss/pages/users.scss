@@ -3,9 +3,14 @@
     color: white;
 }
 
-.users-result-text{
+.users-result-title{
     font-family: $font-content;
     font-size: pxToRem(40);
+    margin-bottom: 2rem;
+}
+.users-result-text{
+    font-family: $font-content;
+    font-size: pxToRem(20);
     margin-bottom: 5rem;
 }
 

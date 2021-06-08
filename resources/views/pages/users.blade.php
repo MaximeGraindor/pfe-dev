@@ -2,8 +2,11 @@
 @section('title', 'Liste des utilisateurs')
 @section('content')
     <div class="dashboard-users">
-        <p class="users-result-text">
+        <p class="users-result-title">
             Résultat de la recherche
+        </p>
+        <p class="users-result-text">
+            Votre recherche était&nbsp;: {{$request->pseudo}}
         </p>
         <div class="users-content">
             <div class="users-content-wrapper">

@@ -40,7 +40,7 @@
         <form action="/communaute/{{$activity->id}}/replies" method="post">
             @csrf
             <label for="reply">Commentaire</label>
-            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+            <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
         @foreach($activity->replies as $replies)
@@ -122,7 +122,7 @@
         <form action="/communaute/{{$activity->id}}/replies" method="post">
             @csrf
             <label for="reply">Commentaire</label>
-            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+            <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
         @foreach($activity->replies as $replies)
@@ -206,7 +206,7 @@
         <form action="/communaute/{{$activity->id}}/replies" method="post">
             @csrf
             <label for="reply">Commentaire</label>
-            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+            <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
         @foreach($activity->replies as $replies)

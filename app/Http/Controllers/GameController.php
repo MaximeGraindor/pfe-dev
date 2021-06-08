@@ -47,6 +47,11 @@ class GameController extends Controller
             ->where('platforms.slug', $request->platform);
         };
 
+        if($request->mode){
+            $games->whereHas('modes')
+            ->where('modes.slug', $request->platform);
+        };
+
         if($request->name){
             $games->whereLike('name', '%' . $request->name . '%', false);
         };

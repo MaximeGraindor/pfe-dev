@@ -7,6 +7,7 @@ use App\Models\Reply;
 use Illuminate\Http\Request;
 use App\Events\FollowsNotification;
 use App\Events\FollowsNotifications;
+use App\Http\Requests\StoreReplyRequest;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
 
@@ -40,9 +41,13 @@ class ReplyController extends Controller
      */
     public function store(Request $request, Activity $activity)
     {
+        /* $validated = $request->validate([
+            'body' => ['required', 'max:300'],
+        ]) */;
+
         $activity->replies()->create([
-            'body' => $request->reply,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'body' => $request->body
             ]);
 
         return redirect()->back();

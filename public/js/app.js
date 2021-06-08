@@ -1887,7 +1887,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
     }
   }
 });
-window.Echo["private"]('App.Models.User.1').notification(function (notification) {
+window.Echo["private"]('App.Models.User.2').notification(function (notification) {
   console.log(notification, 'new notification on realtime');
 });
 

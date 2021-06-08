@@ -37,7 +37,7 @@
             <h2 class="profil-update-title">
                 Modifier votre profil
             </h2>
-            <form action="{{ route('user.profil-update') }}" method="post" class="profil-update-form">
+            <form action="{{ route('user.profil-update') }}" method="post" class="profil-update-form"  enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="picture">Photo</label>

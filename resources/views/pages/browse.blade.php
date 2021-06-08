@@ -29,7 +29,7 @@
                     <select name="mode" id="mode">
                         <option value="">Mode de jeu</option>
                         @foreach($modes as $mode)
-                            <option value="{{$mode->name}}">{{$mode->name}}</option>
+                            <option value="{{$mode->slug}}">{{$mode->name}}</option>
                         @endforeach
                     </select>
                 </div>

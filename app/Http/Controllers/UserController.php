@@ -13,7 +13,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::with('games','badges');
         if(request('pseudo')){
@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $users = $users->get();
 
-        return view('pages.users', compact('users'));
+        return view('pages.users', compact('users', 'request'));
     }
 
     /**
@@ -109,17 +109,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
-        $validated = $request->validate([
+        return $request;
+        return $validated = $request->validate([
             'pseudo' => 'unique:users|max:10',
-            'picture' => 'required',
+            'picture' => 'image|mimes:jpg,png,jpeg,gif|max:500',
             'email' => 'email'
         ]);
 
         $user = User::where('id', Auth::user()->id)->first();
-        $user->update([
-            'pseudo' => $request->pseudo
-        ]);
+        $user->update($validated);
 
         return redirect()->back();
     }

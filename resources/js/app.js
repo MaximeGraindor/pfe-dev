@@ -46,7 +46,7 @@ window.Echo = new Echo({
 });
 
 
-window.Echo.private('App.Models.User.1')
+window.Echo.private('App.Models.User.2')
     .notification((notification) => {
         console.log(notification, 'new notification on realtime');
     });

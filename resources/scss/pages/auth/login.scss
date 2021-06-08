@@ -41,6 +41,28 @@
     }
 }
 
+.login-verify{
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.login-verify-form{
+    input{
+        width: 100%;
+        padding: 0.6rem 0.7rem;
+        font-family: $font-content;
+        font-size: 1.25rem;
+        border: none;
+        background-color: $color-second;
+        border-radius: 0.125rem;
+        color: white;
+        border: 2px solid $color-third;
+    }
+}
+
 .login-form{
     width: 500px;
     .login-pseudo, .login-password{

@@ -305,7 +305,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste en cours', 'Succès');
 
             activity()
                 ->performedOn($gameToSave)
@@ -336,7 +336,7 @@ class GameController extends Controller
 
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'en cours'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                toastr()->error('le jeu est déjà présent dans la liste', 'Erreur');
+                toastr()->warning('le jeu est déjà présent dans la liste en cours', 'Alerte');
                 return redirect()->back();
             };
 
@@ -348,7 +348,7 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'en cours']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste en cours', 'Succès');
 
             activity()
                 ->performedOn($currentGame)
@@ -497,7 +497,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste terminé', 'Succès');
 
             activity()
                 ->performedOn($gameToSave)
@@ -526,7 +526,7 @@ class GameController extends Controller
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'termine'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
+                toastr()->Warning('Jeu déjà présent dans la liste', 'Alert');
                 return redirect()->back();
             };
 
@@ -537,10 +537,10 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'termine']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste terminé', 'Succès');
 
             activity()
-                ->performedOn($gameToSave)
+                ->performedOn($currentGame)
                 ->causedBy(Auth::user()->id)
                 ->withProperties([
                     'relation' => 'termine',
@@ -684,7 +684,7 @@ class GameController extends Controller
             }else{
                 $gameToSave->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste d\'envie', 'Succès');
 
             activity()
                 ->performedOn($gameToSave)
@@ -713,7 +713,8 @@ class GameController extends Controller
             }
             // Vérifie si le jeu est déjà présent dans la liste
             if(GameUser::where([['relation', '=', 'envie'],['game_id', '=', $currentGame->id], ['user_id', Auth::user()->id]])->exists()){
-                toastr()->error('Jeu déjà présent dans la liste', 'Erreur');
+                toastr()->warning('Jeu déjà présent dans la liste d\'envie', 'Alert');
+
             };
 
             // vérifie si le jeu appartient déjà à une autre liste
@@ -723,7 +724,7 @@ class GameController extends Controller
             }else{
                 $currentGame->users()->attach(Auth::user(), ['relation' => 'envie']);
             };
-            toastr()->success('Le jeu a bient été ajouté', 'Succès');
+            toastr()->success('Le jeu a bien été ajouté à la liste d\'envie', 'Succès');
 
             activity()
                 ->performedOn($currentGame)

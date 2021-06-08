@@ -51,7 +51,7 @@
                 <dl>
                     <div class="characteristics-wrap">
                         <dt>Date de sortie</dt>
-                        <dd>{{ $game->first_release_date }}</dd>
+                        <dd>{{ date('j/m/Y', strtotime($game->first_release_date)) }}</dd>
                     </div>
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>

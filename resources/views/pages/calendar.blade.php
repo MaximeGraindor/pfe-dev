@@ -66,7 +66,7 @@
                 @if (Request::has('page'))
                     <a href="{{ route('calendar', ['page' => Request::get('page') + 1]) }}">Page suivante</a>
                 @else
-                    <a href="{{ route('calendar', ['page' =>2]) }}">Next page</a>
+                    <a href="{{ route('calendar', ['page' =>2]) }}">Page suivante</a>
                 @endif
             </div>
         </div>

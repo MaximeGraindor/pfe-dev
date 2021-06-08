@@ -91,7 +91,7 @@
             @if (Request::has('page'))
                 <a href="{{ route('browse', ['page' => Request::get('page') + 1]) }}">Page suivante</a>
             @else
-                <a href="{{ route('browse', ['page' =>2]) }}">Next page</a>
+                <a href="{{ route('browse', ['page' =>2]) }}">Page suivante</a>
             @endif
         </div>
     </div>

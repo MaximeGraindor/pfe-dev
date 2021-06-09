@@ -9,24 +9,14 @@
         <div class="game-content">
 
             <div class="game-header">
-                {{-- @if(property_exists($game, 'image_id')) --}}
                 <img
-                    src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg"
+                    {{-- src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg" --}}
+                    src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/' . $game->cover->image_id . '.jpg' : '/img/game-cover-default.jpg' }}"
                     alt=""
                     height="{{$game->cover ? $game->cover->height : null}}"
                     width="{{$game->cover ? $game->cover->height : null}}"
                     class="game-cover"
                 >
-                {{-- @else
-                    <img
-                        src="{{ asset('storage/games/cover/' . $game->cover_path) }}"
-                        alt=""
-                        height="{{$game->cover ? $game->cover->height : null}}"
-                        width="{{$game->cover ? $game->cover->height : null}}"
-                        class="game-cover"
-                    >
-                @endif
- --}}
                 <div class="game-header-infos">
                     <h2 class="game-title">
                         {{ $game->name }}

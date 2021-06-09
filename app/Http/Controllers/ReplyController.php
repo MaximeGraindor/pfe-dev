@@ -41,9 +41,9 @@ class ReplyController extends Controller
      */
     public function store(Request $request, Activity $activity)
     {
-        /* $validated = $request->validate([
+        $request->validate([
             'body' => ['required', 'max:300'],
-        ]) */;
+        ]);
 
         $activity->replies()->create([
             'user_id' => Auth::user()->id,

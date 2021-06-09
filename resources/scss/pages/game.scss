@@ -150,6 +150,11 @@
     }
 }
 
+.gallery-thumb-active{
+    filter: brightness(0.2);
+    border: 2px solid white;
+}
+
 .game-comments{
     .comments-title{
         font-size: 2rem;

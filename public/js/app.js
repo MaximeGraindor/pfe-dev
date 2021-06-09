@@ -1986,6 +1986,14 @@ var gameGallery = {
     if (this.imgThumbsAll) {
       var _loop = function _loop(i) {
         _this.imgThumbsAll[i].addEventListener('click', function () {
+          if (_this.imgThumbsAll[i].classList.contains('gallery-thumb-active')) {
+            _this.imgThumbsAll[i].classList.remove('gallery-thumb-active');
+          }
+
+          ;
+
+          _this.imgThumbsAll[i].classList.add('gallery-thumb-active');
+
           _this.imgBigElt.src = _this.imgThumbsAll[i].src;
         });
       };

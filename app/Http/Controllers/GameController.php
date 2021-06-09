@@ -270,7 +270,7 @@ class GameController extends Controller
 
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -284,16 +284,20 @@ class GameController extends Controller
 
             //Enregistre les images sur le disque
             //La cover
-            $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->cover ? $currentGame->cover->image_id : 'game-cover-default') . ".jpg";
-            $contentsCover = file_get_contents($urlCover);
-            $name = substr($urlCover, strrpos($urlCover, '/') + 1);
-            Storage::put('/public/games/cover/'.$name, $contentsCover);
+            if($currentGame->cover){
+                $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/" . $currentGame->cover->image_id . ".jpg";
+                $contentsCover = file_get_contents($urlCover);
+                $name = substr($urlCover, strrpos($urlCover, '/') + 1);
+                Storage::put('/public/games/cover/'.$name, $contentsCover);
+            }
 
             // La bannière
-            $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". ($currentGame->screenshots ? $currentGame->screenshots[0]->image_id : 'game-cover-default') . ".jpg";
-            $contentsBanner = file_get_contents($urlBanner);
-            $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
-            Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            if($currentGame->screenshots){
+                $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/" . $currentGame->screenshots[0]->image_id . ".jpg";
+                $contentsBanner = file_get_contents($urlBanner);
+                $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
+                Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            }
 
             // Badge
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
@@ -462,7 +466,7 @@ class GameController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". $gameScreenshot->image_id . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -476,16 +480,20 @@ class GameController extends Controller
 
             //Enregistre les images sur le disque
             //La cover
-            $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->cover ? $currentGame->cover->image_id : 'game-cover-default') . ".jpg";
-            $contentsCover = file_get_contents($urlCover);
-            $name = substr($urlCover, strrpos($urlCover, '/') + 1);
-            Storage::put('/public/games/cover/'.$name, $contentsCover);
+            if($currentGame->cover){
+                $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/" . $currentGame->cover->image_id . ".jpg";
+                $contentsCover = file_get_contents($urlCover);
+                $name = substr($urlCover, strrpos($urlCover, '/') + 1);
+                Storage::put('/public/games/cover/'.$name, $contentsCover);
+            }
 
             // La bannière
-            $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". ($currentGame->screenshots ? $currentGame->screenshots[0]->image_id : 'game-cover-default') . ".jpg";
-            $contentsBanner = file_get_contents($urlBanner);
-            $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
-            Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            if($currentGame->screenshots){
+                $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/" . $currentGame->screenshots[0]->image_id . ".jpg";
+                $contentsBanner = file_get_contents($urlBanner);
+                $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
+                Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            }
 
             // Badge
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){
@@ -650,7 +658,7 @@ class GameController extends Controller
             if($currentGame->screenshots){
                 foreach($currentGame->screenshots as $key => $gameScreenshot) {
                     //return $gameScreenshot->image_id;
-                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_cover_big/". $gameScreenshot->image_id  . ".jpg";
+                    $urlScreenshot = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". $gameScreenshot->image_id  . ".jpg";
                     $contentsScreenshot = file_get_contents($urlScreenshot);
                     $name = substr($urlScreenshot, strrpos($urlScreenshot, '/') + 1);
                     Storage::put('/public/games/screenshots/'.$name, $contentsScreenshot);
@@ -663,17 +671,23 @@ class GameController extends Controller
             }
 
             //Enregistre les images sur le disque
+            if($currentGame->cover){
+                $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/" . $currentGame->cover->image_id . ".jpg";
+                $contentsCover = file_get_contents($urlCover);
+                $name = substr($urlCover, strrpos($urlCover, '/') + 1);
+                Storage::put('/public/games/cover/'.$name, $contentsCover);
+            }
             //La cover
-            $urlCover = "https://images.igdb.com/igdb/image/upload/t_cover_big/". ($currentGame->cover ? $currentGame->cover->image_id : 'game-cover-default') . ".jpg";
-            $contentsCover = file_get_contents($urlCover);
-            $name = substr($urlCover, strrpos($urlCover, '/') + 1);
-            Storage::put('/public/games/cover/'.$name, $contentsCover);
+
 
             // La bannière
-            $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/". ($currentGame->screenshots ? $currentGame->screenshots[0]->image_id : 'game-cover-default') . ".jpg";
-            $contentsBanner = file_get_contents($urlBanner);
-            $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
-            Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            if($currentGame->screenshots){
+                $urlBanner = "https://images.igdb.com/igdb/image/upload/t_screenshot_big/" . $currentGame->screenshots[0]->image_id . ".jpg";
+                $contentsBanner = file_get_contents($urlBanner);
+                $name = substr($urlBanner, strrpos($urlBanner, '/') + 1);
+                Storage::put('/public/games/banner/'.$name, $contentsBanner);
+            }
+
 
             // Badge
             if(!GameUser::where('user_id', Auth::user()->id)->exists()){

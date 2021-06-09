@@ -31,7 +31,6 @@ use App\Http\Controllers\FollowersController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/termsAndConditions', [HomeController::class, 'termsAndConditions']);
 
-
 Route::group(['middleware' => ['auth', 'verified']], function(){
 
     Route::get('/dashboard', [DashboardController::class, 'index'])

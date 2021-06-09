@@ -3,7 +3,7 @@
 @section('content')
     <div class="dashboard-game">
         <div class="game-banner">
-            <img src="{{asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg')}}" alt="">
+            <img src="{{$game->screenshots ? asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg') : null}}" alt="">
         </div>
 
         <div class="game-content">
@@ -161,7 +161,9 @@
                     @foreach ($game->comments as $comment)
                         <div class="game-comment">
                             <div class="game-comment-user">
-                                <div><img src="/img/{{$comment->user->picture}}" alt="Photo de profil"></div>
+                                <div>
+                                    <img src="{{ asset('storage/users/picture/' . $comment->user->picture)}}" alt="Photo de profil">
+                                </div>
                                 <span>{{ $comment->user->pseudo }}</span>
                             </div>
                             <p class="game-comment-date">

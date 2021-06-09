@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Policies\CommentPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -29,5 +30,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('add-game', function($user){
             return $user->isAdmin;
         });
+
+        Gate::define('update-comment', [CommentPolicy::class, 'update']);
+        Gate::define('delete-comment', [CommentPolicy::class, 'delete']);
     }
 }

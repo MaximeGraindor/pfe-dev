@@ -2484,6 +2484,7 @@ body {
 }
 
 .game-comment {
+  position: relative;
   color: white;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   background-color: #222831;
@@ -2516,6 +2517,27 @@ body {
 .game-comment .game-comment-content {
   line-height: 1.6rem;
   font-size: 1.125rem;
+}
+.game-comment .comment-action {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  display: flex;
+  gap: 1rem;
+}
+.game-comment .comment-form-update .comment-update {
+  font-size: 13px;
+  padding: 0.5rem 0.9rem;
+}
+.game-comment .comment-form-update .comment-update:hover {
+  background-color: #262B48;
+}
+.game-comment .comment-form-delete .comment-delete {
+  font-size: 13px;
+  padding: 0.5rem 0.9rem;
+}
+.game-comment .comment-form-delete .comment-delete:hover {
+  background-color: #262B48;
 }
 
 .game-rating {

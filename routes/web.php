@@ -43,7 +43,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         ->name('community');
     Route::get('/profil', [UserController::class, 'show'])
         ->name('profil');
-
+    Route::get('/utilisateurs', [UserController::class, 'index'])
+        ->name('users');
 
     Route::post('/activity/{activity:id}/like', [LikeController::class, 'store'])
         ->name('activity.like');
@@ -51,12 +52,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/communaute/{activity:id}/replies', [ReplyController::class, 'store'])
         ->name('reply.store');
 
-        Route::post('/reply/{reply:id}/reply', [ReplyController::class, 'replyToReply'])
+    Route::post('/reply/{reply:id}/reply', [ReplyController::class, 'replyToReply'])
         ->name('reply-reply.store');
-
-
-
-
 
     Route::get('/profil/edit', [UserController::class, 'edit'])
         ->name('user.profil-edit');
@@ -71,11 +68,6 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/profil/{user:pseudo}/abonnements', [FollowsController::class, 'follows'])
         ->name('following');
 
-
-    Route::get('/utilisateurs', [UserController::class, 'index'])->name('users');
-
-
-
     Route::get('/jeu/{game}', [GameController::class, 'show']);
     Route::post('/jeu/{game}/rating', [GameController::class, 'rating']);
     Route::post('/{game:slug}/comments', [CommentController::class, 'store'])->name('comment.store');
@@ -83,6 +75,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/game/addToFinish/{game:slug}', [GameController::class, 'addToFinish'])->name('game.addToFinish');
     Route::post('/game/addToWish/{game:slug}', [GameController::class, 'addToWish'])->name('game.addToWish');
     Route::post('/gameuser/{game:slug}/delete', [GameUserController::class, 'destroy'])->name('game-user.destroy');
+
+    Route::post('/comment/{comment:id}/delete', [CommentController::class, 'destroy'])->name('comment.destroy');
 
     Route::get('/notifications/markAsRead', function(){
         foreach (Auth::user()->unreadNotifications as $notification) {

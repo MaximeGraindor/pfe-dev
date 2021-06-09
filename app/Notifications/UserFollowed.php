@@ -33,7 +33,7 @@ class UserFollowed extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        return ['database'];
     }
 
     /**
@@ -50,22 +50,6 @@ class UserFollowed extends Notification implements ShouldQueue
             'following_id' => $this->following->id,
             'following_pseudo' => $this->following->pseudo,
         ];
-    }
-
-    /**
-     * Get the broadcastable representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return BroadcastMessage
-     */
-    public function toBroadcast($notifiable)
-    {
-        return new BroadcastMessage([
-            'id' => $this->id,
-            'read_at' => null,
-            'following_id' => $this->following->id,
-            'following_pseudo' => $this->following->pseudo,
-        ]);
     }
 
 

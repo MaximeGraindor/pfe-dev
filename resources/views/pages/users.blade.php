@@ -2,12 +2,21 @@
 @section('title', 'Liste des utilisateurs')
 @section('content')
     <div class="dashboard-users">
+        @if($currentUser && $title)
+            <p class="users-result-title">
+                Liste des {{$title}} de {{$currentUser->pseudo}}
+            </p>
+        @else i
         <p class="users-result-title">
             Résultat de la recherche
         </p>
+        @endif
+
+        @if($request->pseudo)
         <p class="users-result-text">
             Votre recherche était&nbsp;: {{$request->pseudo}}
         </p>
+        @endif
         <div class="users-content">
             <div class="users-content-wrapper">
                 @foreach ($users as $user)

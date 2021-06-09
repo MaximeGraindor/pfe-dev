@@ -200,6 +200,7 @@
 }
 
 .game-comment{
+    position: relative;
     color: white;
     font-family: $font-content;
     background-color: $color-second;
@@ -231,6 +232,31 @@
     .game-comment-content{
         line-height: 1.6rem;
         font-size: pxToRem(18);
+    }
+    .comment-action{
+        position: absolute;
+        right: 30px;
+        top: 15px;
+        display: flex;
+        gap: 1rem;
+    }
+    .comment-form-update{
+        .comment-update{
+            font-size: 13px;
+            padding: 0.5rem 0.9rem;
+            &:hover{
+                background-color: $color-third;
+            }
+        }
+    }
+    .comment-form-delete{
+        .comment-delete{
+            font-size: 13px;
+            padding: 0.5rem 0.9rem;
+            &:hover{
+                background-color: $color-third;
+            }
+        }
     }
 }
 

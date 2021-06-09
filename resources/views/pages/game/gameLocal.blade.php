@@ -160,6 +160,18 @@
                 <div class="comments-wrapper">
                     @foreach ($game->comments as $comment)
                         <div class="game-comment">
+                            @can('update', $comment)
+                            <div class="comment-action">
+                                {{-- <form action="/comment/{{$comment->id}}/delete" method="post" class="comment-form-update">
+                                    @csrf
+                                    <input type="submit" value="Modifier" class="comment-update">
+                                </form> --}}
+                                <form action="/comment/{{$comment->id}}/delete" method="post" class="comment-form-delete">
+                                    @csrf
+                                    <input type="submit" value="Supprimer" class="comment-delete">
+                                </form>
+                            </div>
+                            @endcan
                             <div class="game-comment-user">
                                 <div>
                                     <img src="{{ asset('storage/users/picture/' . $comment->user->picture)}}" alt="Photo de profil">

@@ -46,7 +46,7 @@
         @foreach($activity->replies as $replies)
         <div class="reply-item">
             <div class="reply-item-top">
-                <div class="reply-item-top-img"><img src="./img/{{$replies->user->picture}}" alt=""></div>
+                <div class="reply-item-top-img"><img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt=""></div>
                 <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
             </div>
             <div class="reply-item-bottom">
@@ -66,7 +66,7 @@
                     @foreach ($replies->replies as $rep)
                     <div class="replies-item">
                         <div class="replies-user">
-                            <div><img src="./img/{{$rep->user->picture}}" alt=""></div>
+                            <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
                             <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                         </div>
                         <p>
@@ -81,7 +81,10 @@
         @endforeach
     </div>
     @endif
+
+
     @if($activity->subject_type === App\Models\Badge::class)
+
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-badge">
         <div class="feed-activity-top-img">
@@ -128,7 +131,9 @@
         @foreach($activity->replies as $replies)
         <div class="reply-item">
             <div class="reply-item-top">
-                <div class="reply-item-top-img"><img src="./img/{{$replies->user->picture}}" alt=""></div>
+                <div class="reply-item-top-img">
+                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                </div>
                 <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
             </div>
             <div class="reply-item-bottom">
@@ -148,7 +153,9 @@
                     @foreach ($replies->replies as $rep)
                     <div class="replies-item">
                         <div class="replies-user">
-                            <div><img src="./img/{{$rep->user->picture}}" alt=""></div>
+                            <div>
+                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                            </div>
                             <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                         </div>
                         <p>
@@ -212,7 +219,9 @@
         @foreach($activity->replies as $replies)
         <div class="reply-item">
             <div class="reply-item-top">
-                <div class="reply-item-top-img"><img src="./img/{{$replies->user->picture}}" alt=""></div>
+                <div class="reply-item-top-img">
+                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                </div>
                 <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
             </div>
             <div class="reply-item-bottom">
@@ -232,7 +241,9 @@
                     @foreach ($replies->replies as $rep)
                     <div class="replies-item">
                         <div class="replies-user">
-                            <div><img src="./img/{{$rep->user->picture}}" alt=""></div>
+                            <div>
+                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                            </div>
                             <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                         </div>
                         <p>

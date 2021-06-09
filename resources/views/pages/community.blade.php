@@ -26,7 +26,9 @@
                     @foreach($usersSuggest as $suggest)
                     <div class="suggestions-item">
                         <div class="suggestions-item-top">
-                            <div><img src="./img/{{$suggest->picture}}" alt="Photo de profil"></div>
+                            <div>
+                                <img src="{{asset('storage/users/picture/' . $suggest->picture)}}" alt="Photo de profil">
+                            </div>
                             <span class="suggestions-item-pseudo">
                                 {{$suggest->pseudo}}
                             </span>

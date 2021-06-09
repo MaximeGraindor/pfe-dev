@@ -100,7 +100,9 @@
                             <a href="/profil/{{ Auth::user()->pseudo }}">
                                 {{ Auth::user()->pseudo }}
                             </a>
-                            <div><img src="/img/{{Auth::user()->picture}}" alt="Photo de profil"></div>
+                            <div>
+                                <img src="{{asset('storage/users/picture/'.Auth::user()->picture)}}" alt="Photo de profil">
+                            </div>
                         </div>
                         <div class="dashboard-top-menu-responsive">
                             <img src="/img/responsive-menu.svg" alt="Menu responsive">

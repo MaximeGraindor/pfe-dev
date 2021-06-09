@@ -5,7 +5,7 @@
         <div class="profil-banner"></div>
         <div class="profil-header">
             <div class="profil-header-picture">
-                <img src="/img/{{$user->picture}}" alt="Photo de profil">
+                <img src="{{asset('storage/users/picture/'.$user->picture)}}" alt="Photo de profil">
             </div>
             <div class="profil-info">
                 <div class="profil-info-top">
@@ -37,12 +37,17 @@
             <h2 class="profil-update-title">
                 Modifier votre profil
             </h2>
-            <form action="{{ route('user.profil-update') }}" method="post" class="profil-update-form"  enctype="multipart/form-data">
+            <form
+                action="{{ route('user.profil-update') }}"
+                method="post"
+                class="profil-update-form"
+                enctype="multipart/form-data"
+                >
                 @csrf
                 <div>
                     <label for="picture">Photo</label>
                     <p>La photo ne doit pas dépasser 1mb et faire maximum 500x500</p>
-                    <input type="file" id="picture" name="picture" >
+                    <input type="file" id="picture" name="picture" accept=".png,.jpg,.jpeg" >
                     @error('picture')
                         <span>
                             {{$message}}
@@ -51,7 +56,7 @@
                 </div>
                 <div>
                     <label for="pseudo">Pseudo</label>
-                     <input type="text" id="pseudo" name="pseudo" value="{{Auth::user()->pseudo}}">
+                     <input type="text" id="pseudo" name="pseudo" placeholder="{{Auth::user()->pseudo}}">
                      @error('pseudo')
                         <span>
                             {{$message}}
@@ -60,7 +65,7 @@
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="{{Auth::user()->email}}">
+                    <input type="email" id="email" name="email" placeholder="{{Auth::user()->email}}">
                     @error('email')
                         <span>
                             {{$message}}

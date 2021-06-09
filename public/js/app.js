@@ -1898,6 +1898,34 @@ if (token) {
   });
 }
 
+if (document.getElementById('picture')) {
+  var readSingleFile = function readSingleFile(e) {
+    var file = e.target.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      var contents = e.target.result;
+      console.log(e.target.result);
+      displayContents(contents);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  var displayContents = function displayContents(contents) {
+    var element = document.querySelector('.profil-header-picture img');
+    element.src = contents;
+    console.table(contents);
+  };
+
+  document.getElementById('picture').addEventListener('change', readSingleFile, false);
+}
+
 /***/ }),
 
 /***/ "./resources/js/partials/comments.js":

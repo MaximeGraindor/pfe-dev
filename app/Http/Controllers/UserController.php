@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use League\CommonMark\Inline\Element\Image;
 
 class UserController extends Controller
 {
@@ -109,15 +111,31 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        return $request;
-        return $validated = $request->validate([
-            'pseudo' => 'unique:users|max:10',
-            'picture' => 'image|mimes:jpg,png,jpeg,gif|max:500',
-            'email' => 'email'
-        ]);
-
         $user = User::where('id', Auth::user()->id)->first();
-        $user->update($validated);
+
+        $request->validate([
+            'pseudo' => 'unique:users|max:15',
+            'picture' => 'image|mimes:jpg,png,jpeg,gif|max:200|dimensions:min_width=100,min_height=100,max_width500,max_height=500',
+            'email' => 'unique:users'
+        ]);
+        if($request->hasFile('picture')){
+            $name = $request->picture->hashName();
+            $path = Storage::putFileAs('public/users/picture', $request->file('picture'), $name);
+            $user->update([
+                'picture' => $name,
+            ]);
+        }
+
+        if($request->pseudo){
+            $user->update([
+                'pseudo' => $request->pseudo,
+            ]);
+        }
+        if($request->email){
+            $user->update([
+                'email' => $request->email
+            ]);
+        }
 
         return redirect()->back();
     }

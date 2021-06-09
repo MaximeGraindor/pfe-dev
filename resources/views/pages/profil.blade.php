@@ -5,7 +5,7 @@
         <div class="profil-banner"></div>
         <div class="profil-header">
             <div class="profil-header-picture">
-                <img src="/img/{{$user->picture}}" alt="Photo de profil">
+                <img src="{{asset('storage/users/picture/'.$user->picture)}}" alt="Photo de profil">
             </div>
             <div class="profil-info">
                 <div class="profil-info-top">

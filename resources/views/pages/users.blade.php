@@ -13,7 +13,9 @@
                 @foreach ($users as $user)
                 <a href="/profil/{{$user->pseudo}}" class="users-item">
                     <div class="users-item-top">
-                        <div><img src="./img/{{$user->picture}}" alt="Photo de profil"></div>
+                        <div>
+                            <img src="{{asset('storage/users/picture/'.$user->picture)}}" alt="Photo de profil">
+                        </div>
                         <span class="users-item-pseudo">
                             {{$user->pseudo}}
                         </span>

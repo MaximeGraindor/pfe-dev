@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\Inline\Element\Image;
 
@@ -151,8 +153,24 @@ class UserController extends Controller
         //
     }
 
+
     public function notifications()
     {
         return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
+    }
+
+
+    public function changePassword(Request $request)
+    {
+        return $val = $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['required'],
+        ]);
+
+        return User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+        //return Auth::logout();
+
     }
 }

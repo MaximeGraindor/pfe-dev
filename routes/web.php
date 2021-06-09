@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 
     Route::get('/profil/edit', [UserController::class, 'edit'])
         ->name('user.profil-edit');
+    Route::post('/profil/edit/password', [UserController::class, 'changePassword'])
+        ->name('user.profil-edit-password');
     Route::post('/profil/update', [UserController::class, 'update'])
         ->name('user.profil-update');
     Route::get('/profil/{user:pseudo}', [UserController::class, 'show'])

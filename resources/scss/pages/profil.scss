@@ -87,7 +87,7 @@
         margin-top: 0.5rem;
         display: block;
         max-width: 162.6px;
-        line-height: 1.2rem;
+        line-height: 1.4rem;
         font-family: $font-content;
     }
 }
@@ -149,6 +149,13 @@
 
 .profil-update-form{
     font-family: $font-content;
+    div{
+        display: flex;
+        flex-direction: column;
+        &:not(:first-child){
+            margin-top: 2rem;
+        }
+    }
     label{
         color: white;
         display: block;
@@ -166,7 +173,6 @@
         resize: none;
         border: 1px solid #434980;
         font-family: $font-content;
-        margin-bottom: 2rem;
     }
 }
 

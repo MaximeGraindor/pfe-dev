@@ -1,22 +1,39 @@
 @extends('layouts.dashboard')
 @section('title', $game->name)
 @section('content')
+
     <div class="dashboard-game">
         <div class="game-banner">
-            <img src="{{$game->screenshots ? asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg') : null}}" alt="">
+            <img src="{{count($game->screenshots) > 0 ? asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg') : null}}" alt="">
         </div>
 
         <div class="game-content">
 
             <div class="game-header">
                 <div class="game-header-cover-wrapper">
-                    <img
-                        src="{{asset('storage/games/cover/'.$game->cover_path)}}"
-                        alt=""
-                        height="{{$game->cover ? $game->cover->height : null}}"
-                        width="{{$game->cover ? $game->cover->height : null}}"
-                        class="game-cover"
-                    >
+                    <div>
+                        <img
+                            src="{{asset('storage/games/cover/'.$game->cover_path)}}"
+                            alt="cover de {{$game->name}}"
+                            height="{{$game->cover ? $game->cover->height : '377px'}}"
+                            width="{{$game->cover ? $game->cover->height : '271px'}}"
+                            class="game-cover"
+                        >
+                        <div class="game-forms">
+                            <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
+                                @csrf
+                                <input type="submit" value="En cours" name="curent">
+                            </form>
+                            <form action="/game/addToFinish/{{ $game->slug }}" method="post">
+                                @csrf
+                                <input type="submit" value="Terminé" name="finish">
+                            </form>
+                            <form action="/game/addToWish/{{ $game->slug }}"" method="post">
+                                @csrf
+                                <input type="submit" value="envie" name="wish">
+                            </form>
+                        </div>
+                    </div>
                     @if($game->ratingsCount())
                         <span> {{floor($game->ratingsAVG())}}/5</span>
                     @endif
@@ -62,7 +79,7 @@
                     <div class="characteristics-wrap">
                         <dt>Editeur</dt>
                         <dd>
-                            @if($game->publishers)
+                            @if(count($game->publishers) > 0)
                                 @foreach($game->publishers as $key => $publisher)
                                     <a href="/parcourir?publisher={{$publisher->name}}">
                                         {{ $publisher->name }}
@@ -77,7 +94,7 @@
                     <div class="characteristics-wrap">
                         <dt>Genres</dt>
                         <dd>
-                            @if($game->genres)
+                            @if(count($game->genres) >0)
                                 @foreach($game->genres as $key => $genre)
                                     <a href="/parcourir?genre={{$genre->name}}">
                                         {{ $genre->name }}
@@ -92,7 +109,7 @@
                     <div class="characteristics-wrap">
                         <dt>Mode de jeu</dt>
                         <dd>
-                            @if($game->modes)
+                            @if(count($game->modes) >0)
                                 @foreach($game->modes as $key => $mode)
                                 <a href="/parcourir?mode={{$mode->name}}">
                                     {{ $mode->name }}
@@ -109,7 +126,7 @@
                     <div class="characteristics-wrap">
                         <dt>Plateforme</dt>
                         <dd>
-                            @if($game->plateformes)
+                            @if(count($game->plateformes) > 0)
                                 @foreach($game->plateformes as $key => $platform)
                                     <a href="/parcourir?platform={{$platform->name}}">
                                         {{ $platform->name }}
@@ -129,7 +146,7 @@
                 <h2 class="gallery-title">
                     Gallerie
                 </h2>
-                @if($game->screenshots)
+                @if(count($game->screenshots) > 0)
                     <div class="gallery-content">
                         <img src="{{asset('storage/games/banner/'. $game->screenshots[0]->name . '.jpg')}}" alt="" class="gallerry-current-img">
                         <div class="gallery-thumb">

@@ -77,5 +77,48 @@
                 </div>
             </form>
         </section>
+        <section class="profil-update">
+            <h2 class="profil-update-title">
+                Changer de mot de passe
+            </h2>
+            <form
+                action="/profil/edit/password"
+                method="post"
+                class="profil-update-form"
+                enctype="multipart/form-data"
+                >
+                @csrf
+                <div>
+                    <label for="current_password">Mot de passe actuel</label>
+                    <input type="password" id="current_password" name="current_password" accept=".png,.jpg,.jpeg" >
+                    @error('current_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="confirm_password">Nouveau mot de passe</label>
+                     <input type="password" id="confirm_password" name="confirm_password">
+                     @error('confirm_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="new_confirm_password">Confirmation du nouveau mot de passe</label>
+                    <input type="password" id="new_confirm_password" name="new_confirm_password">
+                    @error('new_confirm_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <input type="submit" value="Changer de mot de passe">
+                </div>
+            </form>
+        </section>
     </div>
 @endsection

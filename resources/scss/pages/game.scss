@@ -44,6 +44,23 @@
     }
 }
 
+.game-forms{
+    input{
+        width: 271px;
+        padding: 0.5rem 0.9rem;
+        box-sizing: border-box;
+        background-color: $color-second;
+        border: 1px solid white;
+        cursor: pointer;
+        margin-top: 1rem;
+        font-family: $font-content;
+        color: white;
+        &:hover{
+            background-color: $color-third;
+        }
+    }
+}
+
 .game-header-cover-wrapper{
     position: relative;
     span{
@@ -109,6 +126,11 @@
         font-size: 2rem;
         margin-top: 5rem;
         margin-bottom: 2rem;
+        color: white;
+    }
+    p{
+        font-family: $font-content;
+        font-size: pxToRem(20);
         color: white;
     }
 }

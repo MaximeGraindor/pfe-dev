@@ -2054,7 +2054,7 @@ body {
   margin-top: 0.5rem;
   display: block;
   max-width: 162.6px;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 
@@ -2114,6 +2114,13 @@ body {
 .profil-update-form {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
+.profil-update-form div {
+  display: flex;
+  flex-direction: column;
+}
+.profil-update-form div:not(:first-child) {
+  margin-top: 2rem;
+}
 .profil-update-form label {
   color: white;
   display: block;
@@ -2131,7 +2138,6 @@ body {
   resize: none;
   border: 1px solid #434980;
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -2343,6 +2349,21 @@ body {
   width: 700px;
 }
 
+.game-forms input {
+  width: 271px;
+  padding: 0.5rem 0.9rem;
+  box-sizing: border-box;
+  background-color: #222831;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  color: white;
+}
+.game-forms input:hover {
+  background-color: #262B48;
+}
+
 .game-header-cover-wrapper {
   position: relative;
 }
@@ -2405,6 +2426,11 @@ body {
   font-size: 2rem;
   margin-top: 5rem;
   margin-bottom: 2rem;
+  color: white;
+}
+.game-gallery p {
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
   color: white;
 }
 

@@ -31,7 +31,12 @@ class UserController extends Controller
 
         $users = $users->get();
 
-        return view('pages.users', compact('users', 'request'));
+        return view('pages.users', [
+            'currentUser' => null,
+            'title' => 'abonnements',
+            'users' =>$users,
+            'request' => $request
+        ]);
     }
 
     /**

@@ -6,7 +6,7 @@
             <p class="users-result-title">
                 Liste des {{$title}} de {{$currentUser->pseudo}}
             </p>
-        @else i
+        @else
         <p class="users-result-title">
             Résultat de la recherche
         </p>

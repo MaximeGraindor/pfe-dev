@@ -3,7 +3,7 @@
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-comment">
         <div class="feed-activity-top-img">
-            <img src="/img/{{$activity->causer->picture}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+            <img src="{{asset('storage/users/picture/' . $activity->causer->picture)}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
         </div>
         <div class="feed-activity-top-infos">
             <p>
@@ -88,7 +88,7 @@
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-badge">
         <div class="feed-activity-top-img">
-            <img src="/img/{{$activity->causer->picture}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+            <img src="{{asset('storage/users/picture/' . $activity->causer->picture)}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
         </div>
         <div class="feed-activity-top-infos">
             <p>
@@ -175,7 +175,7 @@
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-badge">
         <div class="feed-activity-top-img">
-            <img src="/img/{{$activity->causer->picture}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
+            <img src="{{asset('storage/users/picture/' . $activity->causer->picture)}}" alt="Photo de profil de {{$activity->causer->pseudo}}">
         </div>
         <div class="feed-activity-top-infos">
             <p>

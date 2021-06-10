@@ -9,14 +9,30 @@
         <div class="game-content">
 
             <div class="game-header">
-                <img
-                    {{-- src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg" --}}
-                    src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/' . $game->cover->image_id . '.jpg' : '/img/game-cover-default.jpg' }}"
-                    alt=""
-                    height="{{$game->cover ? $game->cover->height : null}}"
-                    width="{{$game->cover ? $game->cover->height : null}}"
-                    class="game-cover"
-                >
+                <div>
+                    <img
+                        {{-- src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{$game->cover ? $game->cover->image_id : null}}.jpg" --}}
+                        src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/' . $game->cover->image_id . '.jpg' : '/img/game-cover-default.jpg' }}"
+                        alt=""
+                        height="{{$game->cover ? $game->cover->height : null}}"
+                        width="{{$game->cover ? $game->cover->height : null}}"
+                        class="game-cover"
+                    >
+                    <div class="game-forms">
+                        <form action="/game/addToCurrent/{{ $game->slug }}" method="post">
+                            @csrf
+                            <input type="submit" value="En cours" name="curent">
+                        </form>
+                        <form action="/game/addToFinish/{{ $game->slug }}" method="post">
+                            @csrf
+                            <input type="submit" value="Terminé" name="finish">
+                        </form>
+                        <form action="/game/addToWish/{{ $game->slug }}"" method="post">
+                            @csrf
+                            <input type="submit" value="envie" name="wish">
+                        </form>
+                    </div>
+                </div>
                 <div class="game-header-infos">
                     <h2 class="game-title">
                         {{ $game->name }}

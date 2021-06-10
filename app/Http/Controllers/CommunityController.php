@@ -16,6 +16,7 @@ class CommunityController extends Controller
 
         $activities = Activity::with('replies.user', 'replies.replies', "replies.replies.user")
         ->whereIn('causer_id', Auth::user()->followings->pluck('id'))
+        ->orWhere('causer_id', Auth::user()->id)
         ->orderBy('created_at', 'desc')
         ->get();
 

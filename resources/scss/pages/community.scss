@@ -9,11 +9,10 @@
 }
 
 .community-feed{
-    background-color: $color-second;
     width: 100%;
     flex: 1 0 70%;
     color: white;
-    padding: 1.5rem 2.5rem;
+    padding-top: 1rem;
     font-family: $font-content;
     line-height: 1.5rem;
     border-radius: 5px;
@@ -61,7 +60,7 @@
 
 .feed-activity{
     box-sizing: border-box;
-    background-color: #1f242c;
+    background-color: $color-second;
     padding: 2rem;
     border-radius: 5px;
     &:not(:first-child){
@@ -271,6 +270,7 @@
     background-color: #1a1e25;
     padding: 1rem;
     margin-top: 1rem;
+    border-radius: 5px;
     &:not(:last-child){
         margin-bottom: 1rem;
     }

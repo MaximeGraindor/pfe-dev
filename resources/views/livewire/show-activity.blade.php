@@ -45,15 +45,19 @@
         </form>
         @foreach($activity->replies as $replies)
         <div class="reply-item">
+
             <div class="reply-item-top">
-                <div class="reply-item-top-img"><img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt=""></div>
+                <div class="reply-item-top-img">
+                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="">
+                </div>
                 <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
                     {{$replies->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+               <span class="reply-item-bottom-form">Répondre</span>
 
                 <form action="/reply/{{$replies->id}}/reply" method="post">
                     @csrf
@@ -61,21 +65,19 @@
                     <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
-
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                @foreach ($replies->replies as $rep)
+                    <div class="reply-bottom-replies">
+                        <div class="replies-item">
+                            <div class="replies-user">
+                                <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                            </div>
+                            <p>
+                                {{$rep->body}}
+                            </p>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
                     </div>
-                    @endforeach
-                </div>
-
+                @endforeach
             </div>
         </div>
         @endforeach
@@ -84,7 +86,6 @@
 
 
     @if($activity->subject_type === App\Models\Badge::class)
-
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-badge">
         <div class="feed-activity-top-img">
@@ -140,7 +141,7 @@
                 <p>
                     {{$replies->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+                <span class="reply-item-bottom-form">Répondre</span>
 
                 <form action="/reply/{{$replies->id}}/reply" method="post">
                     @csrf
@@ -148,28 +149,29 @@
                     <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
+                @foreach ($replies->replies as $rep)
+                    <div class="reply-bottom-replies">
 
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div>
-                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                        <div class="replies-item">
+                            <div class="replies-user">
+                                <div>
+                                    <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                                </div>
+                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                             </div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                            <p>
+                                {{$rep->body}}
+                            </p>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
-                    </div>
-                    @endforeach
-                </div>
 
+                    </div>
+                @endforeach
             </div>
         </div>
         @endforeach
     </div>
     @endif
+
 
     @if(Arr::exists($activity->properties, 'relation'))
     {{-- ACTION DE L'ACTIVITE--}}
@@ -228,7 +230,7 @@
                 <p>
                     {{$replies->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+               <span class="reply-item-bottom-form">Répondre</span>
 
                 <form action="/reply/{{$replies->id}}/reply" method="post">
                     @csrf
@@ -236,23 +238,23 @@
                     <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
+                @foreach ($replies->replies as $rep)
+                    <div class="reply-bottom-replies">
 
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div>
-                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                        <div class="replies-item">
+                            <div class="replies-user">
+                                <div>
+                                    <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                                </div>
+                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                             </div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                            <p>
+                                {{$rep->body}}
+                            </p>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
-                    </div>
-                    @endforeach
-                </div>
 
+                    </div>
+                @endforeach
             </div>
         </div>
         @endforeach

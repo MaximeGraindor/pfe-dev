@@ -146,12 +146,16 @@ class GameController extends Controller
             return view('pages.game.gameAPI', compact('game'));
         }else{
             $game = Game::where('slug', collect(request()->segments())->last())
-                ->with('comments', 'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
+                    ->with(['comments' => function ($query){
+                    $query->orderBy('created_at', 'desc');
+                    }],
+                    'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
                 ->first();
+            $comments = $game->comments()->orderBy('created_at', 'desc')->paginate(20);
             /* $currentNoteFromCurrentUSer = Rating::where('model_id', Auth::user()->id)
                 ->where('rateable_id', $game->id)
                 ->first(); */
-            return view('pages.game.gameLocal', compact('game'));
+            return view('pages.game.gameLocal', compact('game', 'comments'));
         }
 
 

@@ -261,6 +261,17 @@
         top: 15px;
         display: flex;
         gap: 1rem;
+        span{
+            margin-top: 1.12rem;
+            border: 2px solid black;
+            display: block;
+            padding: 0.6rem 0.9rem;
+            font-size: 13px;
+            cursor: pointer;
+            &:hover{
+                background-color: $color-third;
+            }
+        }
     }
     .comment-form-update{
         .comment-update{
@@ -281,6 +292,7 @@
         }
     }
 }
+
 
 //rating
 .game-rating{

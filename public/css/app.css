@@ -108,7 +108,7 @@ body {
 
 .home-background {
   background-image: url("./../img/home-background.png");
-  background-size: 100%;
+  background-size: 1800px;
   padding-bottom: 18rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -405,6 +405,11 @@ body {
   background-image: url("./../img/facebook.svg");
 }
 
+@media screen and (min-width: 1800px) {
+  .home-background {
+    background-size: 100%;
+  }
+}
 @media screen and (max-width: 1050px) {
   .home-rewards .home-rewards-wrap {
     flex-direction: column;
@@ -568,6 +573,10 @@ body {
   border-radius: 0.125rem;
   color: white;
   border: 2px solid #262B48;
+  box-sizing: border-box;
+}
+.login-form input#password {
+  width: 100%;
 }
 .login-form input[type=submit] {
   cursor: pointer;
@@ -1659,6 +1668,11 @@ body {
   box-sizing: border-box;
   padding: 0.5rem 2.5rem;
   float: right;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.feed-activity-reply form input:hover {
+  background-color: #262B48;
 }
 .feed-activity-reply form textarea {
   width: 100%;
@@ -1671,6 +1685,10 @@ body {
   color: white;
   font-size: 0.9375rem;
   box-sizing: border-box;
+  border-radius: 5px;
+}
+.feed-activity-reply form textarea:focus {
+  background-color: #262B48;
 }
 
 .reply-item {
@@ -1703,8 +1721,7 @@ body {
 }
 .reply-item-bottom .reply-item-bottom-form {
   display: block;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
   font-weight: bold;
   font-style: italic;
   text-decoration: underline;
@@ -1755,13 +1772,11 @@ body {
 .reply-bottom-replies {
   padding: 1rem;
   background-color: #15181e;
+  margin-top: 1rem;
 }
 .reply-bottom-replies .replies-user {
   display: flex;
   align-items: center;
-}
-.reply-bottom-replies .replies-user span {
-  font-weight: bold;
 }
 .reply-bottom-replies .replies-user div {
   border-radius: 50%;
@@ -1774,9 +1789,10 @@ body {
   width: 100%;
 }
 
-.replies-item {
-  margin-bottom: 2rem;
+.reply-form-disable {
+  display: none;
 }
+
 .replies-item p {
   margin-left: 3.5rem;
 }
@@ -2550,6 +2566,17 @@ body {
   top: 15px;
   display: flex;
   gap: 1rem;
+}
+.game-comment .comment-action span {
+  margin-top: 1.12rem;
+  border: 2px solid black;
+  display: block;
+  padding: 0.6rem 0.9rem;
+  font-size: 13px;
+  cursor: pointer;
+}
+.game-comment .comment-action span:hover {
+  background-color: #262B48;
 }
 .game-comment .comment-form-update .comment-update {
   font-size: 13px;

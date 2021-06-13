@@ -43,41 +43,42 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
-
             <div class="reply-item-top">
                 <div class="reply-item-top-img">
-                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
                 </div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
 
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
                <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-                @foreach ($replies->replies as $rep)
-                    <div class="reply-bottom-replies">
-                        <div class="replies-item">
-                            <div class="replies-user">
-                                <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
-                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                </div>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
                             </div>
-                            <p>
-                                {{$rep->body}}
-                            </p>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
         @endforeach
@@ -129,43 +130,42 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
             <div class="reply-item-top">
                 <div class="reply-item-top-img">
-                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
                 </div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
-                <span class="reply-item-bottom-form">Répondre</span>
+               <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-                @foreach ($replies->replies as $rep)
-                    <div class="reply-bottom-replies">
-
-                        <div class="replies-item">
-                            <div class="replies-user">
-                                <div>
-                                    <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                                 </div>
-                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
                             </div>
-                            <p>
-                                {{$rep->body}}
-                            </p>
                         </div>
-
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
         @endforeach
@@ -218,43 +218,42 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
             <div class="reply-item-top">
                 <div class="reply-item-top-img">
-                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
                 </div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
                <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-                @foreach ($replies->replies as $rep)
-                    <div class="reply-bottom-replies">
-
-                        <div class="replies-item">
-                            <div class="replies-user">
-                                <div>
-                                    <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                                 </div>
-                                <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
                             </div>
-                            <p>
-                                {{$rep->body}}
-                            </p>
                         </div>
-
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
         @endforeach

@@ -173,16 +173,13 @@
                     <input type="hidden" name="gameId" value="{{ $game->id }}">
                     <input type="submit" value="Envoyer">
                 </form>
-                @if($game->comments)
+                @if($comments)
                 <div class="comments-wrapper">
-                    @foreach ($game->comments as $comment)
+                    @foreach ($comments as $comment)
                         <div class="game-comment">
                             @can('update', $comment)
                             <div class="comment-action">
-                                {{-- <form action="/comment/{{$comment->id}}/delete" method="post" class="comment-form-update">
-                                    @csrf
-                                    <input type="submit" value="Modifier" class="comment-update">
-                                </form> --}}
+                                <div><span>Modifier</span></div>
                                 <form action="/comment/{{$comment->id}}/delete" method="post" class="comment-form-delete">
                                     @csrf
                                     <input type="submit" value="Supprimer" class="comment-delete">
@@ -203,6 +200,9 @@
                             </p>
                         </div>
                     @endforeach
+                </div>
+                <div class="game-comments-pagination">
+                    {{$comments->links()}}
                 </div>
                 @endif
             </section>

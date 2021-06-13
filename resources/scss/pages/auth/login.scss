@@ -91,6 +91,10 @@
         border-radius: 0.125rem;
         color: white;
         border: 2px solid $color-third;
+        box-sizing: border-box;
+    }
+    input#password{
+        width: 100%;
     }
     input[type="submit"]{
         cursor: pointer;

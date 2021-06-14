@@ -98,9 +98,9 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="confirm_password">Nouveau mot de passe</label>
-                     <input type="password" id="confirm_password" name="confirm_password">
-                     @error('confirm_password')
+                    <label for="new_password">Nouveau mot de passe</label>
+                     <input type="password" id="new_password" name="new_password">
+                     @error('new_password')
                         <span>
                             {{$message}}
                         </span>

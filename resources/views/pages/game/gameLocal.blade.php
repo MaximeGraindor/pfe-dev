@@ -179,7 +179,7 @@
                         <div class="game-comment">
                             @can('update', $comment)
                             <div class="comment-action">
-                                <div><span>Modifier</span></div>
+                                {{-- <div><span>Modifier</span></div> --}}
                                 <form action="/comment/{{$comment->id}}/delete" method="post" class="comment-form-delete">
                                     @csrf
                                     <input type="submit" value="Supprimer" class="comment-delete">

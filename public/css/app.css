@@ -2139,10 +2139,9 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 .profil-update-form div {
-  display: flex;
-  flex-direction: column;
+  width: 400px;
 }
-.profil-update-form div:not(:first-child) {
+.profil-update-form .update-form-wrapper:not(:first-child) {
   margin-top: 2rem;
 }
 .profil-update-form label {

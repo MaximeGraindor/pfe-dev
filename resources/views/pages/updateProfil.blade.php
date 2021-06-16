@@ -44,7 +44,7 @@
                 enctype="multipart/form-data"
                 >
                 @csrf
-                <div>
+                <div class="update-form-wrapper">
                     <label for="picture">Photo</label>
                     <p>La photo ne doit pas dépasser 1mb et faire maximum 500x500</p>
                     <input type="file" id="picture" name="picture" accept=".png,.jpg,.jpeg" >
@@ -54,7 +54,7 @@
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <label for="pseudo">Pseudo</label>
                      <input type="text" id="pseudo" name="pseudo" placeholder="{{Auth::user()->pseudo}}">
                      @error('pseudo')
@@ -63,7 +63,7 @@
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="{{Auth::user()->email}}">
                     @error('email')
@@ -72,7 +72,7 @@
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <input type="submit" value="Modifier">
                 </div>
             </form>
@@ -88,34 +88,43 @@
                 enctype="multipart/form-data"
                 >
                 @csrf
-                <div>
+                <div class="update-form-wrapper">
                     <label for="current_password">Mot de passe actuel</label>
-                    <input type="password" id="current_password" name="current_password" accept=".png,.jpg,.jpeg" >
+                    <div class="password-wrapper-show">
+                        <input type="password" id="current_password" name="current_password" accept=".png,.jpg,.jpeg" >
+                        <span class="password-action"></span>
+                    </div>
                     @error('current_password')
                         <span>
                             {{$message}}
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <label for="new_password">Nouveau mot de passe</label>
-                     <input type="password" id="new_password" name="new_password">
-                     @error('new_password')
+                    <div class="password-wrapper-show">
+                        <input type="password" id="new_password" name="new_password">
+                        <span class="password-action"></span>
+                    </div>
+                    @error('new_password')
                         <span>
                             {{$message}}
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <label for="new_confirm_password">Confirmation du nouveau mot de passe</label>
-                    <input type="password" id="new_confirm_password" name="new_confirm_password">
+                    <div class="password-wrapper-show">
+                        <input type="password" id="new_confirm_password" name="new_confirm_password">
+                        <span class="password-action"></span>
+                    </div>
                     @error('new_confirm_password')
                         <span>
                             {{$message}}
                         </span>
                     @enderror
                 </div>
-                <div>
+                <div class="update-form-wrapper">
                     <input type="submit" value="Changer de mot de passe">
                 </div>
             </form>

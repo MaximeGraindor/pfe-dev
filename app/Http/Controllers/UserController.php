@@ -169,14 +169,15 @@ class UserController extends Controller
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['required'],
+            'new_password' => ['required', 'min:8'],
+            'new_confirm_password' => ['required', 'min:8'],
         ]);
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 
         Auth::logout();
 
-        return view('auth.login');
+        return view('auth.login
+        ');
     }
 }

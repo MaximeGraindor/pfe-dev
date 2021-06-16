@@ -2054,24 +2054,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var password = {
-  spanElt: document.querySelector('.password-action'),
-  inputPasswordElt: document.querySelector('.password-wrapper-show input'),
+  spanElt: document.querySelectorAll('.password-action'),
+  inputPasswordElt: document.querySelectorAll('.password-wrapper-show input'),
   init: function init() {
     this.showPassword();
+    console.log(this.spanElt);
   },
   showPassword: function showPassword() {
     var _this = this;
 
     if (this.spanElt) {
-      this.spanElt.addEventListener('click', function () {
-        _this.spanElt.classList.toggle('hide-password');
+      var _loop = function _loop(i) {
+        _this.spanElt[i].addEventListener('click', function () {
+          _this.spanElt[i].classList.toggle('hide-password');
 
-        if (_this.inputPasswordElt.type === "password") {
-          _this.inputPasswordElt.attributes["type"].value = "text";
-        } else if (_this.inputPasswordElt.type === "text") {
-          _this.inputPasswordElt.attributes["type"].value = "password";
-        }
-      });
+          if (_this.inputPasswordElt[i].type === "password") {
+            _this.inputPasswordElt[i].attributes["type"].value = "text";
+          } else if (_this.inputPasswordElt[i].type === "text") {
+            _this.inputPasswordElt[i].attributes["type"].value = "password";
+          }
+        });
+      };
+
+      for (var i = 0; i < this.spanElt.length; i++) {
+        _loop(i);
+      }
     }
   }
 };

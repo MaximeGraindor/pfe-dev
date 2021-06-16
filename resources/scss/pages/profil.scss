@@ -150,8 +150,11 @@
 .profil-update-form{
     font-family: $font-content;
     div{
-        display: flex;
-        flex-direction: column;
+        width: 400px;
+
+    }
+
+    .update-form-wrapper{
         &:not(:first-child){
             margin-top: 2rem;
         }

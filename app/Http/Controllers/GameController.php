@@ -37,7 +37,7 @@ class GameController extends Controller
     public function index(Request $request)
     {
 
-        $platforms = IGDBPlatform::all();
+        $platforms = IGDBPlatform::all()->sortBy('name');
         $genres = IGDBGenre::all();
         $modes = IGDBMode::all();
 
@@ -69,7 +69,7 @@ class GameController extends Controller
             $games->whereLike('name', '%' . $request->name . '%', false);
         };
 
-        $games = $games->paginate(20);
+        $games = $games->paginate(21);
         return view('pages.browse', compact('request', 'games', 'platforms', 'genres', 'modes'));
     }
 

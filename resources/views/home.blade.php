@@ -26,7 +26,7 @@
                 Rejoignez plus de 400 000 utilisateurs
             </p>
             <div class="home-intro-cta">
-                <a href="#" class="intro-cta-login" title="inscription">Inscription</a>
+                <a href="/register" class="intro-cta-login" title="inscription">Inscription</a>
             </div>
             <div class="home-intro-infos content-size">
                 <div class="infos-item">

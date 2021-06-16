@@ -35,7 +35,7 @@
                 </div>
                 <div class="browse-name">
                     <label for="name" class="hidden">Nom</label>
-                    <input type="text" id="name" name="name" placeholder="rechercher">
+                    <input type="text" id="name" name="name" placeholder="rechercher" value="{{$request->name}}">
                 </div>
 
                 <div class="browse-submit">
@@ -73,7 +73,7 @@
                         @if($game->platforms)
                             <div class="browse-card-infos-platforms">
                                 @foreach($game->platforms as $platform)
-                                    <a href="?platform={{$platform->abbreviation}}">{{$platform->abbreviation}}</a>
+                                    <a href="?platform={{$platform->abbreviation}}&genre={{$request->genre}}&mode={{$request->mode}}&name={{$request->name}}">{{$platform->abbreviation}}</a>
                                 @endforeach
                             </div>
                         @endif

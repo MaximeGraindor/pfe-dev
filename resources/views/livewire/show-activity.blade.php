@@ -30,7 +30,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -117,7 +117,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -205,7 +205,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>

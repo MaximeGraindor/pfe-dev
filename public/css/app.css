@@ -334,9 +334,9 @@ body {
 }
 
 .videogames-content {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
 }
 .videogames-content .videogames-game-card {
   color: white;
@@ -344,7 +344,10 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 }
 .videogames-content .videogames-game-card img {
-  width: 100%;
+  width: 271px;
+  height: 377px;
+  border: 3px solid black;
+  box-sizing: border-box;
 }
 .videogames-content .videogames-game-card .videogames-game-title {
   margin-top: 0.5rem;
@@ -1725,6 +1728,7 @@ body {
   font-weight: bold;
   font-style: italic;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .feed-activity-comments::after {
@@ -1791,6 +1795,10 @@ body {
 
 .reply-form-disable {
   display: none;
+}
+
+.reply-form-active {
+  display: block;
 }
 
 .replies-item p {

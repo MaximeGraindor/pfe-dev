@@ -1848,9 +1848,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/notifications */ "./resources/js/partials/notifications.js");
 /* harmony import */ var _partials_comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/comments */ "./resources/js/partials/comments.js");
 /* harmony import */ var _partials_password__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/password */ "./resources/js/partials/password.js");
+/* harmony import */ var _partials_reply__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./partials/reply */ "./resources/js/partials/reply.js");
 // Imports
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+
 
 
 
@@ -1861,6 +1863,7 @@ _partials_responsiveMenu__WEBPACK_IMPORTED_MODULE_2__.default.init();
 _partials_notifications__WEBPACK_IMPORTED_MODULE_3__.default.init();
 _partials_comments__WEBPACK_IMPORTED_MODULE_4__.default.init();
 _partials_password__WEBPACK_IMPORTED_MODULE_5__.default.init();
+_partials_reply__WEBPACK_IMPORTED_MODULE_6__.default.init();
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -2073,6 +2076,43 @@ var password = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (password);
+
+/***/ }),
+
+/***/ "./resources/js/partials/reply.js":
+/*!****************************************!*\
+  !*** ./resources/js/partials/reply.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var reply = {
+  RepliesButtonSpanElt: document.querySelectorAll('.reply-item-bottom-form'),
+  formRepliesElt: document.querySelectorAll('.reply-form-disable'),
+  init: function init() {
+    this.showReplies();
+    console.log(this.RepliesButtonSpanElt);
+    console.log(this.formRepliesElt);
+  },
+  showReplies: function showReplies() {
+    var _this = this;
+
+    var _loop = function _loop(i) {
+      _this.RepliesButtonSpanElt[i].addEventListener('click', function () {
+        _this.formRepliesElt[i].classList.toggle('reply-form-active');
+      });
+    };
+
+    for (var i = 0; i < this.RepliesButtonSpanElt.length; i++) {
+      _loop(i);
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reply);
 
 /***/ }),
 

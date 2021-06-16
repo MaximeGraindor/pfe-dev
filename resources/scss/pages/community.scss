@@ -306,6 +306,7 @@
         font-weight: bold;
         font-style: italic;
         text-decoration: underline;
+        cursor: pointer;
     }
 
 }
@@ -376,6 +377,9 @@
 
 .reply-form-disable{
     display: none;
+}
+.reply-form-active{
+    display: block;
 }
 
 .replies-item{

@@ -486,6 +486,23 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media screen and (max-width: 450px) {
+  .home-intro-wrapper {
+    padding: 0 1rem;
+  }
+
+  .content-size {
+    padding: 0 1rem;
+  }
+
+  .home-rewards, .home-comments {
+    padding: 2rem 1rem 2rem;
+  }
+
+  .home-videogames {
+    padding: 5rem 1rem;
+  }
+}
 .login-splitscreen {
   height: 100vh;
   display: flex;
@@ -713,6 +730,11 @@ body {
 @media screen and (max-width: 800px) {
   .register-form {
     width: 400px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .register-right {
+    justify-content: inherit;
   }
 }
 .forgotPassword-splitscreen {

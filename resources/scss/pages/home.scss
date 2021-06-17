@@ -408,3 +408,19 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+
+    .home-intro-wrapper{
+        padding: 0 1rem;
+    }
+    .content-size{
+        padding: 0 1rem;
+    }
+    .home-rewards, .home-comments {
+        padding: 2rem 1rem 2rem;
+    }
+    .home-videogames {
+        padding: 5rem 1rem;
+    }
+}
+

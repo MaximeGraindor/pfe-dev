@@ -127,7 +127,7 @@
 
             <section class="game-gallery">
                 <h2 class="gallery-title">
-                    Gallerie
+                    Galerie
                 </h2>
                 @if($game->screenshots)
                     <div class="gallery-content">

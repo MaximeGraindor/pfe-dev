@@ -1849,9 +1849,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/comments */ "./resources/js/partials/comments.js");
 /* harmony import */ var _partials_password__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/password */ "./resources/js/partials/password.js");
 /* harmony import */ var _partials_reply__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./partials/reply */ "./resources/js/partials/reply.js");
+/* harmony import */ var _partials_gameButtons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./partials/gameButtons */ "./resources/js/partials/gameButtons.js");
 // Imports
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+
 
 
 
@@ -1864,6 +1866,7 @@ _partials_notifications__WEBPACK_IMPORTED_MODULE_3__.default.init();
 _partials_comments__WEBPACK_IMPORTED_MODULE_4__.default.init();
 _partials_password__WEBPACK_IMPORTED_MODULE_5__.default.init();
 _partials_reply__WEBPACK_IMPORTED_MODULE_6__.default.init();
+_partials_gameButtons__WEBPACK_IMPORTED_MODULE_7__.default.init();
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -1963,6 +1966,43 @@ var comments = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (comments);
+
+/***/ }),
+
+/***/ "./resources/js/partials/gameButtons.js":
+/*!**********************************************!*\
+  !*** ./resources/js/partials/gameButtons.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var gameButtons = {
+  openCtaElt: document.querySelectorAll('.open-cta'),
+  buttonConteneur: document.querySelectorAll('.activity-game-card-button-wrapper'),
+  init: function init() {
+    this.showgameButtons();
+  },
+  showgameButtons: function showgameButtons() {
+    var _this = this;
+
+    var _loop = function _loop(i) {
+      _this.openCtaElt[i].addEventListener('click', function () {
+        _this.buttonConteneur[i].classList.toggle('activity-cta-active');
+
+        _this.openCtaElt[i].classList.toggle('close-cta');
+      });
+    };
+
+    for (var i = 0; i < this.openCtaElt.length; i++) {
+      _loop(i);
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (gameButtons);
 
 /***/ }),
 

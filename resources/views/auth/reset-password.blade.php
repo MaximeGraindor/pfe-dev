@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Changer de mot de passe')
+@section('title', 'Changement de mot de passe')
 @section('content')
 <div class="resetPassword-splitscreen">
     <div class="resetPassword-left"></div>

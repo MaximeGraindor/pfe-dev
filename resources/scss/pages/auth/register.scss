@@ -105,3 +105,20 @@
         justify-content: inherit;
     }
 }
+
+@media screen and (max-width: 500px){
+    .register-form{
+        width: 100%;
+    }
+    .register-left{
+        display: none;
+    }
+    .register-right {
+        flex: 1 1 60%;
+        padding: 0 1rem;
+        margin: 4rem 0;
+    }
+    .register-right .register-title {
+        font-size: 2.5rem;
+    }
+}

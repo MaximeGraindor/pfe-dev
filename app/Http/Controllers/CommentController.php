@@ -164,7 +164,9 @@ class CommentController extends Controller
                 ->log('Badge gagné');
             }
 
-
+            $request->validate([
+                'content' => ['required']
+            ]);
 
             $comment = Comment::create([
                 'user_id' => Auth::user()->id,
@@ -192,6 +194,10 @@ class CommentController extends Controller
                 $currentUser = User::where('id', Auth::user()->id)->first();
                 $currentUser->badges()->attach(Badge::where('slug', 'premier-commentaire')->get());
             }
+
+            $request->validate([
+                'content' => ['required']
+            ]);
 
             $comment = Comment::create([
                 'user_id' => Auth::user()->id,

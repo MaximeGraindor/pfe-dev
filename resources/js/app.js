@@ -8,6 +8,7 @@ import notifications from './partials/notifications'
 import comments from './partials/comments'
 import password from './partials/password'
 import reply from './partials/reply'
+import gameButtons from './partials/gameButtons'
 
 gameGallery.init()
 responsiveMenu.init()
@@ -15,6 +16,7 @@ notifications.init()
 comments.init()
 password.init()
 reply.init()
+gameButtons.init()
 
 window._ = require('lodash');
 

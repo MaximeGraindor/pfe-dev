@@ -37,7 +37,7 @@
                         <div class="login-others-wrap">
                             <input class="rememberMe" type="checkbox" name="remember" id="rememberMe" {{ old('remember') ? 'checked' : '' }}>
                             <label class="login-rememberMe" for="rememberMe">
-                                {{ __('Remember Me') }}
+                                Se souvenir de moi
                             </label>
                         </div>
                         @if (Route::has('password.request'))

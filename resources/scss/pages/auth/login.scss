@@ -131,3 +131,27 @@
         width: 400px;
     }
 }
+
+@media screen and (max-width: 500px){
+    .login-form{
+        width: 100%;
+    }
+    .login-left{
+        display: none;
+    }
+    .login-right {
+        flex: 1 1 60%;
+        padding: 0 1rem;
+        margin-top: 4rem;
+    }
+    .login-others {
+        flex-direction: column;
+    }
+    .login-form .login-pseudo .login-forgotPassword, .login-form .login-password .login-forgotPassword {
+        margin-top: 1rem;
+        text-align: left;
+    }
+    .login-right .login-title {
+        font-size: 2.5rem;
+    }
+}

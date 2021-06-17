@@ -2629,3 +2629,12 @@ body {
   border-radius: 5px;
   border: 1px solid white;
 }
+
+.termsAndConditions {
+  color: white;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.termsAndConditions-content-wrapper {
+  margin-top: 2rem;
+}

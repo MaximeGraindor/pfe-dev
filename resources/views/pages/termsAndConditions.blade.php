@@ -17,7 +17,7 @@
             </header>
         </div>
     </div>
-    <section class="termsAndConditionq">
+    <section class="termsAndConditions content-size">
         <h2 class="termsAndConditions-title">
             Conditions générales
         </h2>

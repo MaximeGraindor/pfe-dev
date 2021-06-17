@@ -26,7 +26,7 @@
 
 .home-background{
     background-image: url("./../img/home-background.png");
-    background-size: 100%;
+    background-size: 1800px;
     padding-bottom: 18rem;
     background-repeat: no-repeat;
     background-position: center;
@@ -168,6 +168,7 @@
             font-family: $font-content;
             font-size: pxToRem(20);
             line-height: 1.750rem;
+            max-width: 650px;
         }
 
     }
@@ -199,6 +200,7 @@
             font-family: $font-content;
             font-size: pxToRem(20);
             line-height: 1.750rem;
+            max-width: 650px;
         }
 
     }
@@ -229,6 +231,7 @@
             font-family: $font-content;
             font-size: pxToRem(20);
             line-height: 1.750rem;
+            max-width: 650px;
         }
 
     }
@@ -257,15 +260,18 @@
 }
 
 .videogames-content{
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
     .videogames-game-card{
         color: white;
         text-decoration: none;
         font-family: $font-content;
         img{
-            width: 100%;
+            width: 271px;
+            height: 377px;
+            border: 3px solid black;
+            box-sizing: border-box;
         }
         .videogames-game-title{
             margin-top: 0.5rem;
@@ -329,6 +335,12 @@
 
 
 // RESPONSIVE
+@media screen and (min-width: 1800px) {
+    .home-background{
+        background-size: 100%;
+    }
+}
+
 @media screen and (max-width: 1050px) {
     .home-rewards .home-rewards-wrap{
         flex-direction: column;
@@ -396,6 +408,22 @@
     }
     .videogames-content {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .home-intro-wrapper{
+        padding: 0 1rem;
+    }
+    .content-size{
+        padding: 0 1rem;
+    }
+    .home-rewards, .home-comments {
+        padding: 2rem 1rem 2rem;
+    }
+    .home-videogames {
+        padding: 5rem 1rem;
     }
 }
 

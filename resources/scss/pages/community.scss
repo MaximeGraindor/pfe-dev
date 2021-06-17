@@ -9,11 +9,10 @@
 }
 
 .community-feed{
-    background-color: $color-second;
     width: 100%;
     flex: 1 0 70%;
     color: white;
-    padding: 1.5rem 2.5rem;
+    padding-top: 1rem;
     font-family: $font-content;
     line-height: 1.5rem;
     border-radius: 5px;
@@ -61,7 +60,7 @@
 
 .feed-activity{
     box-sizing: border-box;
-    background-color: #1f242c;
+    background-color: $color-second;
     padding: 2rem;
     border-radius: 5px;
     &:not(:first-child){
@@ -252,6 +251,11 @@
             box-sizing: border-box;
             padding: 0.5rem 2.5rem;
             float: right;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover{
+                background-color: $color-third;
+            }
         }
         textarea{
             width: 100%;
@@ -264,6 +268,10 @@
             color: white;
             font-size: pxToRem(15);
             box-sizing: border-box;
+            border-radius: 5px;
+            &:focus{
+                background-color: $color-third;
+            }
         }
     }
 }
@@ -271,6 +279,7 @@
     background-color: #1a1e25;
     padding: 1rem;
     margin-top: 1rem;
+    border-radius: 5px;
     &:not(:last-child){
         margin-bottom: 1rem;
     }
@@ -293,11 +302,11 @@
     margin-left: 55px;
     .reply-item-bottom-form{
         display: block;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 1rem;
         font-weight: bold;
         font-style: italic;
         text-decoration: underline;
+        cursor: pointer;
     }
 
 }
@@ -346,11 +355,12 @@
 .reply-bottom-replies{
     padding: 1rem;
     background-color: #15181e;
+    margin-top: 1rem;
     .replies-user{
         display: flex;
         align-items: center;
         span{
-            font-weight: bold;
+            //font-weight: bold;
         }
         div{
             border-radius: 50%;
@@ -365,8 +375,14 @@
     }
 }
 
+.reply-form-disable{
+    display: none;
+}
+.reply-form-active{
+    display: block;
+}
+
 .replies-item{
-    margin-bottom: 2rem;
     p{
         margin-left: 3.5rem;
     }

@@ -30,7 +30,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -43,39 +43,42 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
             <div class="reply-item-top">
-                <div class="reply-item-top-img"><img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt=""></div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <div class="reply-item-top-img">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
+                </div>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+               <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                </div>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
+                            </div>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
-                    </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
         @endforeach
@@ -84,7 +87,6 @@
 
 
     @if($activity->subject_type === App\Models\Badge::class)
-
     {{-- ACTION DE L'ACTIVITE--}}
     <div class="feed-activity-top feed-badge">
         <div class="feed-activity-top-img">
@@ -115,7 +117,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -128,48 +130,48 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
             <div class="reply-item-top">
                 <div class="reply-item-top-img">
-                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
                 </div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+               <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div>
-                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                </div>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
                             </div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
-                    </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
         @endforeach
     </div>
     @endif
+
 
     @if(Arr::exists($activity->properties, 'relation'))
     {{-- ACTION DE L'ACTIVITE--}}
@@ -203,7 +205,7 @@
         <span class="feed-activity-comments">{{count($activity->replies)}}</span>
         <form action="/activity/{{$activity->id}}/like" method="post">
             @csrf
-            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'yes'}}" wire:click="like">{{$activity->likers()->count()}}</button>
+            <button class="feed-activity-likes {{Auth::user()->hasLiked($activity) ? 'likes-active' : 'null'}}" wire:click="like">{{$activity->likers()->count()}}</button>
         </form>
 
     </div>
@@ -216,43 +218,42 @@
             <textarea name="body" id="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Envoyer">
         </form>
-        @foreach($activity->replies as $replies)
+        @foreach($activity->replies as $reply)
         <div class="reply-item">
             <div class="reply-item-top">
                 <div class="reply-item-top-img">
-                    <img src="{{asset('storage/users/picture/' . $replies->user->picture)}}" alt="Photo de profil">
+                    <img src="{{asset('storage/users/picture/' . $reply->user->picture)}}" alt="">
                 </div>
-                <span>{{$replies->user->pseudo}} - {{date('j/m/Y', strtotime($replies->created_at))}}</span>
+                <span>{{$reply->user->pseudo}} - {{date('j/m/Y', strtotime($reply->created_at))}}</span>
             </div>
+
             <div class="reply-item-bottom">
                 <p>
-                    {{$replies->body}}
+                    {{$reply->body}}
                 </p>
-               {{--  <span class="reply-item-bottom-form">Répondre</span> --}}
+               <span class="reply-item-bottom-form">Répondre</span>
 
-                <form action="/reply/{{$replies->id}}/reply" method="post">
-                    @csrf
-                    <label for="reply">Commentaire</label>
-                    <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-
-                <div class="reply-bottom-replies">
-                    @foreach ($replies->replies as $rep)
-                    <div class="replies-item">
-                        <div class="replies-user">
-                            <div>
-                                <img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt="Photo de profil">
+                <div class="reply-item-replies">
+                    <form action="/reply/{{$reply->id}}/reply" method="post" class="reply-form-disable">
+                        @csrf
+                        <label for="reply">Commentaire</label>
+                        <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @foreach ($reply->replies as $rep)
+                        <div class="reply-bottom-replies">
+                            <div class="replies-item">
+                                <div class="replies-user">
+                                    <div><img src="{{asset('storage/users/picture/' . $rep->user->picture)}}" alt=""></div>
+                                    <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
+                                </div>
+                                <p>
+                                    {{$rep->body}}
+                                </p>
                             </div>
-                            <span>{{$rep->user->pseudo}} - {{date('j/m/Y', strtotime($rep->created_at))}}</span>
                         </div>
-                        <p>
-                            {{$rep->body}}
-                        </p>
-                    </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
         @endforeach

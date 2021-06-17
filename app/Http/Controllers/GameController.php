@@ -37,7 +37,7 @@ class GameController extends Controller
     public function index(Request $request)
     {
 
-        $platforms = IGDBPlatform::all();
+        $platforms = IGDBPlatform::all()->sortBy('name');
         $genres = IGDBGenre::all();
         $modes = IGDBMode::all();
 
@@ -69,7 +69,7 @@ class GameController extends Controller
             $games->whereLike('name', '%' . $request->name . '%', false);
         };
 
-        $games = $games->paginate(20);
+        $games = $games->paginate(21);
         return view('pages.browse', compact('request', 'games', 'platforms', 'genres', 'modes'));
     }
 
@@ -146,12 +146,16 @@ class GameController extends Controller
             return view('pages.game.gameAPI', compact('game'));
         }else{
             $game = Game::where('slug', collect(request()->segments())->last())
-                ->with('comments', 'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
+                    ->with(['comments' => function ($query){
+                    $query->orderBy('created_at', 'desc');
+                    }],
+                    'screenshots', 'plateformes', 'modes', 'publishers', 'genres')
                 ->first();
+            $comments = $game->comments()->orderBy('created_at', 'desc')->paginate(20);
             /* $currentNoteFromCurrentUSer = Rating::where('model_id', Auth::user()->id)
                 ->where('rateable_id', $game->id)
                 ->first(); */
-            return view('pages.game.gameLocal', compact('game'));
+            return view('pages.game.gameLocal', compact('game', 'comments'));
         }
 
 

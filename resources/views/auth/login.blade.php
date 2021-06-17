@@ -23,15 +23,21 @@
                 </div>
                 <div class="login-password">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" class="@if($errors->has('password'))login-input-error @endif">
-                    @error('password')
-                        <span class="login-error">{{ $message }}</span>
-                    @enderror
+                    <div class="password-wrapper-show">
+                        <input  type="password"
+                                id="password"
+                                name="password"
+                                class="@if($errors->has('password'))login-input-error @endif">
+                                <span class="password-action"></span>
+                            </div>
+                        @error('password')
+                            <span class="login-error">{{ $message }}</span>
+                        @enderror
                     <div class="login-others">
                         <div class="login-others-wrap">
                             <input class="rememberMe" type="checkbox" name="remember" id="rememberMe" {{ old('remember') ? 'checked' : '' }}>
                             <label class="login-rememberMe" for="rememberMe">
-                                {{ __('Remember Me') }}
+                                Se souvenir de moi
                             </label>
                         </div>
                         @if (Route::has('password.request'))

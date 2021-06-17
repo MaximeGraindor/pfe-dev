@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Mot de passe oublié')
 @section('content')
 <div class="forgotPassword-splitscreen">
     <div class="forgotPassword-left"></div>

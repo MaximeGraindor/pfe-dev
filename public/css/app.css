@@ -254,6 +254,7 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  max-width: 650px;
 }
 
 .home-rewards {
@@ -283,6 +284,7 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  max-width: 650px;
 }
 
 .home-comments {
@@ -311,6 +313,7 @@ body {
   font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  max-width: 650px;
 }
 
 /* HOME__VIDEOGAMES */

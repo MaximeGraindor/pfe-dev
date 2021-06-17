@@ -66,7 +66,7 @@
     <section class="home-gameon">
         <div class="home-gameon-wrap content-size">
             <div class="gameon-left">
-                <img src="./img/home-about.jpg" alt="Image d'un joueur de jeux vidéo">
+                <img src="./img/home-about.jpg" alt="Image d'un joueur de jeux vidéo" width="500" height="666">
             </div>
             <div class="gameon-right">
                 <h2 class="gameon-title">
@@ -90,7 +90,7 @@
                 </p>
             </div>
             <div class="rewards-left">
-                <img src="./img/home-badges.jpg" alt="Image de plusieurs joueurs de jeux vidéo">
+                <img src="./img/home-badges.jpg" alt="Image de plusieurs joueurs de jeux vidéo" width="700" height="466">
             </div>
         </div>
     </section>
@@ -98,7 +98,7 @@
     <section class="home-comments">
         <div class="home-comments-wrap content-size">
             <div class="comments-left">
-                <img src="./img/home-comments.jpg" alt="Image d'un clavier dun ordinateur">
+                <img src="./img/home-comments.jpg" alt="Image d'un clavier dun ordinateur" width="700" height="466">
             </div>
             <div class="comments-right">
                 <h2 class="comments-title" role="heading" aria-level="2">
@@ -124,7 +124,11 @@
                     @foreach ($games as $game)
                         <a href="/jeu/{{ $game->id }}" class="videogames-game-card">
                             <div class="videogames-card-img-container">
-                                <img src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$game->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}" alt="Cover de{{$game->name }}">
+                                <img
+                                    src="{{ $game->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$game->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}"
+                                    alt="Cover de{{$game->name }}"
+                                    width="271"
+                                    height="377">
                             </div>
                             <p class="videogames-game-title">{{ $game->name }}</p>
                         </a>
@@ -140,7 +144,10 @@
                         <a href="/jeu/{{ $release->id }}" class="videogames-game-card">
                             <p class="videogames-game-date">{{ $game->first_release_date ? date('j/m/Y', strtotime($game->first_release_date)) : '' }}</p>
                             <div class="videogames-card-img-container">
-                                <img src="{{ $release->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$release->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}" alt="Cover de{{$release->name }}">
+                                <img
+                                    src="{{ $release->cover ? 'https://images.igdb.com/igdb/image/upload/t_cover_big/'.$release->cover->image_id.'.jpg' : '/img/game-cover-default.jpg' }}" alt="Cover de{{$release->name }}"
+                                    width="271"
+                                    height="377">
                             </div>
                             <p class="videogames-game-title">{{ $release->name }}</p>
                         </a>

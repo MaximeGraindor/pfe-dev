@@ -2058,7 +2058,6 @@ var password = {
   inputPasswordElt: document.querySelectorAll('.password-wrapper-show input'),
   init: function init() {
     this.showPassword();
-    console.log(this.spanElt);
   },
   showPassword: function showPassword() {
     var _this = this;
@@ -2102,8 +2101,6 @@ var reply = {
   formRepliesElt: document.querySelectorAll('.reply-form-disable'),
   init: function init() {
     this.showReplies();
-    console.log(this.RepliesButtonSpanElt);
-    console.log(this.formRepliesElt);
   },
   showReplies: function showReplies() {
     var _this = this;

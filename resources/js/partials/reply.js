@@ -3,8 +3,6 @@ const reply = {
     formRepliesElt : document.querySelectorAll('.reply-form-disable'),
     init(){
         this.showReplies()
-        console.log(this.RepliesButtonSpanElt);
-        console.log(this.formRepliesElt);
     },
 
     showReplies(){

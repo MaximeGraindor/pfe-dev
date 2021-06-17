@@ -3,7 +3,6 @@ const password = {
     inputPasswordElt : document.querySelectorAll('.password-wrapper-show input'),
     init(){
         this.showPassword()
-        console.log(this.spanElt);
     },
 
     showPassword(){
